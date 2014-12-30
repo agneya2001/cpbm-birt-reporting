@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">29</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">29</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">29</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/simple_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.simplelisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">72</property>
+    <parameters>
+        <scalar-parameter name="username" id="79">
+            <text-property name="helpText">Enter the username</text-property>
+            <text-property name="promptText">Username</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">shapeblue</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="27">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.56.12:3306/cloud_portal</property>
+            <property name="odaUser">cpbm</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">Y3BibQ==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="29">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">username</property>
+                    <property name="paramName">username</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">username</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">usage_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">service_instance_uuid</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">raw_number</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">resource_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">username</property>
+                    <property name="nativeName">username</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">usage_type</property>
+                    <property name="nativeName">usage_type</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">service_instance_uuid</property>
+                    <property name="nativeName">service_instance_uuid</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">raw_number</property>
+                    <property name="nativeName">raw_number</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">resource_type</property>
+                    <property name="nativeName">resource_type</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select users.username, usage_data.usage_type, usage_data.service_instance_uuid, usage_data.raw_number, usage_data.resource_type
+from users, usage_data
+where users.id = usage_data.user_id and users.username=?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>username</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>username</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>username</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>email</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>email</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>email</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>spend_to_month</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>8</design:nativeDataTypeCode>
+            <design:precision>12</design:precision>
+            <design:scale>4</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>spend_to_month</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>spend_to_month</design:label>
+            <design:formattingHints>
+              <design:displaySize>14</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="24">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="25">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="26">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="num" id="80">
+            <structure name="numberFormat">
+                <property name="category">General Number</property>
+                <property name="pattern">General Number</property>
+            </structure>
+        </style>
+        <style name="col_title" id="81">
+            <property name="textAlign">left</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="39">
+            <text-property name="text">Usage report</text-property>
+        </label>
+        <table id="40">
+            <property name="width">8.194444444444445in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">username</property>
+                    <text-property name="displayName">username</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["username"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">usage_type</property>
+                    <text-property name="displayName">usage_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["usage_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">service_instance_uuid</property>
+                    <text-property name="displayName">service_instance_uuid</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["service_instance_uuid"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">raw_number</property>
+                    <text-property name="displayName">raw_number</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["raw_number"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">resource_type</property>
+                    <text-property name="displayName">resource_type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["resource_type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="62">
+                <property name="width">1.0972222222222223in</property>
+            </column>
+            <column id="63">
+                <property name="width">1.8194444444444444in</property>
+            </column>
+            <column id="64">
+                <property name="width">2.8194444444444446in</property>
+            </column>
+            <column id="65">
+                <property name="width">1.2777777777777777in</property>
+            </column>
+            <column id="66">
+                <property name="width">1.1388888888888888in</property>
+            </column>
+            <header>
+                <row id="41">
+                    <cell id="42">
+                        <label id="69">
+                            <property name="style">col_title</property>
+                            <text-property name="text">Username</text-property>
+                        </label>
+                    </cell>
+                    <cell id="43">
+                        <label id="71">
+                            <property name="style">col_title</property>
+                            <text-property name="text">Usage Type</text-property>
+                        </label>
+                    </cell>
+                    <cell id="44">
+                        <label id="73">
+                            <property name="style">col_title</property>
+                            <text-property name="text">Service Instance uuid</text-property>
+                        </label>
+                    </cell>
+                    <cell id="45">
+                        <label id="75">
+                            <property name="style">col_title</property>
+                            <text-property name="text">Raw Number</text-property>
+                        </label>
+                    </cell>
+                    <cell id="46">
+                        <label id="77">
+                            <property name="style">col_title</property>
+                            <text-property name="text">Resource Type</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="48">
+                    <cell id="49">
+                        <data id="70">
+                            <property name="resultSetColumn">username</property>
+                        </data>
+                    </cell>
+                    <cell id="50">
+                        <data id="72">
+                            <property name="resultSetColumn">usage_type</property>
+                        </data>
+                    </cell>
+                    <cell id="51">
+                        <data id="74">
+                            <property name="resultSetColumn">service_instance_uuid</property>
+                        </data>
+                    </cell>
+                    <cell id="52">
+                        <data id="76">
+                            <property name="style">num</property>
+                            <property name="resultSetColumn">raw_number</property>
+                        </data>
+                    </cell>
+                    <cell id="53">
+                        <data id="78">
+                            <property name="resultSetColumn">resource_type</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="55">
+                    <cell id="56"/>
+                    <cell id="57"/>
+                    <cell id="58"/>
+                    <cell id="59"/>
+                    <cell id="60"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

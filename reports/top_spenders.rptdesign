@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/simple_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.simplelisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">72</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="27">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.56.12/cloud_portal</property>
+            <property name="odaUser">cpbm</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">Y3BibQ==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="29">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">title</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">title</text-property>
+                    <text-property name="heading">title</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">first_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">first_name</text-property>
+                    <text-property name="heading">first_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">last_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">last_name</text-property>
+                    <text-property name="heading">last_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">username</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">username</text-property>
+                    <text-property name="heading">username</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">spend_to_month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">spend_to_month</text-property>
+                    <text-property name="heading">spend_to_month</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">raw_spend_to_month</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">raw_spend_to_month</text-property>
+                    <text-property name="heading">raw_spend_to_month</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">title</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">first_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">last_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">username</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">spend_to_month</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">raw_spend_to_month</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">title</property>
+                    <property name="nativeName">title</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">first_name</property>
+                    <property name="nativeName">first_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">last_name</property>
+                    <property name="nativeName">last_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">username</property>
+                    <property name="nativeName">username</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">spend_to_month</property>
+                    <property name="nativeName">spend_to_month</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">raw_spend_to_month</property>
+                    <property name="nativeName">raw_spend_to_month</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select users.title, users.first_name, users.last_name, users.username, user_spend_summary.spend_to_month, user_spend_summary.raw_spend_to_month
+from users, user_spend_summary where users.id = user_spend_summary.user_id order by spend_to_month desc limit 5;]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="24">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="25">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="26">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="curr_format" id="121">
+            <structure name="numberFormat">
+                <property name="category">Currency</property>
+                <property name="pattern">$#,##0.00{RoundingMode=HALF_UP}</property>
+            </structure>
+        </style>
+        <style name="col_name" id="122">
+            <property name="textAlign">left</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="4">
+            <property name="width">8in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">title</property>
+                    <text-property name="displayName">title</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["title"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">first_name</property>
+                    <text-property name="displayName">first_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["first_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">last_name</property>
+                    <text-property name="displayName">last_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["last_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">spend_to_month</property>
+                    <text-property name="displayName">spend_to_month</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["spend_to_month"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">username</property>
+                    <text-property name="displayName">username</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["username"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <column id="20">
+                <property name="width">0.6805555555555556in</property>
+            </column>
+            <column id="21">
+                <property name="width">1.8333333333333333in</property>
+            </column>
+            <column id="22">
+                <property name="width">2.1527777777777777in</property>
+            </column>
+            <column id="146">
+                <property name="width">1.3194444444444444in</property>
+            </column>
+            <column id="23">
+                <property name="width">2.013888888888889in</property>
+            </column>
+            <header>
+                <row id="5">
+                    <property name="height">0.3194444444444444in</property>
+                    <cell id="6">
+                        <label id="113">
+                            <text-property name="text">Title</text-property>
+                        </label>
+                    </cell>
+                    <cell id="7">
+                        <label id="115">
+                            <property name="style">col_name</property>
+                            <text-property name="text">First Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="8">
+                        <label id="117">
+                            <property name="style">col_name</property>
+                            <text-property name="text">Last Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="143">
+                        <label id="147">
+                            <property name="style">col_name</property>
+                            <text-property name="text">Username</text-property>
+                        </label>
+                    </cell>
+                    <cell id="9">
+                        <label id="119">
+                            <property name="style">col_name</property>
+                            <text-property name="text">Monthly Spending</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="10">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="11">
+                        <data id="114">
+                            <property name="resultSetColumn">title</property>
+                        </data>
+                    </cell>
+                    <cell id="12">
+                        <data id="116">
+                            <property name="resultSetColumn">first_name</property>
+                        </data>
+                    </cell>
+                    <cell id="13">
+                        <data id="118">
+                            <property name="resultSetColumn">last_name</property>
+                        </data>
+                    </cell>
+                    <cell id="144">
+                        <data id="148">
+                            <property name="resultSetColumn">username</property>
+                        </data>
+                    </cell>
+                    <cell id="14">
+                        <data id="120">
+                            <property name="style">curr_format</property>
+                            <property name="resultSetColumn">spend_to_month</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="15">
+                    <property name="height">0.2222222222222222in</property>
+                    <cell id="16"/>
+                    <cell id="17"/>
+                    <cell id="18"/>
+                    <cell id="145"/>
+                    <cell id="19"/>
+                </row>
+            </footer>
+        </table>
+        <image id="149">
+            <property name="textAlign">right</property>
+            <property name="source">url</property>
+            <expression name="uri" type="constant">http://shapeblue.com/wp-content/themes/shapeblue/images/logo.png</expression>
+        </image>
+    </body>
+</report>
