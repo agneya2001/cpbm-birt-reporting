@@ -11,27 +11,19 @@ birt-runtime-osgi-4_4_1-20140916.zip
 
 Extract birt.war 
 
-The birt.war is misisng the common loggings and this needs to be injected in the war file.
-
-Download commons logging from link below:
-http://mirrors.ibiblio.org/apache//commons/logging/binaries/commons-logging-1.2-bin.tar.gz
-mv it to WEB-INF/lib directory.
+The birt.war is misisng the common loggings and mysql-jdbc driver.
+Download the two and  injected in the war file.
 
 Inject using below command:
 jar -uvf birt.war WEB-INF/lib/commons-logging-1.2.jar
 
-Copy birt.war to /usr/share/vts3/pickup/
+Copy birt.war to root@<cpbm-ip>:/usr/share/vts3/pickup/
 
-restart cloud-portal
-
-If birt is installed correctly you will see http://<cpbm-ip-port>/birt displayig birt startign page.
+If birt is installed correctly you will see http://<cpbm-ip-port>/birt displayig birt starting page.
 Click on the sample report to ensure everything is correctly installed.
 
 Now copy your reports in folder /usr/share/vts3/work/org.eclipse.virgo.kernel.deployer_3.0.3.RELEASE/staging/global/bundle/birt/0.0.0/birt.war
 
-**TODO role based presentaiton of reports
+Make changes to cpbm UI as instructed here http://support.citrix.com/proddocs/topic/cpbm-23-map/cpbm-install-build-custom-components-23-tsk.html
 
 
-make changes to cpbm UI as instructed here http://support.citrix.com/proddocs/topic/cpbm-23-map/cpbm-install-build-custom-components-23-tsk.html
-
-overwrite the custoreport.jsp in repo with the one in this git
