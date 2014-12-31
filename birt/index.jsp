@@ -10,7 +10,7 @@
                 <a href=/birt/frameset?__report=reports/top_spenders.rptdesign> Top Spenders </a>
 
 <% } else { %>
-        <p> No reports for users yet </p>
+	<p> Reports for <%=  request.getParameter("username") %> </p>
         <a href=/birt/frameset?__report=reports/user_spends.rptdesign&username=<%=  request.getParameter("username") %>> User Spend </a>
 <% } %>
 
