@@ -1,0 +1,2 @@
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. --> 
+<!-- This is a blank jsp. Created intentionally. Purpose is to change the locale for anonymous pages when CAS is  enabled.-->

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	                    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!--  <bean class="com.citrix.cpbm.admin.CustomTopicSubscriber" id="customTopicSubscriber" /> -->
+	
+   <bean name="adhocDiscountEngine" class="${discount.adhoc.engine.implementation:com.vmops.component.discount.policy.NonPromotionalDiscountEngine}" > 
+    </bean>
+    <bean name="percentDiscountEngine" class="${discount.percent.engine.implementation:com.vmops.component.discount.policy.PercentDiscountEngine}">
+    </bean>
+    <bean name="amountDiscountEngine" class="${discount.amount.engine.implementation:com.vmops.component.discount.policy.AmountDiscountEngine}" /> 
+    <bean name="taxEngine" class="${tax.engine.implementation}" > 
+      <property name="flatTaxPercent" value="${tax.engine.flat.percent:10.0}" />
+    </bean>
+
+
+	<bean id="discountEngineList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="adhocDiscountEngine" />
+				<ref bean="percentDiscountEngine" />
+				<ref bean="amountDiscountEngine" />
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="taxEngineList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="taxEngine" />
+			</list>
+		</constructor-arg>
+	</bean>
+	<!-- <bean id="discountEngineList" class="org.springframework.beans.factory.config.ListFactoryBean">
+		<property name="sourceList">
+			<list>
+				<ref bean="adhocDiscountEngine" />
+				<ref bean="percentDiscountEngine" />
+				<ref bean="amountDiscountEngine" />
+			</list>
+		</property>
+	</bean> 
+	<bean id="taxEngineList" class="org.springframework.beans.factory.config.ListFactoryBean">
+		<property name="sourceList">
+			<list>
+				<ref bean="taxEngine" />
+			</list>
+		</property>
+	</bean>-->
+</beans>

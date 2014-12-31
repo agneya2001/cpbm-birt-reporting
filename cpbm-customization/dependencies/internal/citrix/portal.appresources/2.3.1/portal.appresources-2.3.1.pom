@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>citrix</groupId>
+  <artifactId>portal.appresources</artifactId>
+  <packaging>bundle</packaging>
+  	<parent>
+		<groupId>vmops</groupId>
+		<artifactId>vmops.all</artifactId>
+		<version>2.3.1</version>
+		<relativePath>../vmops.all</relativePath>
+	</parent>
+  <properties>
+    <log4j.version>1.2.17</log4j.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet</artifactId>
+      <version>${servlet.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>com.springsource.javax.annotation</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>${log4j.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.sun.jmx</groupId>
+          <artifactId>jmxri</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>apache-log4j-extras</artifactId>
+      <version>${log4j-extra.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.sun.jmx</groupId>
+          <artifactId>jmxri</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+    </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <version>${apache.felix.maven.bundle.plugin.version}</version>
+        <configuration>
+          <instructions>
+            <Bundle-Version>${project.version}</Bundle-Version>
+            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+            <Bundle-Vendor></Bundle-Vendor>
+            <Export-Package></Export-Package>
+            <Import-Package></Import-Package>
+            <Application-ResourceVersion>3.6.4</Application-ResourceVersion>
+            <Bundle-ClassPath>patch.jar,.</Bundle-ClassPath>
+          </instructions>
+        </configuration> 
+      </plugin>
+
+    </plugins>
+  </build>
+
+</project>

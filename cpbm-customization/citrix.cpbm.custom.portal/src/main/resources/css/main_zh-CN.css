@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */
+/* CSS Document */
+.catalog_signupmenubox_popover {
+  left: 126px;
+  }
+.catalog_signupmenubox_popover.anonymous_catalog{
+  left: 123px;
+}
+.ui-datepicker .ui-datepicker-title select.ui-datepicker-year{
+  float:left;
+}

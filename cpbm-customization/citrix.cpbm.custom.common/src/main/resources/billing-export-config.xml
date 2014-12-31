@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BillingExport>
+ 2    <ExportStream name="DailyAccountStatementStream">
+ 3        <file pattern="cpbm_account_stmt_%d_%s" transformxsl=""/>
+ 4        <batch size="10"/>
+ 5        <sequence id="ACCOUNT_TYPE"/>
+ 6        <sequence id="CHANNEL"/>
+ 7        <Export url=""/>
+ 8    </ExportStream>
+ 9    <ExportStream name="DailyInvoiceStream">
+10        <file pattern="cpbm_invoice_%d_%s" transformxsl=""/>
+11        <batch size="10"/>
+ 5        <sequence id="ACCOUNT_TYPE"/>
+ 6        <sequence id="CHANNEL"/>
+12        <Export url=""/>
+13    </ExportStream>
+ 2    <ExportStream name="DailyPaymentAndCreditStream">
+ 3        <file pattern="cpbm_payment_credit_%d_%s" transformxsl=""/>
+ 4        <batch size="10"/>
+ 5        <sequence id="ACCOUNT_TYPE"/>
+ 6        <sequence id="CHANNEL"/>
+ 7        <Export url=""/>
+ 8    </ExportStream>
+ 9    <ExportStream name="DailyPaymentFailureStream">
+10        <file pattern="payment_failure_%d_%s" transformxsl=""/>
+11        <batch size="10"/>
+12        <Export url=""/>
+13    </ExportStream>
+14</BillingExport>

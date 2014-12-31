@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */
+/* CSS Document */
+.widgetcatalog_cataloglist_ratesbox span.rate
+{
+  font-size: 20px;
+}
+.catalog_signupmenubox_popover {
+  left: 177px;
+  }
+.catalog_signupmenubox_popover.anonymous_catalog{
+  left: 135px;
+}
+.ui-datepicker .ui-datepicker-title select.ui-datepicker-year{
+  float:left;
+}

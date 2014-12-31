@@ -30,3 +30,8 @@ Click on the sample report to ensure everything is correctly installed.
 Now copy your reports in folder /usr/share/vts3/work/org.eclipse.virgo.kernel.deployer_3.0.3.RELEASE/staging/global/bundle/birt/0.0.0/birt.war
 
 **TODO role based presentaiton of reports
+
+
+make changes to cpbm UI as instructed here http://support.citrix.com/proddocs/topic/cpbm-23-map/cpbm-install-build-custom-components-23-tsk.html
+
+overwrite the custoreport.jsp in repo with the one in this git

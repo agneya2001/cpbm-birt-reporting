@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */
+/* CSS Document */
+#l3_account_All_tab {
+  width: 159px;
+}
+#l3_securitygroup_tab p {
+  font-size: 11px;
+  margin-left: 1px;
+}
+#l3_config_configaccountmanagement_tab p,#l3_config_accountprovisioning_tab p,#l3_config_trialmanagement_tab p
+  {
+  font-size: 11px;
+}
+#l3_config_trialmanagement_tab p {
+  margin: 15px 0px 0px 4px;
+}
+.widget_titlebar.dropdownbutton {
+  margin: 5px 5px 0 0;
+  padding: 4px 3px 0 3px;
+}
+.widget_titlebar.dropdownbutton span.text {
+  font-size: 9px;
+}
+.widget_titlebar h2 {
+  margin: 6px 0 0 6px;
+}
+.widget_addbutton {
+  font-size: 9px;
+  margin: 5px 5px 0 0;
+  padding: 4px 2px 0 2px;
+}
+.widgetcatalog_cataloglist.sections.subscription.contentarea a.subscribebutton
+  {
+  padding: 5px 7px 0 7px;
+}
+.db_statsbox.launch.buttonarea a.launch_button {
+  font-size: 11px;
+}
+.configure_box.titlepanel {
+  height: 60px;
+}
+span.required_product_units_header{
+  margin-top:0px !important;
+}
+.widget_searchcontentarea span.label {
+  font-size: 9px;
+}
+.thirdlevel_subtab.big {
+width: 222px;
+}
+
+.maintitlebox h1 {
+  font-size: 15px;
+}
+.db_billing_calendarblock .calendaricon span.title{
+  font-size: 9px;
+  font-weight:normal;
+  margin-top:2px;
+}
+.catalog_signupmenubox_popover {
+  left: 173px;
+  }
+.catalog_signupmenubox_popover.anonymous_catalog{
+  left: 214px;
+}
+.widgets_detailstab li{
+  padding:8px 2px 0;
+}
+.widget_loadertext_vm p {
+  font-size: 15px;
+}

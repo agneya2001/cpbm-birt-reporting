@@ -1,0 +1,128 @@
+<constraint-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping validation-mapping-1.0.xsd"
+	xmlns="http://jboss.org/xml/ns/javax/validation/mapping">
+
+	<bean class="com.citrix.cpbm.access.Tenant">
+		<getter name="name">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.tenant.name.required.message</message>
+			</constraint>
+			<constraint annotation="org.hibernate.validator.constraints.Length">
+				<message>com.citrix.tenant.name.length.message</message>
+				<element name="min">5</element>
+				<element name="max">255</element>
+			</constraint>
+		</getter>
+		<getter name="owner">
+			<valid />
+		</getter>
+		<getter name="address">
+			<valid />
+		</getter>
+	</bean>
+	<bean class="com.citrix.cpbm.access.User">
+		<getter name="firstName">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message
+				</message>
+			</constraint>
+			<constraint annotation="org.hibernate.validator.constraints.Length">
+				<message>javax.validation.constraints.Size.message</message>
+				<element name="min">5</element>
+				<element name="max">255</element>
+			</constraint>
+		</getter>
+		<getter name="lastName">
+			<constraint annotation="org.hibernate.validator.constraints.Length">
+				<message>javax.validation.constraints.Size.message</message>
+				<element name="min">0</element>
+				<element name="max">255</element>
+			</constraint>
+		</getter>
+		<getter name="email">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message
+				</message>
+			</constraint>
+			<constraint annotation="org.hibernate.validator.constraints.Email">
+				<message>javax.validation.constraints.Email.message</message>
+			</constraint>
+		</getter>
+		<getter name="username">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message
+				</message>
+			</constraint>
+			<constraint annotation="javax.validation.constraints.Pattern">
+				<message>javax.validation.constraints.Pattern.message</message>
+				<element name="regexp">[a-zA-Z0-9_@\\-\\.]+</element>
+			</constraint>
+			<constraint annotation="javax.validation.constraints.Size">
+				<message>javax.validation.constraints.MinimumSize.message</message>
+				<element name="min">5</element>
+			</constraint>
+		</getter>
+		<getter name="phone">
+			<constraint annotation="javax.validation.constraints.Pattern">
+				<message>javax.validation.constraints.Pattern.message</message>
+				<element name="regexp">(\d+)(-)(\d+)</element>
+			</constraint>
+		</getter>
+	</bean>
+	<bean class="com.vmops.model.Address">
+		<getter name="street1">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message</message>
+			</constraint>
+			<constraint annotation="org.hibernate.validator.constraints.Length">
+				<message>javax.validation.constraints.Size.message</message>
+				<element name="min">1</element>
+				<element name="max">255</element>
+			</constraint>
+		</getter>
+		<getter name="city">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message	</message>
+			</constraint>
+				<constraint annotation="org.hibernate.validator.constraints.Length">
+					<message>javax.validation.constraints.Size.message</message>
+					<element name="min">1</element>
+					<element name="max">255</element>
+				</constraint>
+		</getter>
+		<getter name="state">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message
+				</message>
+			</constraint>
+			<constraint annotation="org.hibernate.validator.constraints.Length">
+				<message>javax.validation.constraints.Size.message</message>
+				<element name="min">1</element>
+				<element name="max">255</element>
+			</constraint>
+		</getter>
+		<getter name="postalCode">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message
+				</message>
+			</constraint>
+			<constraint annotation="org.hibernate.validator.constraints.Length">
+				<message>javax.validation.constraints.Size.message</message>
+				<element name="min">1</element>
+				<element name="max">255</element>
+			</constraint>
+		</getter>
+		<getter name="country">
+			<constraint annotation="com.citrix.cpbm.validator.constraint.NotBlank">
+				<message>com.citrix.cpbm.validator.constraint.impl.NotBlank.message
+				</message>
+			</constraint>
+			<constraint annotation="org.hibernate.validator.constraints.Length">
+				<message>javax.validation.constraints.Size.message</message>
+				<element name="min">1</element>
+				<element name="max">255</element>
+			</constraint>
+		</getter>
+	</bean>
+
+</constraint-mappings>

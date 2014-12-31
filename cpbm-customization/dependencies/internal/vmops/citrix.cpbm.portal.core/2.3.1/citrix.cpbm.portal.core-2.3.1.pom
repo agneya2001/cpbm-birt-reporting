@@ -1,0 +1,332 @@
+<!-- Copyright (C) 2011 Cloud.com, Inc.  All rights reserved. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>citrix.cpbm.portal.core</artifactId>
+  <packaging>jar</packaging>
+  <name>CloudPortal Application</name>
+  <parent>
+    <groupId>vmops</groupId>
+    <artifactId>vmops.all</artifactId>
+    <version>2.3.1</version>
+    <relativePath>../vmops.all</relativePath>
+  </parent>
+  <distributionManagement>
+    <site>
+      <id>portal.site</id>
+      <name>Portal Project Website</name>
+    </site>
+  </distributionManagement>
+  
+  <dependencies>
+	<!-- *********** Product Dependencies *********** -->     
+    <dependency>
+      <groupId>vmops</groupId>
+      <artifactId>vmops.core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>vmops</groupId>
+      <artifactId>vmops.core</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+    
+	
+    <dependency>
+      <groupId>vmops</groupId>
+      <artifactId>vmops.integration</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>vmops</groupId>
+      <artifactId>vmops.integration</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+	
+		<dependency>
+			<groupId>vmops</groupId>
+			<artifactId>citrix.cpbm.workflow</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>vmops</groupId>
+			<artifactId>citrix.cpbm.workflow</artifactId>
+			<version>${project.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+
+    <!-- *********** locally created bundles in internal  *********** -->
+    <!-- Synyx dependency -->
+	   <dependency>
+        <groupId>org.synyx</groupId>
+        <artifactId>messagesource</artifactId>
+        <version>0.7.1</version>
+     </dependency>
+  <dependency>
+		<groupId>ro.isdc.wro4j</groupId>
+		<artifactId>wro4j-core</artifactId>
+		<version>${wro4j.core.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>ro.isdc.wro4j</groupId>
+		<artifactId>wro4j-extensions</artifactId>
+		<version>${wro4j.extensions.version}</version>
+	</dependency>
+
+  <dependency>
+      <groupId>__htmlescapeoverride</groupId>
+      <artifactId>__htmlescapeoverride</artifactId>
+      <version>${__htmlescapeoverride.version}</version>
+  </dependency> 
+	
+    <dependency>
+      <groupId>com.google.code.maven-play-plugin.net.tanesha.recaptcha4j</groupId>
+      <artifactId>recaptcha4j</artifactId>
+      <version>${recaptcha4j.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>    
+    <!--Web Security-->
+    <dependency>
+		<groupId>csrfguard</groupId>
+		<artifactId>csrfguard</artifactId>
+		<version>${csrfguard.version}</version>
+	</dependency>
+	 
+    <dependency>
+    	<groupId>javax.servlet.jsp.jstl</groupId>
+    	<artifactId>jstl-api</artifactId>
+    	<version>${jstl.version}</version>
+    	<type>jar</type>
+    </dependency>
+    
+    <!-- *********** downgraded external dependencies *********** -->
+
+	<dependency>
+		<groupId>org.opensaml</groupId>
+		<artifactId>com.springsource.org.opensaml</artifactId>
+		<version>${opensaml.version}</version> 
+	</dependency>
+
+	<dependency>
+		<groupId>com.thoughtworks.selenium</groupId>
+		<artifactId>com.springsource.com.thoughtworks.selenium</artifactId>
+		<version>${seleniumclient.version}</version> 
+		<scope>test</scope>
+	</dependency>
+
+    <!-- *********** perfect external dependencies *********** -->
+    
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet</artifactId>
+		<version>${servlet.version}</version>
+	</dependency>
+	
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.web</artifactId>
+      <version>${org.springframework.version}</version>
+    </dependency>
+    
+	<dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>com.springsource.javax.servlet.jsp</artifactId>
+    	<version>${javax.servlet.jsp.version}</version>
+	</dependency>
+	
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>com.springsource.javax.servlet.jsp.jstl</artifactId>
+      <version>${jstl.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.taglibs</groupId>
+          <artifactId>com.springsource.org.apache.taglibs.standard</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+	<dependency>
+		<groupId>org.joda</groupId>
+		<artifactId>com.springsource.org.joda.time</artifactId>
+		<version>${joda.time.version}</version>
+	</dependency>
+	
+    <dependency>
+    	<groupId>org.apache.commons</groupId>
+    	<artifactId>com.springsource.org.apache.commons.fileupload</artifactId>
+    	<version>${apache.commons.fileupload.version}</version>
+    	<scope>compile</scope>
+    </dependency>
+	<dependency>
+		<groupId>org.apache.tiles</groupId>
+		<artifactId>tiles-core</artifactId>
+		<version>${tiles.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.tiles</groupId>
+		<artifactId>tiles-jsp</artifactId>
+		<version>${tiles.version}</version>
+	</dependency>
+<dependency>
+  <groupId>net.sourceforge.json</groupId>
+  <artifactId>com.springsource.net.sf.json</artifactId>
+  <version>2.2.2</version>
+</dependency>
+</dependencies>
+  <build>
+    <plugins>
+    	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<version>${maven.jar.plugin.version-core}</version>
+			</plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>tomcat-maven-plugin</artifactId>
+        <configuration>
+          <server>${deploy.server}</server>
+          <path>/portal</path>
+          <url>${deploy.manager.url}</url>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>selenium-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>pre-integration-test</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start-server</goal>
+            </goals>
+            <configuration>
+              <logOutput>true</logOutput>
+              <background>true</background>
+              <skip>true</skip> 
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin}</version>
+        <configuration>
+        <argLine>-Xmx1024m</argLine>
+        <excludes>
+        	<exclude>**/selenium/*Test.java</exclude>
+        </excludes>
+        <additionalClasspathElements>
+        	<additionalClasspathElement>${basedir}/src/main/resources/WEB-INF</additionalClasspathElement>
+            <additionalClasspathElement>${basedir}/src/test/resources/META-INF/spring</additionalClasspathElement>
+        </additionalClasspathElements>
+        <testFailureIgnore>${maven.test.failure.ignore}</testFailureIgnore>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <skip>true</skip>
+              <excludes>
+                <exclude>none</exclude>
+              </excludes>
+              <includes>
+                <include>**/selenium/*Test.java</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+  <plugin>
+	 <groupId>org.apache.maven.plugins</groupId>
+	 <artifactId>maven-clean-plugin</artifactId>
+	 <version>2.4.1</version>
+	 <configuration>
+		  <followSymLinks>false</followSymLinks>
+		  <filesets>
+			 <fileset>
+				  <directory>${basedir}/src/main/resources/resources</directory>
+			 </fileset>
+		  </filesets>
+	 </configuration>
+  </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>${project.info.plugin.version}</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>about</report>
+              <report>index</report>
+              <report>dependencies</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+        <version>${javancss-maven-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>${maven-checkstyle-plugin.version}</version>
+        <configuration>
+          <configLocation>${project.parent.basedir}/etc/vmops_checks.xml</configLocation>
+          <suppressionsLocation>${project.parent.basedir}/etc/vmops_suppressions.xml</suppressionsLocation>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <id>default</id>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <linkXref>true</linkXref>
+          <targetJdk>${maven-pmd-plugin.version}</targetJdk>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */
+/* CSS Document */
+*{
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    background:none;
+    width:930px;
+}

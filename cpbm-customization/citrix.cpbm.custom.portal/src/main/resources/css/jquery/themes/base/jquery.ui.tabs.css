@@ -1,0 +1,16 @@
+/* ----------------------------------Tabs----------------------------------*/ 
+.ui-tabs{position:relative;zoom:1;padding:.2em}
+.ui-tabs.ui-widget-content{background:none;border:none}
+.ui-tabs .ui-tabs-nav{margin:0;padding:0}
+.ui-tabs ul.ui-widget-header{border:none;background:none}
+.ui-tabs .ui-tabs-nav li{list-style:none;float:left;position:relative;top:1px;border:none;white-space:nowrap;margin:0 .2em 1px 0;padding:0}
+.ui-tabs .ui-tabs-nav li a{float:left;text-decoration:none;padding:.5em 1em 0}
+.ui-tabs.ui-widget-content .ui-state-default,.ui-tabs .ui-state-default.ui-state-hover a:hover{background:url(../../../../images/details_tabnonactive.jpg) repeat-x top left}
+.ui-tabs.ui-widget-content .ui-state-default,.ui-tabs.ui-widget-content .ui-state-default a:visited{color:#333}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a:hover,.ui-tabs .ui-tabs-nav li.ui-tabs-selected{background:url(../../../../images/details_tabactive.jpg) repeat-x top left}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected{margin-bottom:0;padding-bottom:0;text-decoration:none}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a,.ui-tabs .ui-tabs-nav li.ui-state-disabled a,.ui-tabs .ui-tabs-nav li.ui-state-processing a{cursor:text}
+.ui-tabs .ui-tabs-nav li a,.ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a{cursor:pointer}
+.ui-tabs .ui-tabs-panel{display:block;border:0;background:none;padding:1em 1.4em}
+.ui-tabs .ui-tabs-hide{display:none!important}
+.ui-tabs .ui-state-default.ui-state-hover a:hover,.ui-tabs .ui-tabs-nav li.ui-tabs-selected,.ui-tabs .ui-tabs-nav li.ui-tabs-selected a:visited{color:#FFF}

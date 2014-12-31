@@ -1,0 +1,269 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.synyx</groupId>
+	<artifactId>messagesource</artifactId>
+	<name>Synyx Messagesource for Spring</name>
+	<parent>
+		<groupId>vmops</groupId>
+		<artifactId>vmops.all</artifactId>
+		<version>2.3.1</version>
+		<relativePath>../vmops.all</relativePath>
+	</parent>
+	<packaging>bundle</packaging>
+	<description>
+		Implementation of Springs MessageSource interface that is able to load Messages at once from 
+		several sources like a Database (using JDBC).
+	</description>
+	<version>0.7.1</version>
+	<url>http://messagesource.synyx.org/static</url>
+
+
+	<organization>
+		<name>Synyx GmbH &amp; Co. KG</name>
+		<url>http://www.synyx.org</url>
+	</organization>
+	<inceptionYear>2010</inceptionYear>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<springVersion>3.0.7.RELEASE</springVersion>
+		<junit.version>4.6</junit.version>
+	</properties>
+
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>kannegiesser</id>
+			<name>Marc Kannegiesser</name>
+			<email>kannegiesser@synyx.de</email>
+			<roles>
+				<role>Project Lead</role>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+	<contributors>
+		<contributor>
+			<name>Amit Pal Saluja</name>
+			<email>amitpal.saluja@citrix.com</email>
+			<organization>Citrix</organization>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</contributor>
+	</contributors>
+
+	<scm>
+		<url>scm:git:git://github.com/synyx/messagesource.git</url>
+		<connection>scm:git:git://github.com/synyx/messagesource.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/synyx/messagesource.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>static.synyx.org</id>
+			<url>scp://static.synyx.org/home/public/public_html/messagesource/site</url>
+		</site>
+		<repository>
+			<id>releases.public.nexus.synyx.de</id>
+			<url>http://nexus.synyx.de/content/repositories/public-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots.public.nexus.synyx.de</id>
+			<url>http://nexus.synyx.de/content/repositories/public-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<issueManagement>
+		<system>Redmine</system>
+		<url>http://redmine.synyx.org/projects/messagesource/</url>
+	</issueManagement>
+
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://ci.synyx.org/job/messagesource/</url>
+	</ciManagement>
+
+
+	<dependencies>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.jdbc</artifactId>
+			<version>${springVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context.support</artifactId>
+			<version>${springVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.beans</artifactId>
+			<version>${springVersion}</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+
+
+		<!-- test-scoped dependencies from here -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- h2db and commons dbcp for integration testing -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.1.114</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<!-- <groupId>org.apache.maven.plugins</groupId> -->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<version>2.2.0</version>
+				<configuration>
+					<instructions>
+						<Bundle-Version>${project.version}</Bundle-Version>
+						<Bundle-SymbolicName>org.synyx.messagesource</Bundle-SymbolicName>
+						<Bundle-Name>messagesource</Bundle-Name>
+						<Bundle-Vendor>citrix</Bundle-Vendor>
+						<Export-Package>org.synyx.messagesource;uses:="org.springframework.util,
+							org.springframework.context.support,
+							org.synyx.messagesource.util,
+							org.springframework.beans.factory";version="0.7.1",
+							org.synyx.messagesource.filesystem;uses:="org.synyx.messagesource.util,
+							org.synyx.messagesource";version="0.7.1",
+							org.synyx.messagesource.importer;uses:="org.synyx.messagesource.filesystem,org.synyx.messagesource";version="0.7.1",
+							org.synyx.messagesource.jdbc;uses:="org.springframework.jdbc.core,
+							org.synyx.messagesource,
+							org.synyx.messagesource.util,
+							org.springframework.dao,javax.sql,
+							org.springframework.util";version="0.7.1",
+							org.synyx.messagesource.util;uses:="org.springframework.util,
+							org.springframework.beans.propertyeditors";version="0.7.1"
+						</Export-Package>
+						<Import-Package>javax.sql,org.springframework.beans.factory,
+							org.springframework.beans.propertyeditors,
+							org.springframework.context.support,
+							org.springframework.dao,
+							org.springframework.jdbc.core,
+							org.springframework.util</Import-Package>
+						<Import-Library>org.springframework.spring;version="[3.0, 3.5)"</Import-Library>
+						<Bundle-ClassPath>patch.jar,.</Bundle-ClassPath>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jxr-maven-plugin</artifactId>
+			</plugin>
+
+
+
+			<!-- Metrics plugins -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- Code checks -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<targetJdk>1.5</targetJdk>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>taglist-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<links>
+						<link>http://java.sun.com/javase/6/docs/api/</link>
+						<link>http://junit.sourceforge.net/javadoc/</link>
+						<link>http://static.springframework.org/spring/docs/3.0.x/javadoc-api/</link>
+					</links>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</reporting>
+
+</project>

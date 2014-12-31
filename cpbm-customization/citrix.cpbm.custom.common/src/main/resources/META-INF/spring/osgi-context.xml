@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd"
+	xmlns:osgi="http://www.springframework.org/schema/osgi">
+	
+	 <osgi:reference interface="com.vmops.service.DateTimeService" id="dateTimeService"/>
+	 <osgi:reference interface="com.citrix.cpbm.platform.admin.service.ConnectorManagementService" id="connectorManagementService"/>
+	 <osgi:reference interface="com.vmops.service.TenantService" id="tenantService"/>
+	 <osgi:reference interface="com.vmops.service.UserService" id="userService"/>
+	 <osgi:reference interface="com.vmops.portal.config.Configuration" id="appConfiguration"/>
+	 <osgi:reference interface="com.vmops.internal.service.EmailService" id="emailService"/>
+	 <osgi:reference interface="com.vmops.service.AuthorityService" id="authorityService"/>
+	 <osgi:reference interface="com.vmops.internal.service.SubscriptionService" id="subscriptionService"/>
+	 <osgi:reference interface="com.vmops.internal.service.ActorService" id="actorService"/>
+	 <osgi:reference interface="com.vmops.internal.service.NotificationService" id="notificationService"/>
+	 <osgi:reference interface="com.vmops.internal.service.EventService" id="eventService"/>
+	 <osgi:reference interface="com.vmops.service.billing.BillingAdminService" id="billingAdminService"/>
+	 <osgi:reference interface="com.vmops.billing.job.service.UsageBatchProcess" id="usageBatchProcess"/>
+	 <osgi:reference interface="com.vmops.billing.job.service.AccountBillingProcess" id="accountBillingProcess"/>
+	 <osgi:reference interface="com.vmops.service.ProfileService" id="profileService"/>
+	 <osgi:reference interface="com.vmops.service.ConfigurationService" id="configurationService"/>
+	 <osgi:reference interface="com.vmops.service.JobManagementService" id="jobManagementService"/>
+	 <osgi:reference interface="com.vmops.service.ReportService" id="reportService"/>
+	 <osgi:reference interface="com.vmops.service.TrialService" id="trialService"/>
+	 <osgi:reference interface="com.vmops.internal.service.UsageService" id="usageService"/>
+	 <osgi:reference interface="com.vmops.service.CurrencyValueService" id="currencyValueService"/>
+	 <osgi:reference interface="com.vmops.service.UserAlertPreferencesService" id="userAlertPreferencesService"/>
+	 <osgi:reference interface="com.vmops.internal.service.UsageTransformerService" id="usageTransformerService"/>
+	 <osgi:reference interface="com.vmops.internal.service.UsageTransferService" id="usageTransferService"/>
+	 <osgi:reference interface="com.mchange.v2.c3p0.PooledDataSource" id="dataSource"/>
+	 <osgi:reference interface="com.vmops.service.SequenceService" id="sequenceService"/>
+	 <osgi:reference interface="com.citrix.cpbm.workflow.engine.WorkflowEngine" id="workflowEngine" />
+	 <osgi:reference interface="com.vmops.persistence.ServiceInstanceDao" id="serviceInstanceDao"/>
+	 <osgi:reference interface="com.citrix.cpbm.platform.admin.service.ConnectorConfigurationManager" id="connectorConfigurationManagerService"/>
+	 <osgi:reference interface="com.vmops.event.listeners.EventQueue" id="localEventClient"/>
+	 <osgi:reference interface="org.springframework.jms.core.JmsTemplate" id="jmsTemplate"/>
+	 <osgi:reference id="sessionFactory" interface="org.hibernate.SessionFactory"/>
+   	 <osgi:reference interface="org.synyx.messagesource.InitializableMessageSource" id="messageSource"/>
+	 <osgi:reference interface="com.vmops.service.PromotionService" id="promotionService"/>
+	 <osgi:reference interface="com.citrix.cpbm.core.workflow.service.BusinessTransactionService" id="businessTransactionService"/>
+   
+	 <osgi:service interface="com.citrix.cpbm.workflow.pendingaction.resolver.ActionUrlResolver" ref="defaultActionUrlResolver"/>
+	 
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="verifyMasterUserEmailActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="createOSSAccountActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="financeInternalApprovalActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="collectCreditCardInfoActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="collectPaymentInfoActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="verifyDepositActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="subscriptionPreAuthActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="tenantOwnerApprovalActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="verifyCreditCardInfoActivity" />
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="serviceActivationApprovalActivity" />
+	 <!--  <osgi:service interface="com.citrix.cpbm.subscriber.TopicSubscriber" ref="customTopicSubscriber"/> -->
+	 <osgi:service interface="com.citrix.cpbm.workflow.activity.Activity" ref="dummyActivity" />
+	 <osgi:service interface="com.citrix.cpbm.custom.service.TestModelService" ref="testModelService" />
+   <osgi:service interface="com.vmops.service.CustomReportService" ref="customReportService"/>
+   <osgi:service interface="com.citrix.cpbm.custom.service.UserLoginAuditService" ref="userLoginAuditService" />
+   <osgi:service interface="java.util.List" ref="discountEngineList"/>
+   <osgi:service interface="java.util.List" ref="taxEngineList"/>
+   <osgi:reference interface="com.citrix.cpbm.billing.export.stream.service.StreamRepository" id="streamRepository"/>
+   <osgi:reference interface="com.citrix.cpbm.billing.export.stream.service.StreamExportService" id="streamExportService"/>
+	<osgi:reference id="transactionManager" interface="org.springframework.transaction.support.ResourceTransactionManager"/>	     
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">    
+    
+    <changeSet id="1366711278999" author="shakti">
+      <addColumn tableName="testmodel">
+        <column name="desc" type="VARCHAR(2048)">
+          <constraints nullable="true"/>
+        </column>
+      </addColumn>
+    </changeSet>
+	<changeSet id="1366711278999-1" author="shiv">
+		<createTable tableName="user_login_audit">
+			<column name="id" autoIncrement="true" type="BIGINT">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column name="userid" type="BIGINT">
+				<constraints nullable="false" />
+			</column>
+			<column name="remote_ip" type="VARCHAR(100)">
+				<constraints nullable="true" />
+			</column>
+			<column name="created_at" type="DATETIME" remarks="The time at which user logged in.">
+				<constraints nullable="false" />
+			</column>
+			<column name="version" type="INT" defaultValue="0" />
+		</createTable>
+        <modifySql dbms="mysql">
+            <append value=" ENGINE=InnoDB DEFAULT CHARSET=utf8"/>
+        </modifySql>
+	</changeSet>
+    
+</databaseChangeLog>

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */
+/* CSS Document */
+#l3_compute_bundles_tab {
+  width: 216px;
+}
+#l3_compute_bundles_tab_browse_catalog {
+  width: 216px;
+}
+#l3_subscriptions_tab {
+  width: 160px;
+}
+#l3_snapshots_tab p {
+  font-size: 11px;
+  margin-left: 3px;
+}
+#l3_securitygroup_tab p {
+  font-size: 10px;
+  margin-left: 1px;
+}
+.db_launchbox_dropdownarrow {
+  margin-left: 125px;
+}
+.db_networkinglist_titles {
+  font-size: 12px;
+}
+.db_networkinglist_perrate {
+  font-size: 10px;
+}
+span.title_listall_arrow {
+  padding: 4px 5px 0 10px;
+}
+.widget_loadertext p {
+  font-size: 16px;
+}
+.widgetcatalog_cataloglist.sections.subscription.contentarea a.subscribebutton
+  {
+  font-size: 8px;
+  padding: 5px 0 0 0;
+}
+.db_statsbox.launch.buttonarea a.launch_button {
+  font-size: 10px;
+}
+.db_statsbox.launch.buttonarea span.cloud {
+  margin: -3px 2px 0 -28px;
+}
+.user_name_order .user_first_name {
+  display:table-footer-group;
+}
+.user_name_order .user_last_name {
+  display:table-header-group;
+}
+.creditcard_box.front.mid.contentarea li.inline_user_first_name {
+  float:right;
+}
+.creditcard_box.front.mid.contentarea li.inline_user_last_name {
+  float:left;
+}
+
+.btn-group>.btn.btn-info.custom_font{
+  font-size:12px;
+}
+.widget_searchcontentarea span.label {
+  font-size: 8px;
+}
+.maintitlebox h1 {
+  font-size: 15px;
+}
+.db_billing_calendarblock .calendaricon span.title{
+  font-size: 9px;
+  font-weight:normal;
+  margin-top:2px;
+}
+.catalog_signupmenubox_popover {
+  left: 154px;
+  }
+.catalog_signupmenubox_popover.anonymous_catalog{
+  left: 182px;
+}
+.ui-datepicker .ui-datepicker-title select.ui-datepicker-year{
+  float:left;
+}

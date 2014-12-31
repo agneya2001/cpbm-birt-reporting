@@ -1,0 +1,822 @@
+<!-- Copyright (C) 2011 Cloud.com, Inc. All rights reserved. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>vmops</groupId>
+	<artifactId>vmops.all</artifactId>
+	<packaging>pom</packaging>
+	<version>2.3.1</version>
+	<name>CloudPortal Project</name>
+	<description>
+    The CloudPortal manages the provisioning, billing and reporting functions for the CloudStack environment 
+    http://www.citrix.com/cloudportal
+  </description>
+	<organization>
+		<name>Citrix</name>
+		<url>http://www.citrix.com/</url>
+	</organization>
+
+	<profiles>
+		<profile>
+			<id>gmail</id>
+			<properties>
+				<vmops.mail.protocol>smtps</vmops.mail.protocol>
+				<vmops.mail.host>smtp.gmail.com</vmops.mail.host>
+				<vmops.mail.port>465</vmops.mail.port>
+				<vmops.mail.username>no-reply@vmops.com</vmops.mail.username>
+				<vmops.mail.password>VMOp$r00t</vmops.mail.password>
+			</properties>
+		</profile>
+		<profile>
+			<id>filterResources</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<resources>
+					<resource>
+						<filtering>true</filtering>
+						<directory>src/main/resources</directory>
+						<excludes>
+							<exclude>lib/*</exclude>
+							<exclude>css/*</exclude>
+							<exclude>js/*</exclude>
+							<exclude>images/*</exclude>
+							<exclude>custom/*</exclude>
+							<exclude>fusion/*</exclude>
+						</excludes>
+					</resource>
+					<resource>
+						<filtering>false</filtering>
+						<directory>src/main/resources</directory>
+						<includes>
+							<include>lib/*</include>
+							<include>css/*</include>
+							<include>js/*</include>
+							<include>images/*</include>
+							<include>custom/*</include>
+							<include>fusion/*</include>
+						</includes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+		<profile>
+			<id>production</id>
+			<build>
+				<resources>
+					<resource>
+						<filtering>false</filtering>
+						<directory>src/main/resources</directory>
+						<excludes>
+							<exclude>jdbc.properties</exclude>
+						</excludes>
+					</resource>
+					<resource>
+						<filtering>true</filtering>
+						<directory>src/main/resources</directory>
+						<includes>
+							<include>jdbc.properties</include>
+						</includes>
+					</resource>
+					<resource>
+						<filtering>false</filtering>
+						<directory>src/main/resources/OSGI-INF/l10n/resources</directory>
+						<targetPath>OSGI-INF/l10n/resources</targetPath>
+						<excludes>
+							<exclude>ApplicationResources.properties</exclude>
+						</excludes>
+					</resource>
+					<resource>
+						<filtering>true</filtering>
+						<directory>src/main/resources/OSGI-INF/l10n/resources</directory>
+						<targetPath>OSGI-INF/l10n/resources</targetPath>
+						<includes>
+							<include>ApplicationResources.properties</include>
+						</includes>
+					</resource>
+					<resource>
+						<filtering>false</filtering>
+						<directory>src/main/resources/META-INF</directory>
+						<excludes>
+							<exclude>MANIFEST.MF</exclude>
+						</excludes>
+					</resource>
+					<resource>
+						<filtering>true</filtering>
+						<directory>src/main/resources/META-INF</directory>
+						<targetPath>../META-INF</targetPath>
+						<includes>
+							<include>MANIFEST.MF</include>
+						</includes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>
+	<repositories>
+		<repository>
+			<id>internal</id>
+			<name>Project Internal Maven Repository</name>
+			<layout>default</layout>
+			<url>file:${project.basedir}/../dependencies/internal</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.release</id>
+			<name>EBR Spring Release Repository</name>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.external</id>
+			<name>EBR External Release Repository</name>
+			<url>http://repository.springsource.com/maven/bundles/external</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundle.milestone</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Milestones</name>
+			<url>http://repository.springsource.com/maven/bundles/milestone</url>
+		</repository>
+		<repository>
+			<id>com.springsource.repository.bundles.snapshot</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Snapshot</name>
+			<url>http://repository.springsource.com/maven/bundles/snapshot</url>  <!-- ??? -->
+		</repository>
+		<repository>
+			<id>com.springsource.repository.libraries.release</id>
+			<name>SpringSource Enterprise Bundle Repository - SpringSource Library Releases</name>
+			<url>http://repository.springsource.com/maven/libraries/release</url>
+		</repository>
+		<repository>
+			<id>org.ibiblio.mirrors</id>
+			<name>Maven mirror</name>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>com.springsource.repository.bundles.release</id>
+			<name>SpringSource Enterprise Bundle Repository - Releases</name>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<modules>
+		<module>../messagesource</module>
+		<module>../citrix.cpbm.model</module>
+		<module>../citrix.cpbm.custom.all</module>
+		<module>../citrix.cpbm.custom.model</module>
+		<module>../citrix.cpbm.service</module>
+		<module>../quality/connector-certification/connector-certification-kit-api</module>
+		<module>../quality/connector-certification/connector-certification-kit</module>
+		<module>../vmops.core</module>
+		<module>../portal.appresources</module>
+		<module>../vmops.integration</module>
+		<module>../cloud.apachecloudstack</module>
+		<module>../cloud.cloudplatform</module>
+		<module>../straasConnector</module>
+		<module>../iptocountry.maxmind</module>
+		<module>../creditcardfraudcontrol.maxmind</module>
+		<module>../devicefrauddetection.threatmetrix</module>
+		<module>../ticket.salesforce</module>
+		<module>../ticket.cpbm</module>
+		<module>../paymentgateway.cybersource</module>
+		<module>../paymentgateway.authorize</module>
+		<module>../phoneverification.telesign</module>
+		<module>../vmops.admin</module>
+		<module>../citrix.cpbm.portal.core</module>
+		<module>../citrix.cpbm.custom.portal</module>
+		<module>../cloud.cloudplatform.fragment</module>
+		<module>../cloud.apachecloudstack.fragment</module>
+		<module>../cloud.cpsm</module>
+		<module>../cloud.cpsm.fragment</module>
+		<module>../straas-connector.fragment</module>
+		<module>../citrix.cpbm.workflow</module>
+		<module>../vmops.dependencies</module>
+		<module>../vmops.api</module>
+		<module>../citrix.tools/citrix.cpbm.custom.adsync</module>
+		<module>../cpbm</module>
+		<module>../citrix.cpbm.custom.common</module>
+		<module>../citrix.cpbm.api.doc</module>
+
+
+	</modules>
+	<dependencies>
+		<!-- Database drivers -->
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<!-- utility libraries -->
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<scope>compile</scope>
+			<version>${commons.configuration.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commons-beanutils</groupId>
+					<artifactId>commons-beanutils</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commons-digester</groupId>
+					<artifactId>commons-digester</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>avalon-framework</groupId>
+					<artifactId>avalon-framework</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commons-collections</groupId>
+					<artifactId>commons-collections</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>com.springsource.org.apache.commons.beanutils</artifactId>
+			<version>${apache.commons.beanutils.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>com.springsource.org.apache.commons.codec</artifactId>
+			<version>${apache.commons-codec.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.spring-library</artifactId>
+			<type>libd</type>
+			<version>${org.springframework.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.servlet</groupId>
+					<artifactId>com.springsource.javax.servlet</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Spring security -->
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>org.springframework.security.core</artifactId>
+			<version>${org.springframework.security.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>org.springframework.security.config</artifactId>
+			<version>${org.springframework.security.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>org.springframework.security.taglibs</artifactId>
+			<version>${org.springframework.security.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>org.springframework.security.acls</artifactId>
+			<version>${org.springframework.security.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-cas-client</artifactId>
+			<version>${org.springframework.security.version}</version>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jettison</groupId>
+			<artifactId>com.springsource.org.codehaus.jettison</artifactId>
+			<version>${codehaus.jettison.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.ldap</groupId>
+			<artifactId>org.springframework.ldap.core.simple</artifactId>
+			<version>${org.springframework.ldap.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>com.springsource.org.hibernate.validator</artifactId>
+			<version>${hibernate.validator.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>apache-log4j-extras</artifactId>
+			<version>${log4j-extra.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.aspects</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>com.springsource.org.apache.velocity</artifactId>
+			<version>${apache.velocity.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>com.springsource.org.apache.velocity.tools.view</artifactId>
+			<version>${apache.velocity.tools.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- http client access -->
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>com.springsource.org.apache.httpcomponents.httpclient</artifactId>
+			<version>${apache.httpclient.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- jsoup HTML parser library @ http://jsoup.org/ -->
+
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>${jsoup.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-validator</groupId>
+			<artifactId>commons-validator</artifactId>
+			<version>${commons.validator.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<!-- XML marshalling -->
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>com.springsource.com.thoughtworks.xstream</artifactId>
+			<version>${xstream.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- CAS client -->
+		<dependency>
+			<groupId>org.jasig.cas</groupId>
+			<artifactId>com.springsource.org.jasig.cas.client</artifactId>
+			<version>${casclient.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.xml</groupId>
+					<artifactId>com.springsource.org.apache.xml.security</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Test Dependencies -->
+		<!-- Support for testing Spring applications with tools such as JUnit and 
+			TestNG This artifact is generally always defined with a 'test' scope for 
+			the integration testing framework and unit testing stubs -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.test</artifactId>
+			<version>${org.springframework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-mock</artifactId>
+			<version>1.2.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.subethamail</groupId>
+			<artifactId>subethasmtp-wiser</artifactId>
+			<version>${wiser.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.maven-play-plugin.net.tanesha.recaptcha4j</groupId>
+			<artifactId>recaptcha4j</artifactId>
+			<version>${recaptcha4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.cobertura</groupId>
+			<artifactId>cobertura</artifactId>
+			<version>${cobertura.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-ext</artifactId>
+			<version>${liquibase.ext.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.owasp.antisamy</groupId>
+			<artifactId>antisamy</artifactId>
+			<version>${antisamy.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>com.springsource.org.apache.commons.httpclient</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>fop</artifactId>
+			<version>${fop.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>${easymock.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>be.re</groupId>
+			<artifactId>css2fop</artifactId>
+			<version>${css2fop.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.springframework.context</groupId>
+		  <artifactId>org.springframework.context.fragment</artifactId>
+		  <version>${org.springframework.context.fragment.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jsondoc</groupId>
+			<artifactId>jsondoc-core</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<testResources>
+			<testResource>
+				<filtering>true</filtering>
+				<directory>src/test/resources/META-INF/spring</directory>
+			</testResource>
+			<testResource>
+				<filtering>true</filtering>
+				<directory>src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<filtering>true</filtering>
+				<directory>src/main/resources/META-INF/spring</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<artifactId>exec-maven-plugin</artifactId>
+				<groupId>org.codehaus.mojo</groupId>
+				<executions>
+					<execution>
+						<id>cleanDB</id>
+						<phase>test</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>hostname</executable>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>2.0</version>
+				<!-- no default executions -->
+				<configuration>
+					<sonar.jdbc.driverClassName>com.mysql.jdbc.Driver </sonar.jdbc.driverClassName>
+					<sonar.jdbc.username>sonar</sonar.jdbc.username>
+					<sonar.jdbc.password>sonar</sonar.jdbc.password>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version> <!-- Think of doing it 2.3.2 -->
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<maxmem>1024m</maxmem>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifestFile>target/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>${maven.clean.plugin.version}</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>.</directory>
+							<includes>
+								<include>**/*.ser</include>
+							</includes>
+						</fileset>
+						<fileset>
+							<directory>${virgo.repository.usr.location}</directory>
+							<includes>
+								<include>*.jar</include>
+								<include>*.libd</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${maven.site.plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${project.info.plugin.version}</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>about</report>
+							<report>index</report>
+							<report>dependencies</report>
+							<report>license</report>
+							<report>summary</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javancss-maven-plugin</artifactId>
+				<version>${javancss-maven-plugin.version}</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<properties>
+
+		<cpbm.version>${project.version}</cpbm.version>
+
+		<!-- unit testing properties -->
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Self Monitoring Service configuration -->
+		<self.monitor.service.hostname>localhost</self.monitor.service.hostname>
+		<self.monitor.service.port>23456</self.monitor.service.port>
+		<self.monitor.service.protocol>http</self.monitor.service.protocol>
+
+		<!-- Quartz properties -->
+		<quartz.jobStore.isClustered>true</quartz.jobStore.isClustered>
+
+		<maven.war.plugin.version>2.1.1</maven.war.plugin.version>
+
+		<!-- LDAP configuration -->
+		<ldap.url>ldap://cp-sit.vmopsdev.net:389</ldap.url>
+		<ldap.base>dc=cloud,dc=com</ldap.base>
+		<ldap.userdn>cn=Manager,dc=cloud,dc=com</ldap.userdn>
+		<ldap.password>Portal123#</ldap.password>
+
+		<!-- plugin versions -->
+		<project.info.plugin.version>2.1.2</project.info.plugin.version>
+		<javancss-maven-plugin.version>2.0</javancss-maven-plugin.version>
+		<maven-checkstyle-plugin.version>2.4</maven-checkstyle-plugin.version>
+		<maven-pmd-plugin.version>1.6</maven-pmd-plugin.version>
+		<maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+		<maven.jar.plugin.version-core>2.3.2</maven.jar.plugin.version-core>
+		<maven.site.plugin.version>2.3</maven.site.plugin.version>
+		<maven.clean.plugin.version>2.4.1</maven.clean.plugin.version>
+		<maven.compiler.plugin.version>2.0.2</maven.compiler.plugin.version>
+		<apache.felix.maven.bundle.plugin.version>2.3.7</apache.felix.maven.bundle.plugin.version>
+
+		<!-- framework/code versions -->
+		<apache.activemq.core.version>5.5.0</apache.activemq.core.version>
+		<org.apache.commons.version>3.1.0</org.apache.commons.version>
+		<apache.activemq.activeio.version>3.1.2</apache.activemq.activeio.version>
+		<apache.xbean.version>3.6.0</apache.xbean.version>
+		<apache.geronimo.specs.version>1.0.1</apache.geronimo.specs.version>
+		<apache.commons-codec.version>1.4.0</apache.commons-codec.version>
+		<apache.commons-lang.version>2.4.0</apache.commons-lang.version>
+		<apache.commons-io.version>2.1</apache.commons-io.version>
+		<apache.httpclient.version>4.2.0</apache.httpclient.version>
+		<apache.velocity.version>1.6.2</apache.velocity.version>
+		<org.apache.axis.version>1.4.0</org.apache.axis.version>
+		<axis2-jws-api.version>1.4</axis2-jws-api.version>
+		<axis2-jaxws.version>1.5.4</axis2-jaxws.version>
+		<c3p0.version>0.9.1.2</c3p0.version>
+		<com.citrix.cpbm.c3p0-fragment.version>2.0.0</com.citrix.cpbm.c3p0-fragment.version>
+		<casclient.version>3.1.8</casclient.version>
+		<dbunit.version>2.2</dbunit.version>
+		<ehcache.version>1.6.2</ehcache.version>
+		<hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
+		<hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
+		<hibernate.driverClass>com.mysql.jdbc.Driver</hibernate.driverClass>
+		<hibernate.validator.version>4.0.0.GA</hibernate.validator.version>
+		<hibernate.version>3.3.2.GA</hibernate.version>
+		<jackson.version>1.9.12</jackson.version>
+		<joda.time.version>1.6.0</joda.time.version>
+		<jpa.version>1.0</jpa.version>
+		<jstl.version>1.2.0</jstl.version>
+		<jta.version>1.1</jta.version>
+		<junit.version>4.7</junit.version>
+		<!-- added liquibase in bundle classpath so shipping this jar as part of 
+			core bundle -->
+		<liquibase.version>2.0.5</liquibase.version>
+		<liquibase.ext.version>2.0.5</liquibase.ext.version>
+		<log4j.version>1.2.16</log4j.version>
+		<log4j-extra.version>1.0</log4j-extra.version>
+		<mysql-connector.version>5.1.23</mysql-connector.version>
+		<org.springframework.ldap.version>1.3.1.RELEASE</org.springframework.ldap.version>
+		<org.springframework.security.version>3.0.8.RELEASE</org.springframework.security.version>
+		<org.springframework.security.ldap.version>3.0.8.RELEASE</org.springframework.security.ldap.version>
+		<org.springframework.version>3.0.7.RELEASE</org.springframework.version>
+		<quartz.version>1.6.2</quartz.version>
+		<recaptcha4j.version>0.0.8</recaptcha4j.version>
+		<seleniumclient.version>1.0.1</seleniumclient.version><!-- selenium downgraded 
+			from 1.0.2 to 1.0.1 -->
+		<servlet.version>3.0.0.v201103241009</servlet.version>
+		<slf4j.version>1.5.6</slf4j.version>
+		<tiles.version>2.2.2</tiles.version>
+		<wiser.version>1.2</wiser.version>
+		<xstream.version>1.3.1</xstream.version>
+		<xalan.version>2.7.0</xalan.version>
+		<wss4j.version>1.5.3</wss4j.version>
+		<wro4j.core.version>1.5.0</wro4j.core.version>
+		<wro4j.extensions.version>1.5.0</wro4j.extensions.version>
+		<maven.surefire.plugin>2.14.1</maven.surefire.plugin>
+		<com.springsource.javax.wsdl.version>1.6.1</com.springsource.javax.wsdl.version>
+		<maxmindgeoip.version>1.2.5</maxmindgeoip.version>
+		<axis-jaxrpc.version>1.4</axis-jaxrpc.version>
+		<com.springsource.org.bouncycastle.mail.version>1.46.0</com.springsource.org.bouncycastle.mail.version>
+		<com.springsource.org.bouncycastle.jce.version>1.46.0</com.springsource.org.bouncycastle.jce.version>
+		<javax.ejb.version>3.0.0</javax.ejb.version>
+		<jasypt.version>1.5.0</jasypt.version>
+		<jcraft.jsch.version>0.1.41</jcraft.jsch.version>
+		<com.citrix.cpbm.commons-vfs.version>1.0</com.citrix.cpbm.commons-vfs.version>
+		<pdfbox.version>1.5.0</pdfbox.version>
+		<fop.version>1.0</fop.version>
+		<css2fop.version>1.6.2</css2fop.version>
+		<dbunit.version>2.2.0</dbunit.version>
+		<javax.mail.version>1.4.0</javax.mail.version>
+		<apache.directory.server.version>1.5.5</apache.directory.server.version>
+		<__htmlescapeoverride.version>1.0.0</__htmlescapeoverride.version>
+		<csrfguard.version>3.0.0</csrfguard.version>
+		<opensaml.version>1.1.0</opensaml.version><!-- opensaml downgraded from 
+			2.4.1 to 1.1.0 -->
+		<javax.servlet.jsp.version>2.1.0</javax.servlet.jsp.version>
+		<apache.commons.fileupload.version>1.2.0</apache.commons.fileupload.version>
+		<antisamy.version>1.4.5</antisamy.version>
+		<cobertura.version>1.9.4.1</cobertura.version>
+		<commons.validator.version>1.4.0</commons.validator.version>
+		<jsoup.version>1.6.2</jsoup.version>
+		<apache.velocity.tools.version>1.4.0</apache.velocity.tools.version>
+		<codehaus.jettison.version>1.0.0</codehaus.jettison.version>
+		<commons.configuration.version>1.6</commons.configuration.version>
+		<apache.commons.beanutils.version>1.8.0</apache.commons.beanutils.version>
+		<easymock.version>3.0</easymock.version>
+		<virgo.repository.usr.location>${env.VIRGO_HOME}/repository/usr</virgo.repository.usr.location>
+		<virgo.default.impls.location>${env.VIRGO_HOME}/default_impls</virgo.default.impls.location>
+		<virgo.connector.location>${env.VIRGO_HOME}/connectors</virgo.connector.location>
+
+		<!-- Deployment -->
+		<deploy.manager.url>http://localhost:8080/manager</deploy.manager.url>
+		<!-- Resource properties -->
+		<copyright.year>2011</copyright.year>
+		<core.osgi.version>5.0.0</core.osgi.version>
+		<cloud.portal.build.id>default</cloud.portal.build.id>
+		<org.springframework.context.fragment.version>1.0.0</org.springframework.context.fragment.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>com.springsource.org.apache.commons.lang</artifactId>
+				<version>${apache.commons-lang.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>vmops</groupId>
+				<artifactId>citrix.cpbm.workflow</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

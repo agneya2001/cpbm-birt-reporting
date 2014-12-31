@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+ "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+<!-- add custom definitions here. it should have atleast one definition-->
+  <definition name="application" template="/WEB-INF/jsp/layouts/application.jsp">
+    <put-attribute name="header" value="/WEB-INF/jsp/tiles/shared/header.jsp" cascade="true"/>
+    <put-attribute name="logo" value="/WEB-INF/jsp/tiles/shared/logo.jsp" cascade="true"/> 
+    <put-attribute name="footer" value="/WEB-INF/jsp/tiles/shared/footer.jsp"/>
+    <put-attribute name="customHeader" value="/WEB-INF/jsp/tiles/shared/customHeader.jsp"/>
+  </definition>
+  
+   <definition name="report.iaas" extends="application">
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/reports/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/iaas_reports.jsp" cascade="true"/>
+  </definition> 
+
+   <definition name="support.iaas" extends="application">
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/support/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/support/iaas_reports.jsp" cascade="true"/>
+  </definition> 
+  
+  
+</tiles-definitions>

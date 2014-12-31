@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<Service>
+	<Bootstrap>
+		<Id type="CLOUD" singleton="false" category="STAAS">CitrixDemo</Id>
+		<Connector ref="mystass">com.citrix.cpbm.platform.spi.CloudServiceConnector</Connector>
+		<Image type="logo">logo.jpg</Image>	
+		<Vendor version="1.3.6">Citrix</Vendor>
+
+		<Configuration>
+		<Property id="com.caringo.stass.URL" type="URL" encrypted="false" validation='{"required":true}' />
+		<Property id="com.caringo.stass.adminkey" type="String" encrypted="true" validation='{"required":true}'/>
+		<Property id="com.caringo.stass.secretkey" type="String" encrypted="false" validation='{"required":true}' />
+		<Property id="com.caringo.stass.SSOkey" type="String" encrypted="false" validation='{"required":true}' />
+	</Configuration>
+	<AccountConfiguration editor="myac.jsp">
+		<Property id="domain" type="URL" encrypted="false" validation='{"required":true}'/>
+	</AccountConfiguration>    
+
+		</Bootstrap>
+
+ <AccountControls>
+        <Property id="no_vms" type="Number" validation='{"required":true}' />
+        <Property id="no_ips" type="Number" validation='{"required":true}' />
+  </AccountControls>
+
+	
+	<ResourceMetadata>
+  <ResourceType name="VirtualMachine" constraint="NONE">
+    <Properties editor="createVirtualMachine.jsp">
+         <Property id="hostName" type="String" validation='{"required":false}'/>
+         <Property id="displayName" type="String" validation='{"required":false}'/>
+         <Property id="group" type="String" validation='{"required":false}'/>
+         <Property id="diskOfferingUuid" type="String" validation='{"required":false}'/>
+         <Property id="keypair" type="String" validation='{"required":false}'/>
+         <Property id="diskSize" type="String" validation='{"required":false}'/>
+         <Property id="keyboard" type="String" validation='{"required":false}'/>
+         <Property id="networkOfferingUuid" type="String" validation='{"required":false}'/>
+         <Property id="securitygroupIds" type="String" validation='{"required":false}'/>
+    </Properties>
+    <Group name="fromTemplate">
+      <Component name="serviceOfferingUuid" discriminator="serviceOfferingUuid" reconfigurable="true"/>
+      <Component name="templateUuid" discriminator="templateUuid" />
+      <Component name="hypervisorType" discriminator="hypervisorType" />
+    </Group>
+    <Generates>
+      <Usage>RUNNING_VM</Usage>
+      <Usage>ALLOCATED_VM</Usage>
+    </Generates>
+  </ResourceType>
+
+  <UsageType name="RUNNING_VM" uom="Hours">
+    <Discriminator>cpu</Discriminator>
+    <Discriminator>ramSize</Discriminator>
+    <Discriminator>speed</Discriminator>
+    <Discriminator>isHaEnabled</Discriminator>
+    <Discriminator>guestOsName</Discriminator>
+  </UsageType>
+
+  <UsageType name="ALLOCATED_VM" uom="Hours">
+    <Discriminator>cpu</Discriminator>
+    <Discriminator>ramSize</Discriminator>
+    <Discriminator>speed</Discriminator>
+    <Discriminator>isHaEnabled</Discriminator>
+    <Discriminator>guestOsName</Discriminator>
+  </UsageType>
+
+  <UsageType name="IP_ADDRESS" uom="IP-Month"/>
+
+  <UsageType name="NETWORK_BYTES_SENT" uom="GB">
+    <Discriminator>networkOfferingUuid</Discriminator>
+    <Discriminator>isRedundantRouterServiceEnabled</Discriminator>
+    <Discriminator>isVlanEnabled</Discriminator>
+  </UsageType>
+
+  <UsageType name="NETWORK_BYTES_RECEIVED" uom="GB">
+    <Discriminator>networkOfferingUuid</Discriminator>
+    <Discriminator>isRedundantRouterServiceEnabled</Discriminator>
+    <Discriminator>isVlanEnabled</Discriminator>
+  </UsageType>
+
+  <UsageType name="VOLUME" uom="GB-Months">
+    <Discriminator>diskOfferingUuid</Discriminator>
+    <Discriminator>volumeType</Discriminator>
+    <Discriminator>poolType</Discriminator>
+    <Discriminator>size</Discriminator>
+    <Discriminator>volumeTags</Discriminator>
+  </UsageType>
+
+  <UsageType name="TEMPLATE" uom="Hours">
+    <Discriminator>isPublic</Discriminator>
+    <Discriminator>isFeatured</Discriminator>
+    <Discriminator>isSshKeyEnabled</Discriminator>
+    <Discriminator>isCrossZonesEnabled</Discriminator>
+  </UsageType>
+
+  <UsageType name="ISO" uom="Hours"/>
+
+  <UsageType name="SNAPSHOT" uom="Hours">
+    <Discriminator>diskOfferingUuid</Discriminator>
+    <Discriminator>poolType</Discriminator>
+    <Discriminator>snapshotSize</Discriminator> <!-- same as cpu, speed, etc. -->
+  </UsageType>
+
+  <UsageType name="SECURITY_GROUP" uom="Hours"/>
+
+  <UsageType name="LOAD_BALANCER_POLICY" uom="Hours"/>
+
+  <UsageType name="PORT_FORWARDING_RULE" uom="Hours"/>
+
+  <UsageType name="NETWORK_OFFERING" uom="Hours">
+    <Discriminator>isRedundantRouterServiceEnabled</Discriminator>
+    <Discriminator>isVlanEnabled</Discriminator>
+  </UsageType>
+
+  <UsageType name="VPN_USERS" uom="Hours"/>
+
+  <Filter name="zoneUuid" />
+</ResourceMetadata>
+
+
+  <Roles>
+    <Role name="ROLE_CLOUD_MANAGEMENT" scope="GLOBAL_ADMIN" />
+    <Role name="ROLE_ACCOUNT_CLOUD_MANAGEMENT" scope="TENANT_ADMIN" />
+    <Role name="ROLE_USER_CLOUD_MANAGEMENT" scope="TENANT" />
+  </Roles>
+	
+</Service>

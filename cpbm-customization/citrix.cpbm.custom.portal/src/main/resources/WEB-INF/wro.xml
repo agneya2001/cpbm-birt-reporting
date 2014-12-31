@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<groups xmlns="http://www.isdc.ro/wro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
+
+  <group name="all">
+	<js>/js/jquery-1.7.1.min.js</js>
+	<js>/js/jquery.stateselect.js</js>
+	<js>/js/jquery.tools.min.js</js>
+	<js>/js/jquery.validate.min.js</js>
+	<js>/js/jquery.validate.creditcard2-1.0.1.js</js>
+	<js>/js/jquery-ui-1.7.2.custom.min.js</js>
+	<js>/js/i18n/jquery-ui-i18n.js</js>
+  <js>/js/jquery.ui.dialog.patch.js</js>
+	<js>/js/jquery.timers.js</js>
+	<js>/js/header.js</js>
+	<css>/css/jquery/themes/base/jquery.ui.theme.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.tabs.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.slider.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.resizable.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.progressbar.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.dialog.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.datepicker.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.core.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.button.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.base.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.autocomplete.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.all.css</css>
+	<css>/css/jquery/themes/base/jquery.ui.accordion.css</css>
+	<css>/css/jquery.reject.css</css>
+	<css>/css/jquery/themes/base/jquery-ui-1.7.2.custom.css</css>
+  </group>
+  <group name="app">
+  	<js>/js/app.js</js>
+  </group>
+</groups>

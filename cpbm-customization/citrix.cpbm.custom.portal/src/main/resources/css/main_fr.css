@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */
+/* CSS Document */
+#l3_securitygroup_tab p {
+  font-size: 11px;
+  margin-left: 3px;
+}
+.widget_titlebar.dropdownbutton {
+  margin: 5px 5px 0 0;
+  padding: 4px 3px 0 3px;
+}
+.widget_titlebar.dropdownbutton span.text {
+  font-size: 9px;
+}
+.widget_titlebar h2 {
+  margin: 6px 0 0 6px;
+}
+.widget_titlebar h2.wide {
+  margin: 6px 0 0 2px;
+}
+.widget_addbutton {
+  font-size: 9px;
+  margin: 5px 5px 0 0;
+  padding: 4px 2px 0 2px;
+}
+.widget_addbutton.wide {
+  margin: 5px 0px 0px 0px;
+}
+.widgetcatalog_cataloglist.sections.subscription.contentarea a.subscribebutton
+  {
+  font-size: 9px;
+  padding: 5px 2px 0 1px;
+}
+.configure_box.titlepanel {
+  height: 60px;
+}
+.db_billing_calendarblock .calendaricon span.title {
+  font-size: 10px;
+}
+.db_billing_calendarblock span.infotext {
+  font-size: 9px;
+}
+span.required_product_units_header{
+  margin-top:0px !important;
+}
+.widget_searchcontentarea span.label {
+  font-size: 9px;
+}
+
+.maintitlebox h1 {
+  font-size: 15px;
+}
+.widgetwizard_reviewbox li span.label,.widgetwizard_reviewbox li span.description{
+  width: 220px; 
+}
+.catalog_signupmenubox_popover {
+  left: 198px;
+  }
+.catalog_signupmenubox_popover.anonymous_catalog{
+  left: 191px;
+}
+
+#approvalTask_panel .widgetwizard_reviewbox ul li .dialog_formcontent_errormsg{
+  margin-left: 245px;
+}
+.widgetcatalog_cataloglist.sections.subscription.contentarea.monthlyNoRecurring .pertime {
+  font-size : 9px;
+  margin-bottom : 5px;
+}
+.widgetcatalog_cataloglist.sections.subscription.contentarea.monthlyNoRecurring .widgetcatalog_cataloglist_ratesbox {
+  width : 205px;
+}
+.widget_loadertext_vm p {
+  font-size: 12px;
+}

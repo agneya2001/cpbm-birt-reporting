@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Version: ${project.version}
+Bundle-Name: CPBM Portal Custom
+Fragment-Host: citrix.cpbm.portal.core;bundle-version="[2.0.0,3.0.0)"
+Bundle-SymbolicName: citrix.cpbm.custom.portal
+Bundle-Vendor: Citrix Inc.
+Import-Package: com.citrix.cpbm.custom.service;version="2.0.0",
+ com.citrix.cpbm.custom.model;version="2.0.0"
+Bundle-ClassPath: patch.jar,.

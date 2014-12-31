@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+ "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+  <!--  layouts -->
+  <definition name="application" template="/WEB-INF/jsp/layouts/application.jsp">
+    <put-attribute name="header" value="/WEB-INF/jsp/tiles/shared/header.jsp" cascade="true"/>
+    <put-attribute name="logo" value="/WEB-INF/jsp/tiles/shared/logo.jsp" cascade="true"/> 
+    <put-attribute name="footer" value="/WEB-INF/jsp/tiles/shared/footer.jsp"/>
+     <put-attribute name="customHeader" value="/WEB-INF/jsp/tiles/shared/customHeader.jsp"/>
+  </definition> 
+     <definition name="application.signup" template="/WEB-INF/jsp/layouts/application_login.jsp">
+    <put-attribute name="header" value="/WEB-INF/jsp/tiles/auth/header_signup.jsp"/>
+     <put-attribute name="customHeader" value="/WEB-INF/jsp/tiles/shared/customHeader.jsp"/>
+     <put-attribute name="captcha_strings" value="/WEB-INF/jsp/tiles/shared/captcha_strings.jsp"/>
+  </definition> 
+     
+  <definition name="application.login" template="/WEB-INF/jsp/layouts/application_login.jsp">
+    <put-attribute name="header" value="/WEB-INF/jsp/tiles/auth/header.jsp"/>
+     <put-attribute name="customHeader" value="/WEB-INF/jsp/tiles/shared/customHeader.jsp"/>
+     <put-attribute name="captcha_strings" value="/WEB-INF/jsp/tiles/shared/captcha_strings.jsp"/>
+  </definition> 
+  
+  <definition name="application.error" template="/WEB-INF/jsp/layouts/application_login.jsp">
+   <put-attribute name="customHeader" value="/WEB-INF/jsp/tiles/shared/customHeader.jsp"/>
+  </definition>
+
+  <!-- main --> 
+  <definition name="main.home" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelwithoutmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/main/home.jsp" cascade="true"/>
+    <put-attribute name="gauge" value="/WEB-INF/jsp/tiles/reports/linearGauge.jsp" cascade="true"/>
+    <put-attribute name="chart" value="/WEB-INF/jsp/tiles/reports/columnChart.jsp" cascade="true"/>
+  </definition>
+  <definition name="main.home_with_second_level" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/main/home.jsp" cascade="true"/>
+    <put-attribute name="spendvsbudget" value="/WEB-INF/jsp/tiles/reports/spendvsbudget.jsp" cascade="true"/>
+    <put-attribute name="spendvstype" value="/WEB-INF/jsp/tiles/reports/spendvstype.jsp" cascade="true"/>    
+  </definition>
+  <definition name="main.home_service_with_second_level" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/main/home_service.jsp" cascade="true"/>
+    <put-attribute name="chart" value="/WEB-INF/jsp/tiles/reports/genericChart.jsp" cascade="true"/>
+  </definition>
+  <definition name="main.home_connector_cs_admin" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/main/thirdlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/main/cslist.jsp" cascade="true"/>
+  </definition>
+  <definition name="company_setup.connector_cs" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/manageresource_secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/main/cs_instance_list.jsp" cascade="true"/>
+  </definition>  
+  <definition name="company_setup.connector_cs_admin" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/main/cs_instance_list.jsp" cascade="true"/>
+  </definition>  
+  <definition name="main.home_connector_oss" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/main/thirdlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/main/osslist.jsp" cascade="true"/>
+  </definition>
+ 
+  <definition name="home.task.widget" template="/WEB-INF/jsp/tiles/main/homeTasksWidget.jsp"/>
+  <definition name="main.home_connector_enable" template="/WEB-INF/jsp/tiles/main/enable_connector.jsp">    
+  </definition> 
+  <definition name="main.home_cs.instance.add" template="/WEB-INF/jsp/tiles/main/add_cs_instance.jsp">    
+  </definition> 
+  <definition name="main.home_cs.instance.edit" template="/WEB-INF/jsp/tiles/main/edit_cs_instance.jsp">    
+  </definition> 
+  <definition name="main.home_cs.instance.config.properties" template="/WEB-INF/jsp/tiles/main/service_instance_config_properties.jsp">    
+  </definition> 
+  <definition name="main.home_cs.edit_instance.config.properties" template="/WEB-INF/jsp/tiles/main/edit_instance_config_prop.jsp">    
+  </definition> 
+  <definition name="main.home_service.details" template="/WEB-INF/jsp/tiles/main/cs_details.jsp">    
+  </definition> 
+  <definition name="main.home_oss.instance.edit" template="/WEB-INF/jsp/tiles/main/oss_instance_details.jsp">    
+  </definition>
+  
+  <definition name="cookie_warning" template="/WEB-INF/jsp/tiles/shared/cookie_warning.jsp"/>
+  
+  <!-- Home Report   -->     
+   <definition name="main.homereport" template="/WEB-INF/jsp/tiles/main/home_report.jsp" >    
+  	</definition>
+  
+  <!-- Home Report   -->     
+  
+  <definition name="blankview" template="/WEB-INF/jsp/tiles/shared/blank.jsp">
+  </definition> 
+  <definition name="google.analytics" template="/WEB-INF/jsp/tiles/shared/google_analytics.jsp"/>
+  
+  
+  <!-- Authentication -->
+   <definition name="email.verified" extends="application.login" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/login.jsp" cascade="true"/>
+  </definition>
+  <definition name="auth.login" extends="application.login" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/login.jsp" cascade="true"/>
+  </definition>
+  <definition name="auth.loggedout" extends="application.login" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/login.jsp" cascade="true"/>
+  </definition>
+
+  <definition name="auth.request_reset" extends="application.login" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/request_reset.jsp" cascade="true"/>
+  </definition>
+  <definition name="auth.request_reset_success" extends="application.login" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/request_reset_success.jsp" cascade="true"/>
+  </definition>
+  <definition name="auth.reset" extends="application.login" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/reset_password.jsp" cascade="true"/>
+  </definition>
+  
+  <!-- catalogs --> 
+  <definition name="browsecataloglayout" template="/WEB-INF/jsp/layouts/application.jsp">
+    <put-attribute name="header" value="/WEB-INF/jsp/tiles/auth/headerforbrowsecatalog.jsp" cascade="true"/>
+    <put-attribute name="logo" value="/WEB-INF/jsp/tiles/shared/logo.jsp" cascade="true"/> 
+    <put-attribute name="footer" value="/WEB-INF/jsp/tiles/shared/footer.jsp"/>
+     <put-attribute name="customHeader" value="/WEB-INF/jsp/tiles/shared/customHeader.jsp"/>
+  </definition> 
+
+
+  <definition name="anonymous.catalog" extends="browsecataloglayout" >
+  <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/anonymousandviewcatalog.jsp" cascade="true"/>
+  <put-attribute name="createsubscription" value="/WEB-INF/jsp/tiles/subscriptions/createsubscription.jsp" cascade="true"/>
+  </definition>
+  
+  <definition name="convert.subscription" template="/WEB-INF/jsp/tiles/subscriptions/convertSubscription.jsp" />
+  <definition name="entitlements.table" template="/WEB-INF/jsp/tiles/subscriptions/entitlementsTable.jsp" />
+  
+  <!-- registration -->  
+
+  <definition name="register.account_type" extends="application.signup">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/register/pageHeader.jsp" cascade="true"/>  
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/register/account_type.jsp" cascade="true"/>
+  </definition>
+  <definition name="register.userinfo" extends="application.signup">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/register/pageHeader.jsp" cascade="true"/>  
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/register/userinfo.jsp" cascade="true"/>
+  </definition>
+  <definition name="register.fail" extends="application.signup">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/register/pageHeader.jsp" cascade="true"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/register/registration_failure.jsp" cascade="true"/>
+  </definition>
+
+  <definition name="register.moreuserinfo" extends="application.signup">
+      <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/register/pageHeader.jsp" cascade="true"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/register/moreuserinfo.jsp" cascade="true"/>
+  </definition> 
+     <definition name="register.phoneverification" extends="application.signup">
+      <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/register/pageHeader.jsp" cascade="true"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/register/phoneverification.jsp" cascade="true"/>
+  </definition> 
+
+  <definition name="register.registration_success" extends="application.signup" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/register/registration_success.jsp" cascade="true"/>
+  </definition>
+  <definition name="register.setpassword" extends="application.login" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/register/set_password.jsp" cascade="true"/>
+  </definition>
+
+  <definition name="captcha" template="/WEB-INF/jsp/tiles/register/captcha.jsp"/>
+
+  <definition name="user.show" template="/WEB-INF/jsp/tiles/users/viewusers.jsp">    
+  </definition> 
+ 
+    <definition name="users.list_with_admin_menu" extends="application">
+     <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/users/pageHeader.jsp"/>    
+     <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/admin/secondlevelmenu.jsp"/>     
+     <put-attribute name="body" value="/WEB-INF/jsp/tiles/users/listusers.jsp" cascade="true"/>
+  </definition>
+  
+  <definition name="users.list_with_user_menu" extends="application">
+     <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/users/pageHeader.jsp"/>
+     <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+     <put-attribute name="body" value="/WEB-INF/jsp/tiles/users/listusers.jsp" cascade="true"/>
+  </definition>
+  <definition name="users.nonroot.list_with_user_menu" extends="application">
+     <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/users/pageHeader.jsp"/>
+     <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/users/secondlevelmenu.jsp"/>
+     <put-attribute name="body" value="/WEB-INF/jsp/tiles/users/listusers.jsp" cascade="true"/>
+  </definition>
+  
+  <!-- Tenant -->  
+  <definition name="tenants.new" template="/WEB-INF/jsp/tiles/tenants/create.jsp">
+  </definition> 
+  
+  <definition name="tenants.edit" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/tenants/pageHeader.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/tenants/edit.jsp" cascade="true"/>
+  </definition>
+    
+  <definition name="tenant.showlimits" template="/WEB-INF/jsp/tiles/tenants/showaccountlimits.jsp">
+  </definition>
+  <definition name="tenant.editaccountlimits" template="/WEB-INF/jsp/tiles/tenants/editaccountlimits.jsp">
+  </definition>
+
+  <definition name="tenants.editcurrent" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/tenants/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/tenants/secondlevelforcompanyprofile.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/tenants/editcurrent.jsp" cascade="true"/>
+  </definition>
+  
+  <definition name="tenants.editcurrentlogo" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/tenants/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/tenants/secondlevelwithoutmenucustomize.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/tenants/editcurrentlogo.jsp" cascade="true"/>
+  </definition>
+  
+
+  <definition name="tenant.search.list" template="/WEB-INF/jsp/tiles/tenants/searchlist.jsp"></definition>
+  
+  <definition name="tenant.listing" extends="application">
+  <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/tenants/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/tenants/secondlevelaccountsmenu.jsp"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/tenants/thirdlevelmenu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/tenants/list.jsp"/>
+  </definition>
+  
+  <definition name="tenants.notifications" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/notifications/listnotifications.jsp" cascade="true"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>    
+   </definition> 
+    <definition name="tenants.alerts" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/notifications/listalerts.jsp" cascade="true"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>    
+  </definition> 
+  <definition name="tenant.change.state" template="/WEB-INF/jsp/tiles/tenants/changeaccountstate.jsp">    
+  </definition>  
+  <definition name="tenant.issue.credit" template="/WEB-INF/jsp/tiles/tenants/issuecredit.jsp">    
+  </definition>  
+  <definition name="tenant.view" template="/WEB-INF/jsp/tiles/tenants/viewtenant.jsp">    
+  </definition>  
+  <definition name="tenant.edit" template="/WEB-INF/jsp/tiles/tenants/edit.jsp">    
+  </definition>    
+  <definition name="tenant.state.changes" template="/WEB-INF/jsp/tiles/tenants/liststatechanges.jsp">    
+  </definition> 
+  <!-- Spend Limit -->
+  <definition name="spend_limit.manage" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/tenants/pageHeader.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/spendLimit/spend_limit_manage.jsp" cascade="true"/>
+  </definition>
+  
+  <!-- System Health -->
+  <definition name="system.health" extends="application">
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/support/secondlevelmenu.jsp"/>
+	<put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/support/thirdlevelmenu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/health/health.jsp" cascade="true"/>
+  </definition>
+    <definition name="system.health.maintenance" extends="application">
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/support/secondlevelmenu.jsp" />
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/support/thirdlevelmenu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/health/healthMaintainance.jsp" cascade="true" />
+  </definition>
+
+  <definition name="system.health_addNotification" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/health/health_addNotification.jsp" cascade="true"/>    
+  </definition>  
+  <definition name="system.health.statusDetails" template="/WEB-INF/jsp/tiles/health/details.jsp">    
+  </definition>
+  <definition name="system.health.editStatusDetails" template="/WEB-INF/jsp/tiles/health/editStatusDetails.jsp">    
+  </definition>  
+  <definition name="system.health.addStatus" template="/WEB-INF/jsp/tiles/health/healthAddStatus.jsp">
+  </definition>
+  <definition name="system.health.addSchedMaintenance" template="/WEB-INF/jsp/tiles/health/addSchedMaintenance.jsp">
+  </definition>
+  <definition name="system.health.maintenanceView" template="/WEB-INF/jsp/tiles/health/maintenanceView.jsp">
+  </definition>
+    
+  <!--  Errors -->   
+  <definition name="errors/error" extends="application.error" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/errors/error.jsp" cascade="true"/>
+  </definition>
+  <definition name="errors/notfound" extends="application.error" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/errors/notfound.jsp" cascade="true"/>
+  </definition>
+  <definition name="errors/csrferror" extends="application.error" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/errors/csrferror.jsp" cascade="true"/>
+  </definition>
+  <definition name="errors/serviceerror" extends="application.error">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/errors/serviceerror.jsp" cascade="true" />
+  </definition>
+  <definition name="errors/notauthorized" extends="application.error" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/errors/notfound.jsp" cascade="true"/>
+  </definition>
+  <definition name="errors.emptypage" template="/WEB-INF/jsp/tiles/errors/emptyPage.jsp" >
+  </definition>
+  <definition name="errors.messagepage" template="/WEB-INF/jsp/tiles/errors/messagePage.jsp" >
+  </definition>
+  <definition name="errors.detailed.messagepage" template="/WEB-INF/jsp/tiles/errors/detailedMessagePage.jsp" >
+  </definition>
+  <definition name="errors.hibernate.exception" extends="application.error" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/errors/error.jsp" cascade="true"/>
+  </definition>
+  
+   <!-- Forum -->
+  <definition name="forum.show" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/forum/show.jsp" cascade="true"/>
+  </definition>
+  
+   <!-- Profiles -->
+  <definition name="profiles.show" extends="application">
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/admin/secondlevelmenu.jsp"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/profiles/thirdlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/profiles/show.jsp" cascade="true"/>
+  </definition>
+  
+  <definition name="profiles.edit" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/profiles/pageHeader.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/profiles/edit.jsp" cascade="true"/>
+  </definition>
+  
+  <!-- Reports -->
+  <definition name="report.promoCode" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/promoCode.jsp" cascade="true"/>
+  </definition>
+  <definition name="report.promoCodeExport" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/promoCodeExport.jsp" cascade="true"/>
+  </definition>
+  <definition name="report.newRegistration" extends="application">
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/reports/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/newregistration.jsp" cascade="true"/>
+    <put-attribute name="chart" value="/WEB-INF/jsp/tiles/reports/genericChart.jsp" cascade="true"/>
+  </definition> 
+  <definition name="report.usageSpend" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/spendusage.jsp" cascade="true"/>
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/reports/secondlevelmenu.jsp"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/reports/spend/thirdlevelmenu.jsp"/>
+    <put-attribute name="chart" value="/WEB-INF/jsp/tiles/reports/genericChart.jsp" cascade="true"/>    
+  </definition> 
+  <definition name="report.channelUsage" extends="application">
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/reports/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/channelusage.jsp" cascade="true"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/reports/productusage/thirdlevelmenu.jsp"/>
+  </definition> 
+  <definition name="report.customerRank" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/customerrank.jsp" cascade="true"/>
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/reports/secondlevelmenu.jsp"/>
+    <put-attribute name="chart" value="/WEB-INF/jsp/tiles/reports/genericChart.jsp" cascade="true"/>    
+  </definition>
+  <definition name="report.customReports" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/customreports.jsp" cascade="true"/>
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/reports/secondlevelmenu.jsp"/>
+    <put-attribute name="chart" value="/WEB-INF/jsp/tiles/reports/genericChart.jsp" cascade="true"/>    
+  </definition>  
+   
+   <definition name="report.reportData" template="/WEB-INF/jsp/tiles/reports/reportData.jsp" >    
+  	</definition>
+   
+   <definition name="report.dailyReportOut"  template="/WEB-INF/jsp/tiles/reports/dailyReportOut.jsp" >    
+  	</definition>
+  	
+  	
+  <definition name="billing.showCreditCardDetails" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/billing/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="leftNav" value="/WEB-INF/jsp/tiles/billing/leftnav.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/billing/showcreditcarddetails.jsp" cascade="true"/>
+  </definition>
+ 
+  <definition name="billing.showSubscriptions" extends="application">
+     <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/billing/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="leftNav" value="/WEB-INF/jsp/tiles/billing/leftnav.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/billing/showsubscriptions.jsp" cascade="true"/>
+  </definition>
+  <definition name="billing.viewSubscription" template="/WEB-INF/jsp/tiles/billing/viewsubscription.jsp">    
+  </definition>  
+  <definition name="billing.history" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/billing/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="leftNav" value="/WEB-INF/jsp/tiles/billing/leftnav.jsp"/>    
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/billing/billingHistory.jsp" cascade="true"/>
+  </definition>
+  <definition name="billing.paymentHistory" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/billing/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="leftNav" value="/WEB-INF/jsp/tiles/billing/leftnav.jsp"/>    
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/billing/paymentHistory.jsp" cascade="true"/>
+  </definition>
+  
+  <definition name="billing.usageBilling" extends="application">
+     <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+     <put-attribute name="leftNav" value="/WEB-INF/jsp/tiles/billing/leftnav.jsp"/>
+     <put-attribute name="body" value="/WEB-INF/jsp/tiles/billing/usage_billing.jsp" cascade="true"/>
+  </definition>   
+  <definition name="billing.record_deposit" template="/WEB-INF/jsp/tiles/billing/record_deposit.jsp" >
+  </definition>
+  <definition name="billing.show_record_deposit" extends="application">
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/billing/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+    <put-attribute name="leftNav" value="/WEB-INF/jsp/tiles/billing/leftnav.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/billing/show_record_deposit.jsp" cascade="true"/>
+  </definition>
+
+  <definition name="billing.view.billing.activity" template="/WEB-INF/jsp/tiles/billing/viewbillingactivity.jsp">   
+  </definition> 
+  <definition name="billing.view.billing.paymentactivity" template="/WEB-INF/jsp/tiles/billing/viewPaymentActivity.jsp">   
+  </definition>  
+   <definition name="billing.view.invoice.details" template="/WEB-INF/jsp/tiles/billing/viewinvoicedetails.jsp">   
+  </definition>  
+   <definition name="billing.change.account.type" template="/WEB-INF/jsp/tiles/billing/changeaccounttype.jsp">   
+  </definition> 
+  
+  <!-- Support/Tickets -->
+  <definition name="support.tickets.js_messages" template="/WEB-INF/jsp/tiles/support/js_messages.jsp">
+  </definition>
+  <definition name="support.tickets" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/support/tickets.jsp" cascade="true"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/support/secondlevelmenu.jsp"/>    
+  </definition>  
+  <definition name="support.tickets.list" template="/WEB-INF/jsp/tiles/support/ticketlist.jsp">
+  </definition>
+  <definition name="support.tickets.create" template="/WEB-INF/jsp/tiles/support/createTicket.jsp">
+  </definition>
+  <definition name="support.tickets.view" template="/WEB-INF/jsp/tiles/support/viewticket.jsp">
+  </definition>  
+  <definition name="support.tickets.edit" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/support/editTicket.jsp" cascade="true"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/support/secondlevelmenu.jsp"/>   
+  </definition>
+  <definition name="home.support.tickets.count" template="/WEB-INF/jsp/tiles/support/home_tickets_count_chart.jsp">
+  </definition>
+  <definition name="support.tickets.createonly" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/support/formToEmail.jsp" cascade="true"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/support/secondlevelmenu.jsp"/>    
+  </definition>
+ 
+  <!-- Configuration -->
+  <definition name="config.list" extends="application" >
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/admin/secondlevelmenu.jsp"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/config/thirdlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/config/list.jsp" cascade="true"/>
+  </definition>
+  <definition name="configuration.edit" template="/WEB-INF/jsp/tiles/config/editconfiguration.jsp">    
+  </definition> 
+ 
+  <definition name="catalog.utilityrates" extends="application">
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/subscriptions/secondlevelmenu.jsp"/>    
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/subscriptions/utilityrates.jsp" cascade="true"/>
+  </definition>  
+ <definition name="catalog.utilityrates.lightbox" template="/WEB-INF/jsp/tiles/subscriptions/utilityrates.jsp"></definition>
+ <definition name="catalog.utilityrates.table" template="/WEB-INF/jsp/tiles/subscriptions/utilityrates_table.jsp"></definition>
+ <definition name="home.gravatars.show" template="/WEB-INF/jsp/tiles/main/home_gravatars.jsp"></definition>
+  
+  <!-- Batch Runs -->
+  <definition name="batch.list" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/admin/secondlevelmenu.jsp"/> 
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/batches/list.jsp" cascade="true"/>
+  </definition>
+   <definition name="batch.view" template="/WEB-INF/jsp/tiles/batches/viewjobstatus.jsp">    
+  </definition> 
+  
+    <!-- Account Types -->
+  <definition name="accounttypes.list" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/admin/secondlevelmenu.jsp"/> 
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/accounttypes/list.jsp" cascade="true"/>
+  </definition>
+   <definition name="accounttype.view" template="/WEB-INF/jsp/tiles/accounttypes/viewaccounttype.jsp">    
+  </definition>
+  <definition name="accounttype.edit" template="/WEB-INF/jsp/tiles/accounttypes/editaccounttype.jsp">    
+  </definition>  
+  
+  <definition name="accounttypecontrols.edit" template="/WEB-INF/jsp/tiles/accounttypes/editaccounttypecontrols.jsp">    
+  </definition> 
+  
+  <definition name="creditexposure.edit" template="/WEB-INF/jsp/tiles/accounttypes/editcreditexposurelimit.jsp">    
+  </definition>  
+  <definition name="initialdeposit.edit" template="/WEB-INF/jsp/tiles/accounttypes/editinitialdeposit.jsp">    
+  </definition>  
+
+    <!-- Email Templates -->
+  <definition name="email.templates" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/admin/secondlevelmenu.jsp"/> 
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/emailtemplates/thirdlevelmenu.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/emailtemplates/list.jsp" cascade="true"/>
+  </definition>
+  <definition name="emailtemplate.view" template="/WEB-INF/jsp/tiles/emailtemplates/viewemailtemplate.jsp">    
+  </definition>
+  <definition name="emailtemplate.edit" template="/WEB-INF/jsp/tiles/emailtemplates/editemailtemplate.jsp">    
+  </definition>
+
+    <!-- Products -->
+  <definition name="products.service.categories.show" extends="application" >
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/secondlevelmenu.jsp"/>
+  </definition>
+
+  <definition name="products.instances.show" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/secondlevelmenu.jsp"/>
+    <put-attribute name="thirdlevelheader" value="/WEB-INF/jsp/tiles/products/thirdlevelmenu.jsp" />
+  </definition>
+
+  <definition name="products.list" template="/WEB-INF/jsp/tiles/products/listproducts.jsp">
+  </definition>
+
+  <definition name="subscriptions.new" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/subscriptions/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/subscriptions/createsubscription.jsp" cascade="true"/>
+  </definition>
+  <definition name="channels.catalog.view" template="/WEB-INF/jsp/tiles/products/viewchannelcatalog.jsp" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/auth/anonymousandviewcatalog.jsp" cascade="true"/>
+    <put-attribute name="createsubscription" value="/WEB-INF/jsp/tiles/subscriptions/createsubscription.jsp" cascade="true"/>
+  </definition>
+  
+  <definition name="products.search.list" template="/WEB-INF/jsp/tiles/products/searchlist.jsp"></definition>
+  <definition name="products.editlogo"   template="/WEB-INF/jsp/tiles/products/editproductlogo.jsp">
+  </definition>
+  <definition name="product.view.channelpricing"   template="/WEB-INF/jsp/tiles/products/viewproductchannelpricing.jsp">
+  </definition> 
+  <definition name="products.sort"   template="/WEB-INF/jsp/tiles/products/sortproducts.jsp">
+  </definition>
+  <definition name="view.product.current.charges"   template="/WEB-INF/jsp/tiles/products/viewproductcurrentcharges.jsp">
+  </definition>
+ <definition name="view.product.planned.charges"   template="/WEB-INF/jsp/tiles/products/viewproductplannedcharges.jsp">
+  </definition>
+  <definition name="view.product.mediation.rules"   template="/WEB-INF/jsp/tiles/products/viewmediationrules.jsp">
+  </definition>
+  <definition name="edit.planned.charges"   template="/WEB-INF/jsp/tiles/products/editplannedcharges.jsp">
+  </definition>
+  <definition name="view.planned.charges"   template="/WEB-INF/jsp/tiles/products/viewplannedcharges.jsp">
+  </definition>
+  <definition name="product.charges.history"   template="/WEB-INF/jsp/tiles/products/viewproductchargeshistory.jsp">
+  </definition>
+  <definition name="plan.global.catalog.chargerevisions.date"   template="/WEB-INF/jsp/tiles/products/setplandate.jsp">
+  </definition>
+
+  <definition name="bundles.show" extends="application" >
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/productBundles/showbundles.jsp" cascade="true"/>
+  </definition>
+
+  <definition name="bundles.list" template="/WEB-INF/jsp/tiles/productBundles/listbundles.jsp">
+  </definition>
+
+  <definition name="bundles.search.list" template="/WEB-INF/jsp/tiles/productBundles/searchlist.jsp"></definition>
+  <definition name="bundles.sort"   template="/WEB-INF/jsp/tiles/productBundles/sortbundles.jsp"></definition>
+  <definition name="promotions.list" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/channelsecondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/products/listcampaigns.jsp" cascade="true"/>
+  </definition>
+    
+  <definition name="channels.list" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/channelsecondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/products/channels.jsp" cascade="true"/>
+  </definition>
+  <definition name="channels.view" template="/WEB-INF/jsp/tiles/products/viewchannel.jsp">
+  </definition>
+  <definition name="channels.search" template="/WEB-INF/jsp/tiles/products/searchchannellist.jsp">
+  </definition>
+  <definition name="productbundle.add" template="/WEB-INF/jsp/tiles/products/attachproductbundle.jsp">
+  </definition>
+  <definition name="catalog.edit.channelpricing" template="/WEB-INF/jsp/tiles/products/editcatalogproductpricing.jsp">
+  </definition>
+  <definition name="channels.edit" template="/WEB-INF/jsp/tiles/products/editchannel.jsp">    
+  </definition> 
+  <definition name="channels.create" template="/WEB-INF/jsp/tiles/products/createchannel.jsp">    
+  </definition>
+  <definition name="channels.currency.edit" template="/WEB-INF/jsp/tiles/products/editchannelcurrency.jsp">
+  </definition>
+  <definition name="channels.bundle.price.edit" template="/WEB-INF/jsp/tiles/products/editcatalogproductbundlepricing.jsp">
+  </definition>
+  <definition name="catalog.current" template="/WEB-INF/jsp/tiles/products/viewcatalogcurrent.jsp">
+  </definition>
+  <definition name="catalog.planned" template="/WEB-INF/jsp/tiles/products/viewcatalogplanned.jsp">
+  </definition>
+  <definition name="catalog.history" template="/WEB-INF/jsp/tiles/products/viewcataloghistory.jsp">
+  </definition>
+  <definition name="channels.datepicker" template="/WEB-INF/jsp/tiles/products/catalogplandatepicker.jsp">
+  </definition>
+  <definition name="channel.editlogo" template="/WEB-INF/jsp/tiles/products/editchannellogo.jsp">
+  </definition>
+  <definition name="channel.editbranding" template="/WEB-INF/jsp/tiles/products/editchannelbranding.jsp">
+  </definition>
+  <definition name="channel.bundle.scroll.view" template="/WEB-INF/jsp/tiles/products/listcatalogproductbundles.jsp">
+  </definition>
+  <definition name="catalog.bundle" template="/WEB-INF/jsp/tiles/products/catalogproductbundlecharges.jsp">
+  </definition>
+  <definition name="catalog.entitlements.diag" template="/WEB-INF/jsp/tiles/products/catalogentitlementsdialog.jsp">
+  </definition>
+  <definition name="catalog.utilities" template="/WEB-INF/jsp/tiles/products/catalogutilityratecardview.jsp">
+  </definition>
+  <definition name="bundle.manage" extends="application" >
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/productBundles/listratecards.jsp" cascade="true"/>
+  </definition> 
+  <definition name="bundle.view.urc" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/productBundles/viewurc.jsp" cascade="true"/>
+  </definition>  
+  <definition name="catalogs.list" extends="application" >
+  	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/products/secondlevelmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/products/listcatalogs.jsp" cascade="true"/>
+  </definition>  
+  <definition name="products.new" template="/WEB-INF/jsp/tiles/products/createproduct.jsp">    
+  </definition>
+  <definition name="catalogs.new" template="/WEB-INF/jsp/tiles/products/createcatalog.jsp">    
+  </definition>
+  <definition name="promotions.new" template="/WEB-INF/jsp/tiles/products/createcampaign.jsp">    
+  </definition>
+  <definition name="promotions.new.supportedCurrency" template="/WEB-INF/jsp/tiles/products/listSupportedCurrency.jsp">    
+  </definition>
+  <definition name="bundles.new" template="/WEB-INF/jsp/tiles/productBundles/createbundle.jsp">    
+  </definition>
+  <definition name="products.view" template="/WEB-INF/jsp/tiles/products/viewproduct.jsp">    
+  </definition>
+  <definition name="promotions.view" template="/WEB-INF/jsp/tiles/products/viewcampaign.jsp">    
+  </definition>  
+  <definition name="promotions.edit" template="/WEB-INF/jsp/tiles/products/editcampaign.jsp">    
+  </definition>
+  <definition name="catalogs.view" template="/WEB-INF/jsp/tiles/products/viewcatalog.jsp">    
+  </definition>
+  <definition name="bundles.view" template="/WEB-INF/jsp/tiles/productBundles/viewbundle.jsp">    
+  </definition>
+  <definition name="products.edit" template="/WEB-INF/jsp/tiles/products/editproduct.jsp">    
+  </definition>
+  <definition name="catalogs.edit" template="/WEB-INF/jsp/tiles/products/editcatalog.jsp">    
+  </definition>
+  <definition name="bundles.edit" template="/WEB-INF/jsp/tiles/productBundles/editbundle.jsp">    
+  </definition>
+    <definition name="bundles.editlogo" template="/WEB-INF/jsp/tiles/productBundles/editbundlelogo.jsp">    
+  </definition>
+  <definition name="ratecard.edit" template="/WEB-INF/jsp/tiles/productBundles/editratecard.jsp">    
+  </definition>
+  
+  <definition name="ratecard.utility.edit" template="/WEB-INF/jsp/tiles/productBundles/editurc.jsp">    
+  </definition> 
+  <definition name="plan.bundle.charges"   template="/WEB-INF/jsp/tiles/productBundles/plancharges.jsp">
+  </definition>
+  <definition name="edit.bundle.planned.charges"   template="/WEB-INF/jsp/tiles/productBundles/editplannedcharges.jsp">
+  </definition>
+  <definition name="view.all.bundle.planned.charges"   template="/WEB-INF/jsp/tiles/productBundles/viewplannedcharges.jsp">
+  </definition>
+    <definition name="view.bundle.planned.charges"   template="/WEB-INF/jsp/tiles/productBundles/viewbundleplannedcharges.jsp">
+     <put-attribute name="chargesdataview" value="/WEB-INF/jsp/tiles/productBundles/viewbundlechargesdata.jsp"/>
+  </definition>   
+  <definition name="view.bundle.current.charges"   template="/WEB-INF/jsp/tiles/productBundles/viewbundlecurrentcharges.jsp">
+      <put-attribute name="chargesdataview" value="/WEB-INF/jsp/tiles/productBundles/viewbundlechargesdata.jsp"/>
+  </definition> 
+    <definition name="add.bundle.current.charges"   template="/WEB-INF/jsp/tiles/productBundles/addbundlecurrentcharges.jsp">
+  </definition>
+  <definition name="productbundle.charges.history"   template="/WEB-INF/jsp/tiles/productBundles/viewproductbundlechargeshistory.jsp">
+      <put-attribute name="chargesdataview" value="/WEB-INF/jsp/tiles/productBundles/viewbundlechargesdata.jsp"/>
+  </definition>
+
+   <!-- Users -->
+  <definition name="users.edit" extends="application" >
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelwithoutmenu.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/users/edit.jsp" cascade="true"/>
+  </definition>
+   <definition name="users.edit.myprofile" extends="application" >
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/users/pageHeader.jsp"/>   
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/users/secondlevelmenuforprofile.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/users/myprofile.jsp" cascade="true"/>
+  </definition>
+
+  <definition name="users.new.step1" template="/WEB-INF/jsp/tiles/users/createnewUser.jsp">   
+  </definition>  
+  <definition name="users.newuser.customemail"  template="/WEB-INF/jsp/tiles/users/createnewUser.jsp">
+  </definition>
+  <definition name="users.newuserregistration.finish"  template="/WEB-INF/jsp/tiles/users/createnewUser.jsp">
+  </definition>  
+ 
+  <!-- Notifications -->
+  <definition name="notifications.view" template="/WEB-INF/jsp/tiles/notifications/viewnotification.jsp">    
+  </definition>
+  <definition name="alerts.new" template="/WEB-INF/jsp/tiles/notifications/createalert.jsp">    
+  </definition>
+  <definition name="alerts.setaccountbudget" template="/WEB-INF/jsp/tiles/notifications/setaccountbudget.jsp">    
+  </definition>  
+  <definition name="alerts.edit" template="/WEB-INF/jsp/tiles/notifications/editalert.jsp">    
+  </definition>
+    <definition name="alerts.view" template="/WEB-INF/jsp/tiles/notifications/viewalert.jsp">    
+  </definition>
+  <definition name="alerts.delivery_opts" template="/WEB-INF/jsp/tiles/notifications/alerts_delivery_options.jsp">   
+  </definition>   
+  <definition name="alerts.change_primary_email" template="/WEB-INF/jsp/tiles/notifications/change_primary_email.jsp">   
+  </definition>
+  <definition name="user.password_verification" template="/WEB-INF/jsp/tiles/users/password_verification.jsp">   
+  </definition>   
+
+  
+  <definition name="bundle.component" template="/WEB-INF/jsp/tiles/productBundles/bundlecomponent.jsp">   
+  </definition>   
+  <definition name="bundle.entitlement" template="/WEB-INF/jsp/tiles/productBundles/entitlement.jsp">   
+  </definition>  
+  <definition name="bundle.rcc" template="/WEB-INF/jsp/tiles/productBundles/ratecardcomponent.jsp">   
+  </definition>  
+  <definition name="bundle.entitlement.view" template="/WEB-INF/jsp/tiles/productBundles/viewentitlement.jsp">   
+  </definition>  
+  <definition name="bundle.entitlement.list" template="/WEB-INF/jsp/tiles/productBundles/listentitlements.jsp">   
+  </definition>  
+  <definition name="bundle.entitlement.add" template="/WEB-INF/jsp/tiles/productBundles/createentitlement.jsp">   
+  </definition>  
+  <definition name="bundle.channelpricing" template="/WEB-INF/jsp/tiles/productBundles/channelpricing.jsp">   
+  </definition>    
+  <definition name="bundle.provisioningconstraints" template="/WEB-INF/jsp/tiles/productBundles/provisioningconstraints.jsp">   
+  </definition>
+  <definition name="tnc.virtual.machine" template="/WEB-INF/jsp/tiles/shared/tnc_vm_new.jsp">
+  </definition>
+  <definition name="warnings" template="/WEB-INF/jsp/tiles/shared/warnings.jsp">
+  </definition>
+  
+  
+  <definition name="tenant.channel.currencies" template="/WEB-INF/jsp/tiles/tenants/channelcurrencies.jsp">   
+  </definition>
+  
+  <definition name="generatePdfAccountStatement.error" extends="application.error" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/tenants/generatePdfAccountStatementError.jsp" cascade="true"/>
+  </definition>
+  
+  <!-- Manage resource -->
+  <definition name="manageresource.root" extends="application" >
+ 	<put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>
+ 	<put-attribute name="instancecontent" value="/WEB-INF/jsp/tiles/main/instancecontent.jsp"/>
+  </definition>
+  
+  <definition name="manageresource.nonroot" extends="application" >
+  <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/manageresource_secondlevelmenu.jsp"/>
+ 	<put-attribute name="instancecontent" value="/WEB-INF/jsp/tiles/main/instancecontent.jsp"/>
+  </definition>
+  
+	<definition name="approval.task" template="/WEB-INF/jsp/tiles/tasks/approval_task.jsp" />
+	<definition name="home.items.view" template="/WEB-INF/jsp/tiles/main/home_items.jsp" >
+  </definition>	
+  <definition name="service.health.chart" template="/WEB-INF/jsp/tiles/health/serviceHealthChart.jsp">
+  </definition>
+  <definition name="service.health.list" template="/WEB-INF/jsp/tiles/health/serviceHealthList.jsp">
+  </definition>
+  <definition name="workflow.details.popup" template="/WEB-INF/jsp/tiles/workflows/workflow_details.jsp">
+  </definition>
+  <definition name="service.account.config" template="/WEB-INF/jsp/tiles/main/service_account_config.jsp">
+  </definition> 
+  <definition name="tasks.all" extends="application">
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/tasks/list.jsp" cascade="true"/>
+    <put-attribute name="pageHeader" value="/WEB-INF/jsp/tiles/tasks/pageHeader.jsp"/>
+    <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/main/secondlevelmenu.jsp"/>    
+  </definition>
+  <definition name="task.view" template="/WEB-INF/jsp/tiles/tasks/view.jsp">    
+  </definition>
+  <definition name="tenant.custom.fields" template="/WEB-INF/jsp/tiles/shared/custom_fields_tenant.jsp"/>
+  <definition name="user.custom.fields" template="/WEB-INF/jsp/tiles/shared/custom_fields_user.jsp"/>
+  <definition name="subscription.custom.fields" template="/WEB-INF/jsp/tiles/shared/custom_fields_subscription.jsp"/>
+  <definition name="service.instance.editlogo"   template="/WEB-INF/jsp/tiles/main/serviceInstanceLogo.jsp">
+  </definition>
+  
+  <definition name="subscribe.PAYG" template="/WEB-INF/jsp/tiles/subscriptions/subscribePAYG.jsp"/>
+  <definition name="subscribe.bundle.LHS" template="/WEB-INF/jsp/tiles/subscriptions/subscribeBundleLHS.jsp"/>
+  <definition name="resource.provision.configuration" template="/WEB-INF/jsp/tiles/subscriptions/resourceProvisionConfiguration.jsp"/>
+  <definition name="provision.resource.RHS" template="/WEB-INF/jsp/tiles/subscriptions/provisionResourceRHS.jsp"/>
+  <definition name="list.bundles.container" template="/WEB-INF/jsp/tiles/subscriptions/commonproductbundlediv.jsp"/> 
+  
+  <definition name="channel.service.settings" template="/WEB-INF/jsp/tiles/products/show-channel-settings.jsp">
+  </definition>
+  <definition name="channel.service.edit.settings" template="/WEB-INF/jsp/tiles/products/edit-channel-settings.jsp">
+  </definition>
+  <definition name="enable.service" template="/WEB-INF/jsp/tiles/main/enable_instance.jsp">    
+  </definition>
+  
+  <definition name="downloadCss.error" extends="application.error" >
+    <put-attribute name="body" value="/WEB-INF/jsp/tiles/products/downloadCssError.jsp" cascade="true"/>
+  </definition>
+</tiles-definitions>

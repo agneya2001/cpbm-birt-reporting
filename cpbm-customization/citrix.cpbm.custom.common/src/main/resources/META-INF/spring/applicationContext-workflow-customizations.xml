@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	                    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	                    
+    <context:annotation-config />
+	<context:component-scan base-package="com.citrix.cpbm.workflow.custom" />	                    
+	
+	<bean id="abstractActivity" class="com.citrix.cpbm.workflow.activity.AbstractActivity" abstract="true">
+		<property name="dateTimeService" ref="dateTimeService"/>
+	</bean>
+	
+	<bean id="abstractRetriableActivity" class="com.citrix.cpbm.workflow.activity.AbstractRetriableActivity" abstract="true">
+		<property name="dateTimeService" ref="dateTimeService"/>
+	</bean>
+	
+	<bean id="dummyActivity" scope="prototype" class="com.citrix.cpbm.workflow.custom.activity.DummyActivity" parent="abstractActivity">
+		<property name="authorityService" ref="authorityService"/>
+	</bean>
+	
+	<bean id="verifyMasterUserEmailActivity" class="com.citrix.cpbm.workflow.activity.impl.VerifyMasterUserEmailActivity" parent="abstractActivity">
+		<property name="failureThresholdInHours" value="72"/>
+	</bean>
+	
+	<bean id="createOSSAccountActivity" class="com.citrix.cpbm.workflow.activity.impl.CreateOSSAccountsActivity" parent="abstractRetriableActivity">
+		<property name="noOfRetries" value="3"/>
+		<property name="timeBetweenRetriesInHours" value="24"/>
+		<property name="connectorManagementService" ref="connectorManagementService"/>
+		<property name="tenantService" ref="tenantService"/>
+		<property name="userService" ref="userService"/>
+	</bean>
+	
+	<bean id="financeInternalApprovalActivity" class="com.citrix.cpbm.workflow.activity.impl.InternalApprovalActivity" parent="abstractRetriableActivity">
+		<property name="taskType" value="FINANCE_APPROVAL" />
+		<property name="actorRole" value="ROLE_FINANCE_CRUD"/>
+		<property name="appConfig" ref="appConfiguration"/>
+		<property name="toEmails" value="FINANCE" />
+		<property name="noOfRetries" value="3" />
+		<property name="timeBetweenRetriesInHours" value="24" />
+		<property name="emailService" ref="emailService"/>
+		<property name="authorityService" ref="authorityService"/>
+	</bean>
+	
+	<bean id="collectCreditCardInfoActivity" scope="prototype" class="com.citrix.cpbm.workflow.activity.impl.CollectCreditCardInfoActivity" parent="abstractActivity">
+		<property name="failureThresholdInHours" value="72"/>
+		<property name="connectorManagementService" ref="connectorManagementService"/>
+		<property name="authorityService" ref="authorityService"/>
+	</bean>
+	
+	<bean id="collectPaymentInfoActivity" scope="prototype" class="com.citrix.cpbm.workflow.activity.impl.CollectPaymentInfoActivity" parent="abstractActivity">
+    	<property name="failureThresholdInHours" value="72"/>
+    	<property name="authorityService" ref="authorityService"/>
+  	</bean>
+  	
+  	<bean id="verifyDepositActivity" scope="prototype"  class="com.citrix.cpbm.workflow.activity.impl.VerifyDepositActivity" parent="abstractActivity">
+		<property name="failureThresholdInHours" value="72"/>
+		<property name="tenantService" ref="tenantService"/>
+	</bean>
+	
+	<bean id="subscriptionPreAuthActivity" scope="prototype" class="com.citrix.cpbm.workflow.activity.impl.SubscriptionPreAuthActivity" parent="abstractRetriableActivity">
+	 	<property name="noOfRetries" value="3" />
+		<property name="timeBetweenRetriesInHours" value="24" />
+		<property name="subscriptionService" ref="subscriptionService"/>
+	</bean>
+	
+	<bean id="tenantOwnerApprovalActivity" scope="prototype" class="com.citrix.cpbm.workflow.activity.impl.TenantOwnerApprovalActivity" parent="abstractRetriableActivity">
+		<property name="actorRole" value="ROLE_ACCOUNT_ADMIN"/>
+	 	<property name="taskType" value="TENANT_ADMIN_APPROVAL" />
+	 	<property name="noOfRetries" value="3" />
+		<property name="timeBetweenRetriesInHours" value="24" />
+		<property name="emailService" ref="emailService"/>
+		<property name="authorityService" ref="authorityService"/>
+		<property name="userService" ref="userService"/>
+		<property name="messageSource" ref="messageSource"/>
+		<property name="appConfiguration" ref="appConfiguration"/>
+		<property name="businessTransactionService" ref="businessTransactionService"/>
+	</bean>
+	
+	<bean id="verifyCreditCardInfoActivity" scope="prototype"  class="com.citrix.cpbm.workflow.activity.impl.VerifyCreditCardInfoActivity" parent="abstractActivity">
+    	<property name="failureThresholdInHours" value="72"/>
+    	<property name="connectorManagementService" ref="connectorManagementService"/>
+    </bean>
+
+	<bean id="serviceActivationApprovalActivity" class="com.citrix.cpbm.workflow.activity.impl.InternalApprovalActivity" parent="abstractRetriableActivity">
+		<property name="taskType" value="CLOUD_SERVICE_APPROVAL" />
+		<property name="actorRole" value="ROLE_ACCOUNT_MGMT"/>
+		<property name="appConfig" ref="appConfiguration"/>
+		<property name="toEmails" value="APPROVAL_REQUEST" />
+		<property name="noOfRetries" value="3" />
+		<property name="timeBetweenRetriesInHours" value="24" />
+		<property name="emailService" ref="emailService"/>
+		<property name="authorityService" ref="authorityService"/>
+	</bean>
+    
+    <bean id="defaultActionUrlResolver" class="com.citrix.cpbm.workflow.pendingaction.resolver.impl.DefaultActionUrlResolver">
+	    <property name="actionUrls">
+		  <map>
+		    <entry key="CC_INFO" value="tenants/editcurrent?tenant=%1$s&amp;action=showcreditcardtab"></entry>
+		    <entry key="FINANCE_APPROVAL" value="%1$s/action/%2$s"></entry>
+		  </map>
+		</property>
+  	</bean>
+
+</beans>

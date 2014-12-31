@@ -1,0 +1,33 @@
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */
+@charset "UTF-8";
+
+/* CSS Document */
+
+.widget_searchpanel .select{
+  background:#D6D6D6;
+}
+.dialog_formcontent .select {
+  background:#FFFFFF;
+}
+
+.catalogconfigure_sectionox_contentarea .select{
+  background:#CCCCCC;
+}
+.widgetcatalog_filterpanel .filterselect {
+   background:#CCCCCC;
+}
+.dialog_formcontent .text {
+  background:#FFFFFF;
+}
+.widget_grid_cell .select{
+  background:#CCCCCC;
+}
+.fixed_header_table_inner{ 
+  max-height:234px;
+}
+.fixed_header_table_inner.entitlements_table_inner{
+  max-height:250px;
+}
+.catalogfilter_filterlist.templates{
+  height:130px;
+}

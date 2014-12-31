@@ -1,0 +1,268 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>vmops</groupId>
+    <artifactId>vmops.all</artifactId>
+    <version>2.3.1</version>
+	<relativePath>../vmops.all</relativePath>
+  </parent>
+  <artifactId>citrix.cpbm.model</artifactId>
+  <name>citrix.cpbm.model</name>
+  <description>citrix.cpbm.model</description>
+  <dependencies>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet</artifactId>
+      <version>${servlet.version}</version>
+    </dependency>
+    <!-- Transaction Management Abstraction (depends on spring-core, spring-beans, 
+      spring-aop, spring-context) Define this if you use Spring Transactions or 
+      DAO Exception Hierarchy (org.springframework.transaction.*/org.springframework.dao.*) -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.transaction</artifactId>
+      <version>${org.springframework.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- Object-to-Relation-Mapping (ORM) integration with Hibernate, JPA, 
+      and iBatis. (depends on spring-core, spring-beans, spring-context, spring-tx) 
+      Define this if you need ORM (org.springframework.orm.*) -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.orm</artifactId>
+      <version>${org.springframework.version}</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.mchange.c3p0</groupId>
+          <artifactId>com.springsource.com.mchange.v2.c3p0</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- Object-to-XML Mapping (OXM) abstraction and integration with JAXB, 
+      JiBX, Castor, XStream, and XML Beans. (depends on spring-core, spring-beans, 
+      spring-context) Define this if you need OXM (org.springframework.oxm.*) -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.oxm</artifactId>
+      <version>${org.springframework.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>org.springframework.jms</artifactId>
+      <version>${org.springframework.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- Database -->
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>persistence-api</artifactId>
+      <version>${jpa.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>jta</artifactId>
+      <version>${jta.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    
+    <!-- osgified <dependency> <groupId>net.sf.ehcache</groupId> <artifactId>ehcache</artifactId> 
+      <version>${ehcache.version}</version> <scope>runtime</scope> </dependency> -->
+      
+    <dependency>
+      <groupId>net.sourceforge.ehcache</groupId>
+      <artifactId>com.springsource.net.sf.ehcache</artifactId>
+      <version>${ehcache.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.citrix.cpbm</groupId>
+      <artifactId>c3p0-fragment</artifactId>
+      <version>${com.citrix.cpbm.c3p0-fragment.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.mchange.c3p0</groupId>
+      <artifactId>com.springsource.com.mchange.v2.c3p0</artifactId>
+      <version>${c3p0.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>com.springsource.org.hibernate</artifactId>
+      <version>${hibernate.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>com.springsource.org.hibernate.annotations</artifactId>
+      <version>${hibernate.annotations.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-core</artifactId>
+      <version>${apache.activemq.core.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>com.springsource.org.apache.activeio</artifactId>
+      <version>${apache.activemq.activeio.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xbean</groupId>
+      <artifactId>com.springsource.org.apache.xbean.spring</artifactId>
+      <version>${apache.xbean.version}</version>
+    </dependency>
+    <!-- This is needed for activemq -->
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>com.springsource.javax.management.j2ee</artifactId>
+      <version>${apache.geronimo.specs.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.ejb</groupId>
+      <artifactId>com.springsource.javax.ejb</artifactId>
+      <version>${javax.ejb.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jasypt</groupId>
+      <artifactId>com.citrix.com.springsource.org.jasypt.encryption</artifactId>
+      <version>${jasypt.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>${jackson.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <!-- Added liquibase jar in bundle class path Need to check this dependency 
+      again -->
+    <!-- Utility jars -->
+    <dependency>
+      <groupId>org.joda</groupId>
+      <artifactId>com.springsource.org.joda.time</artifactId>
+      <version>${joda.time.version}</version>
+    </dependency>
+    <!-- osgfied with lower version <dependency> <groupId>com.jcraft</groupId> 
+      <artifactId>jsch</artifactId> <version>0.1.44-1</version> <type>jar</type> 
+      <scope>compile</scope> </dependency> -->
+    <dependency>
+      <groupId>com.jcraft.jsch</groupId>
+      <artifactId>com.springsource.com.jcraft.jsch</artifactId>
+      <version>${jcraft.jsch.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-vfs</groupId>
+      <artifactId>commons-vfs</artifactId>
+      <version>${com.citrix.cpbm.commons-vfs.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>ant</groupId>
+          <artifactId>ant</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>avalon-framework</groupId>
+          <artifactId>avalon-framework</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.pdfbox</groupId>
+      <artifactId>pdfbox</artifactId>
+      <version>${pdfbox.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    
+        
+        
+    <!-- osgfied with lower version earlier version 2.4.7 -->
+    <dependency>
+        <groupId>org.synyx</groupId>
+        <artifactId>messagesource</artifactId>
+        <version>0.7.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.dbunit</groupId>
+      <artifactId>com.springsource.org.dbunit</artifactId>
+      <version>${dbunit.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>com.springsource.javax.mail</artifactId>
+      <version>${javax.mail.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${apache.commons-io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>org.springframework.security.ldap</artifactId>
+      <version>${org.springframework.security.ldap.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.directory.server</groupId>
+      <artifactId>apacheds-core</artifactId>
+      <version>${apache.directory.server.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.directory.server</groupId>
+      <artifactId>apacheds-server-jndi</artifactId>
+        <version>${apache.directory.server.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- OSGI Dependency -->
+    
+    <dependency>
+      <groupId>org.springframework.osgi</groupId>
+      <artifactId>spring-osgi-core</artifactId>
+      <version>1.2.1</version>
+      <scope>compile</scope>
+    </dependency>
+      <dependency>
+        <groupId>net.sourceforge.json</groupId>
+        <artifactId>com.springsource.net.sf.json</artifactId>
+        <version>2.2.2</version>
+      </dependency>
+            
+  </dependencies>  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.jar.plugin.version-core}</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>

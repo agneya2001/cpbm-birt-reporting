@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean id="resourceLoader" class="org.springframework.core.io.DefaultResourceLoader" />
+  
+  <bean id="liquibaseportalcustomization" class="liquibase.integration.spring.SpringLiquibase">
+    <property name="dataSource" ref="dataSource" />
+    <property name="contexts" value="${liquibase.custom.context:basedata}"/>
+    <property name="changeLog" value="classpath:citrix/cpbm/custom/db/portal/cloud_portal-custom.xml" />
+    <property name="changeLogParameters">
+      <map>
+        <entry key="key-needed" value="to-avoid-npe-bug"></entry>
+        <entry key="portal_db" value="${profile.jdbc.database.schemaname}"/>
+        <entry key="field_encryption_key" value="${field.encryption.key}"/>
+      </map>
+    </property>
+    <property name="resourceLoader" ref="resourceLoader"  />
+  </bean>
+ </beans>

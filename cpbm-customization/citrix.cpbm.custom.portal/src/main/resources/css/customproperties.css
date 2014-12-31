@@ -1,0 +1,24 @@
+/* Copyright 2013 Citrix Systems, Inc. Licensed under the BSD 2 license. See LICENSE for more details. */ 
+#customprops {	
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#customprops td,#customprops th {
+	font-size: 1.2em;	
+	padding: 3px 7px 2px 7px;
+}
+
+#customprops th {
+	font-size: 1.1em;
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 4px;
+	background-color: #A7C942;
+	color: #ffffff;
+}
+
+#customprops tr.alt td {
+	color: #000000;
+	background-color: #EAF2D3;
+}
