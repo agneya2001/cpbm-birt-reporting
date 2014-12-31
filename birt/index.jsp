@@ -5,13 +5,13 @@
         if ( username.equals("root")){ %>
 
                 <hr/>
-                <a href=/birt/frameset?__report=reports/user_spends.rptdesign&sample=<%=  request.getParameter("username") %>&__showtitle=false> User Spend </a>
+                <a href=/birt/frameset?__report=reports/user_spends.rptdesign> User Spend </a>
                 <hr/>
-                <a href=/birt/frameset?__report=reports/top_spenders.rptdesign&sample=<%=  request.getParameter("username") %>&__showtitle=false> Top Spenders </a>
+                <a href=/birt/frameset?__report=reports/top_spenders.rptdesign> Top Spenders </a>
 
 <% } else { %>
         <p> No reports for users yet </p>
-        <a href=/birt/frameset?__report=test.rptdesign&sample=<%=  request.getParameter("username") %>&__showtitle=false  > Sample Report </a>
+        <a href=/birt/frameset?__report=reports/user_spends.rptdesign&username=<%=  request.getParameter("username") %>> User Spend </a>
 <% } %>
 
 </jsp>
