@@ -25,7 +25,7 @@ public class ReportController extends AbstractReportController {
 	
     private static Logger logger = Logger.getLogger(ReportController.class);
     
-    private final String REPORT_CUSTOM_IAAS="iaas";
+    private final String REPORT_CUSTOM_IAAS="report_iaas";
     
  	@RequestMapping(value = {"/iaas_reports"}, method = RequestMethod.GET)
  	public String faq(ModelMap map, HttpServletRequest request){

@@ -27,13 +27,13 @@ public class SupportController extends AbstractSupportController {
 
 private static Logger logger = Logger.getLogger(SupportController.class);
 
-    private final String REPORT_CUSTOM_IAAS="iaas";
+    private final String SUPPORT_CUSTOM_IAAS="support_iaas";
 
         @RequestMapping(value = {"/iaas_reports"}, method = RequestMethod.GET)
         public String faq(ModelMap map, HttpServletRequest request){
                   logger.debug("###Entering in faq() method @GET");
 
-          setCustomPage(map, REPORT_CUSTOM_IAAS);
+                  setCustomPage(map, SUPPORT_CUSTOM_IAAS);
                   String reportURL = "/birt/index.jsp";
 
                   map.addAttribute("iframe", reportURL);

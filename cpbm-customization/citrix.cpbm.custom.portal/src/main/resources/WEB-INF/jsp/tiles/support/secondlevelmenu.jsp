@@ -63,7 +63,7 @@
   </c:otherwise>
 </c:choose>        
 
-  <a  class="secondlevel_menutabs <c:out value="${iaas}" />" href="<%=request.getContextPath() %>/portal/support/iaas_reports">
+  <a  class="secondlevel_menutabs <c:out value="${support.iaas}" />" href="<%=request.getContextPath() %>/portal/support/iaas_reports">
          <spring:message code="page.level2.iaas.reports"/>
          <span></span>
   </a>
