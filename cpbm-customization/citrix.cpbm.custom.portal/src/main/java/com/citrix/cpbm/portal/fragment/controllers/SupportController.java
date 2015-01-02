@@ -27,7 +27,7 @@ public class SupportController extends AbstractSupportController {
 
 private static Logger logger = Logger.getLogger(SupportController.class);
 
-    private final String SUPPORT_CUSTOM_IAAS="support_iaas";
+    private final String SUPPORT_CUSTOM_IAAS="SupportIaas";
 
         @RequestMapping(value = {"/iaas_reports"}, method = RequestMethod.GET)
         public String faq(ModelMap map, HttpServletRequest request){
@@ -42,7 +42,7 @@ private static Logger logger = Logger.getLogger(SupportController.class);
          }
 
         private void setCustomPage(ModelMap map, String level2Constant) {
-           // setPage(map, Page.REPORTS_CUSTOM);
+        	setPage(map, Page.SUPPORT_HOME);
             map.addAttribute(level2Constant, "on");
         }
 
