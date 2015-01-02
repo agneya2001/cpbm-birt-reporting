@@ -14,15 +14,17 @@ Extract birt.war
 The birt.war is misisng the common loggings and mysql-jdbc driver.
 Download the two and  injected in the war file.
 
-Inject using below command:
-jar -uvf birt.war WEB-INF/lib/commons-logging-1.2.jar
+The two jars are provided here for convenience. Copy birt.war in birt folder and then inject the two jars:
+cd birt
+jar -uvf birt.war WEB-INF/lib/*
+
+inject the sample reports as:
+jar -uvf birt.war reports/*
+
+inject the index.jsp
+jar -uvf birt.war index.jsp
 
 Copy birt.war to root@<cpbm-ip>:/usr/share/vts3/pickup/
-
-If birt is installed correctly you will see http://<cpbm-ip-port>/birt displayig birt starting page.
-Click on the sample report to ensure everything is correctly installed.
-
-Now copy your reports in folder /usr/share/vts3/work/org.eclipse.virgo.kernel.deployer_3.0.3.RELEASE/staging/global/bundle/birt/0.0.0/birt.war
 
 After above steps the BIRT report viewer will be running side by side with cpbm.
 
@@ -30,6 +32,8 @@ Adding reporting capabilities to CPBM UI
 ----------------------------------------
 
 cd to cpbm-customization/citrix.cpbm.custom.all
+
+The changes to display the IAAS Reports tab to display BIRT reports are already there in the repo.
 
 do a maven build: mvn clean install -Dmaven.test.skip=true
 
