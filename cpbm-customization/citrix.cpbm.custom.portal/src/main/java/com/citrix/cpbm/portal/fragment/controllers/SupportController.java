@@ -27,7 +27,7 @@ public class SupportController extends AbstractSupportController {
 
 private static Logger logger = Logger.getLogger(SupportController.class);
 
-    private final String SUPPORT_CUSTOM_IAAS="SupportIaas";
+    private final String SUPPORT_CUSTOM_IAAS="support_iaas";
 
         @RequestMapping(value = {"/iaas_reports"}, method = RequestMethod.GET)
         public String faq(ModelMap map, HttpServletRequest request){

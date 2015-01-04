@@ -40,7 +40,7 @@ public class ReportController extends AbstractReportController {
  	 }
 
 	private void setCustomPage(ModelMap map, String level2Constant) {
-	    setPage(map, Page.REPORTS_CUSTOM);
+	    setPage(map, Page.REPORTS_HOME);
 	    map.addAttribute(level2Constant, "on");
 	}
 
