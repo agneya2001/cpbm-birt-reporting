@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.vmops.model.User;
 import com.vmops.web.controllers.menu.Page;
 
 /**
@@ -35,7 +36,8 @@ private static Logger logger = Logger.getLogger(SupportController.class);
 
                   setCustomPage(map, SUPPORT_CUSTOM_IAAS);
                   String reportURL = "/birt/index.jsp";
-
+                  User user = getCurrentUser(true);
+                  map.addAttribute("userHasCloudServiceAccount", userService.isUserHasAnyActiveCloudService(user));
                   map.addAttribute("iframe", reportURL);
                   map.addAttribute("tenant", getTenant());
                   return "support.iaas";

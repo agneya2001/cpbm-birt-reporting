@@ -64,7 +64,7 @@
 </c:choose>     
 
 <sec:authorize access="!hasAnyRole('ROLE_REPORTING_ADMIN')">
-  <a  class="secondlevel_menutabs <c:out value="${support_iaas}" />" href="<%=request.getContextPath() %>/portal/iaas_reports">
+  <a  class="secondlevel_menutabs <c:out value="${support_iaas}" />" href="<%=request.getContextPath() %>/portal/support/iaas_reports">
          <spring:message code="page.level2.iaas.reports"/>
          <span></span>
   </a>
