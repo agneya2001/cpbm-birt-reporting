@@ -2,6 +2,11 @@ cpbm-birt-reporting
 ===================
 
 cpbm(2.3.0) birt integration to provide easily customisable and extendible reporting system. 
+This adds following capability to cpbm:
+1. Easily extensible and functional reporting system.
+2. User customizable reports.
+3. Variety of output formats like pdf, doc and csv.
+4. Printer friendly reports.
 
 Installing BIRT runtime 
 -----------------------
