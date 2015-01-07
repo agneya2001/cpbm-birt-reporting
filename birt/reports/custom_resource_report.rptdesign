@@ -15,16 +15,16 @@ function checkField(fieldToCheck)
         //we can return true. Otherwise return false, meaning we want to show the field.
         if (reportContext.getGlobalVariable("hideMap").get(fieldToCheck) != null)
         {
-            return true;
+            return false;
         }
         else
         {
-            return false;
+            return true;
         }
     }
     else
     {
-            return true;
+            return false;
     }
 }
 ]]></method>
@@ -35,159 +35,150 @@ function checkField(fieldToCheck)
 reportContext.setGlobalVariable("hideMap", new Packages.java.util.HashMap());
 
 //set the appropriate values in the global HashMap based on if it is set in the report parameter
-if (params["name"].value == false)
+
+if (params["currency"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("name", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("currency", Boolean.FALSE);
 }
 
-if (params["currency"].value == false)
+if (params["remote_address"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("currency", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("remote_address", Boolean.FALSE);
 }
 
-if (params["remote_address"].value == false)
+if (params["spend_budget"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("remote_address", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("spend_budget", Boolean.FALSE);
 }
 
-if (params["spend_budget"].value == false)
+if (params["initial_deposit"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("spend_budget", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("initial_deposit", Boolean.FALSE);
 }
 
-if (params["initial_deposit"].value == false)
+if (params["title"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("initial_deposit", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("title", Boolean.FALSE);
 }
 
-if (params["title"].value == false)
+if (params["first_name"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("title", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("first_name", Boolean.FALSE);
 }
 
-if (params["first_name"].value == false)
+if (params["api_key"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("first_name", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("api_key", Boolean.FALSE);
 }
 
-if (params["username"].value == false)
+if (params["secret_key"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("username", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("secret_key", Boolean.FALSE);
 }
 
-if (params["api_key"].value == false)
+if (params["phone"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("api_key", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("phone", Boolean.FALSE);
 }
 
-if (params["secret_key"].value == false)
+if (params["user_time_zone"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("secret_key", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("user_time_zone", Boolean.FALSE);
 }
 
-if (params["phone"].value == false)
+if (params["image_path"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("phone", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("image_path", Boolean.FALSE);
 }
 
-if (params["user_time_zone"].value == false)
+if (params["street1"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("user_time_zone", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("street1", Boolean.FALSE);
 }
 
-if (params["image_path"].value == false)
+if (params["street2"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("image_path", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("street2", Boolean.FALSE);
 }
 
-if (params["street1"].value == false)
+if (params["city"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("street1", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("city", Boolean.FALSE);
 }
 
-if (params["street2"].value == false)
+if (params["state"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("street2", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("state", Boolean.FALSE);
 }
 
-if (params["city"].value == false)
+if (params["postal_code"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("city", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("postal_code", Boolean.FALSE);
 }
 
-if (params["state"].value == false)
+if (params["country"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("state", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("country", Boolean.FALSE);
 }
 
-if (params["postal_code"].value == false)
+if (params["current_usage"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("postal_code", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("current_usage", Boolean.FALSE);
 }
 
-if (params["country"].value == false)
+if (params["old_usage"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("country", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("old_usage", Boolean.FALSE);
 }
 
-if (params["current_usage"].value == false)
+if (params["spend_to_month"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("current_usage", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("spend_to_month", Boolean.FALSE);
 }
 
-if (params["old_usage"].value == false)
+if (params["raw_spend_to_month"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("old_usage", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("raw_spend_to_month", Boolean.FALSE);
 }
 
-if (params["spend_to_month"].value == false)
+if (params["daily_usage"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("spend_to_month", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("daily_usage", Boolean.FALSE);
 }
 
-if (params["raw_spend_to_month"].value == false)
+if (params["usage_date"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("raw_spend_to_month", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("usage_date", Boolean.FALSE);
 }
 
-if (params["daily_usage"].value == false)
+if (params["usage_unit"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("daily_usage", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("usage_unit", Boolean.FALSE);
 }
 
-if (params["usage_date"].value == false)
+if (params["billing_period_usage"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("usage_date", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("billing_period_usage", Boolean.FALSE);
 }
 
-if (params["usage_unit"].value == false)
+if (params["billing_period_spend"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("usage_unit", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("billing_period_spend", Boolean.FALSE);
 }
 
-if (params["billing_period_usage"].value == false)
+if (params["billing_period_start_date"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("billing_period_usage", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("billing_period_start_date", Boolean.FALSE);
 }
 
-if (params["billing_period_spend"].value == false)
+if (params["billing_period_end_date"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("billing_period_spend", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("billing_period_end_date", Boolean.FALSE);
 }
 
-if (params["billing_period_start_date"].value == false)
+if (params["billing_period_sequence"].value == true)
 {
-    reportContext.getGlobalVariable("hideMap").put("billing_period_start_date", Boolean.TRUE);
-}
-
-if (params["billing_period_end_date"].value == false)
-{
-    reportContext.getGlobalVariable("hideMap").put("billing_period_end_date", Boolean.TRUE);
-}
-
-if (params["billing_period_sequence"].value == false)
-{
-    reportContext.getGlobalVariable("hideMap").put("billing_period_sequence", Boolean.TRUE);
+    reportContext.getGlobalVariable("hideMap").put("billing_period_sequence", Boolean.FALSE);
 }
 
 
@@ -200,39 +191,13 @@ if (params["billing_period_sequence"].value == false)
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">72</property>
     <parameters>
-        <scalar-parameter name="name" id="617">
-            <text-property name="promptText">Uncheck to hide field name</text-property>
-            <property name="valueType">static</property>
-            <property name="dataType">boolean</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">check-box</property>
-            <structure name="format"/>
-        </scalar-parameter>
-        <scalar-parameter name="currency" id="618">
-            <text-property name="promptText">Uncheck to hide field currency</text-property>
-            <property name="valueType">static</property>
-            <property name="dataType">boolean</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">check-box</property>
-            <structure name="format"/>
-        </scalar-parameter>
         <scalar-parameter name="remote_address" id="619">
-            <text-property name="promptText">Uncheck to hide field remote_address</text-property>
+            <text-property name="promptText">Check to include field Remote Ip Address</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -240,12 +205,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="initial_deposit" id="621">
-            <text-property name="promptText">Uncheck to hide field initial_deposit</text-property>
+            <text-property name="promptText">Check to include field Initial Deposit</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -253,12 +218,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="title" id="622">
-            <text-property name="promptText">Uncheck to hide field title</text-property>
+            <text-property name="promptText">Check to include field Title</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -266,12 +231,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="first_name" id="624">
-            <text-property name="promptText">Uncheck to hide field first_name</text-property>
+            <text-property name="promptText">Check to include field First Name</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -279,25 +244,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="last_name" id="625">
-            <text-property name="promptText">Uncheck to hide field last_name</text-property>
+            <text-property name="promptText">Check to include field Last Name</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">check-box</property>
-            <structure name="format"/>
-        </scalar-parameter>
-        <scalar-parameter name="username" id="626">
-            <text-property name="promptText">Uncheck to hide field username</text-property>
-            <property name="valueType">static</property>
-            <property name="dataType">boolean</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -305,12 +257,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="api_key" id="627">
-            <text-property name="promptText">Uncheck to hide field api_key</text-property>
+            <text-property name="promptText">Check to include field Api Key</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -318,12 +270,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="secret_key" id="628">
-            <text-property name="promptText">Uncheck to hide field secret_key</text-property>
+            <text-property name="promptText">Check to include field Secret Key</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -331,12 +283,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="phone" id="629">
-            <text-property name="promptText">Uncheck to hide field phone</text-property>
+            <text-property name="promptText">Check to include field Phone</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -344,12 +296,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="user_time_zone" id="630">
-            <text-property name="promptText">Uncheck to hide field user_time_zone</text-property>
+            <text-property name="promptText">Check to include field User Time Zone</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -357,12 +309,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="image_path" id="631">
-            <text-property name="promptText">Uncheck to hide field image_path</text-property>
+            <text-property name="promptText">Check to include field Image Path</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -370,12 +322,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="street1" id="632">
-            <text-property name="promptText">Uncheck to hide field street1</text-property>
+            <text-property name="promptText">Check to include field Street1</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -383,12 +335,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="street2" id="633">
-            <text-property name="promptText">Uncheck to hide field street2</text-property>
+            <text-property name="promptText">Check to include field Street2</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -396,12 +348,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="city" id="634">
-            <text-property name="promptText">Uncheck to hide field city</text-property>
+            <text-property name="promptText">Check to include field City</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -409,12 +361,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="state" id="635">
-            <text-property name="promptText">Uncheck to hide field state</text-property>
+            <text-property name="promptText">Check to include field State</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -422,12 +374,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="postal_code" id="636">
-            <text-property name="promptText">Uncheck to hide field postal_code</text-property>
+            <text-property name="promptText">Check to include field Postal Code</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -435,12 +387,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="country" id="637">
-            <text-property name="promptText">Uncheck to hide field country</text-property>
+            <text-property name="promptText">Check to include field Country</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -448,12 +400,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="spend_budget" id="639">
-            <text-property name="promptText">Uncheck to hide field spend_budget</text-property>
+            <text-property name="promptText">Check to include field Spend Budget</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -461,12 +413,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="current_usage" id="640">
-            <text-property name="promptText">Uncheck to hide field current_usage</text-property>
+            <text-property name="promptText">Check to include field Current Usage</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -474,12 +426,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="old_usage" id="641">
-            <text-property name="promptText">Uncheck to hide field old_usage</text-property>
+            <text-property name="promptText">Check to include field Old Usage</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -487,12 +439,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="spend_to_month" id="642">
-            <text-property name="promptText">Uncheck to hide field spend_to_month</text-property>
+            <text-property name="promptText">Check to include field Spend to month</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -500,12 +452,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="raw_spend_to_month" id="643">
-            <text-property name="promptText">Uncheck to hide field raw_spend_to_month</text-property>
+            <text-property name="promptText">Check to include field Raw Spend to month</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -513,12 +465,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="daily_usage" id="644">
-            <text-property name="promptText">Uncheck to hide field daily_usage</text-property>
+            <text-property name="promptText">Check to include field Daily usage</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -526,12 +478,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="usage_date" id="645">
-            <text-property name="promptText">Uncheck to hide field usage_date</text-property>
+            <text-property name="promptText">Check to include field Usage date</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -539,12 +491,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="usage_unit" id="646">
-            <text-property name="promptText">Uncheck to hide field usage_unit</text-property>
+            <text-property name="promptText">Check to include field Usage unit</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -552,12 +504,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="billing_period_usage" id="647">
-            <text-property name="promptText">Uncheck to hide field billing_period_usage</text-property>
+            <text-property name="promptText">Check to include field Billing period usage</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -565,12 +517,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="billing_period_spend" id="648">
-            <text-property name="promptText">Uncheck to hide field billing_period_spend</text-property>
+            <text-property name="promptText">Check to include field Billing period spend</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -578,12 +530,12 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="billing_period_start_date" id="649">
-            <text-property name="promptText">Uncheck to hide field billing_period_start_date</text-property>
+            <text-property name="promptText">Check to include field Billing period start_date</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -591,26 +543,38 @@ if (params["billing_period_sequence"].value == false)
             <structure name="format"/>
         </scalar-parameter>
         <scalar-parameter name="billing_period_end_date" id="650">
-            <text-property name="promptText">Uncheck to hide field billing_period_end_date</text-property>
+            <text-property name="promptText">Check to include field Billing period end date</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="controlType">check-box</property>
             <structure name="format"/>
         </scalar-parameter>
-        
-        <scalar-parameter name="billing_period_sequence" id="650">
-            <text-property name="promptText">Uncheck to hide field billing_period_sequence</text-property>
+        <scalar-parameter name="billing_period_sequence" id="651">
+            <text-property name="promptText">Check to include field Billing period sequence</text-property>
             <property name="valueType">static</property>
             <property name="dataType">boolean</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">True</value>
+                <value type="constant">False</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">check-box</property>
+            <structure name="format"/>
+        </scalar-parameter>
+        <scalar-parameter name="currency" id="654">
+            <text-property name="promptText">Check to include field Currency</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">boolean</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">False</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -644,263 +608,65 @@ if (params["billing_period_sequence"].value == false)
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="273">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">name</property>
-                    <text-property name="displayName">name</text-property>
-                    <text-property name="heading">name</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">currency</property>
-                    <text-property name="displayName">currency</text-property>
-                    <text-property name="heading">currency</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">remote_address</property>
-                    <text-property name="displayName">remote_address</text-property>
-                    <text-property name="heading">remote_address</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">spend_budget</property>
-                    <text-property name="displayName">spend_budget</text-property>
-                    <text-property name="heading">spend_budget</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">initial_deposit</property>
-                    <text-property name="displayName">initial_deposit</text-property>
-                    <text-property name="heading">initial_deposit</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">version</property>
-                    <text-property name="displayName">version</text-property>
-                    <text-property name="heading">version</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">id</property>
-                    <text-property name="displayName">id</text-property>
-                    <text-property name="heading">id</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">title</property>
-                    <text-property name="displayName">title</text-property>
-                    <text-property name="heading">title</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">first_name</property>
-                    <text-property name="displayName">first_name</text-property>
-                    <text-property name="heading">first_name</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">last_name</property>
-                    <text-property name="displayName">last_name</text-property>
-                    <text-property name="heading">last_name</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">username</property>
-                    <text-property name="displayName">username</text-property>
-                    <text-property name="heading">username</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">api_key</property>
-                    <text-property name="displayName">api_key</text-property>
-                    <text-property name="heading">api_key</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">secret_key</property>
-                    <text-property name="displayName">secret_key</text-property>
-                    <text-property name="heading">secret_key</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">phone</property>
-                    <text-property name="displayName">phone</text-property>
-                    <text-property name="heading">phone</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">user_time_zone</property>
-                    <text-property name="displayName">user_time_zone</text-property>
-                    <text-property name="heading">user_time_zone</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">image_path</property>
-                    <text-property name="displayName">image_path</text-property>
-                    <text-property name="heading">image_path</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">street1</property>
-                    <text-property name="displayName">street1</text-property>
-                    <text-property name="heading">street1</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">street2</property>
-                    <text-property name="displayName">street2</text-property>
-                    <text-property name="heading">street2</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">city</property>
-                    <text-property name="displayName">city</text-property>
-                    <text-property name="heading">city</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">state</property>
-                    <text-property name="displayName">state</text-property>
-                    <text-property name="heading">state</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">postal_code</property>
-                    <text-property name="displayName">postal_code</text-property>
-                    <text-property name="heading">postal_code</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">country</property>
-                    <text-property name="displayName">country</text-property>
-                    <text-property name="heading">country</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">version_23</property>
-                    <text-property name="displayName">version</text-property>
-                    <text-property name="heading">version</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">updated_at</property>
-                    <text-property name="displayName">updated_at</text-property>
-                    <text-property name="heading">updated_at</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">created_at</property>
-                    <text-property name="displayName">created_at</text-property>
-                    <text-property name="heading">created_at</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">spend_budget_26</property>
-                    <text-property name="displayName">spend_budget</text-property>
-                    <text-property name="heading">spend_budget</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">current_usage</property>
-                    <text-property name="displayName">current_usage</text-property>
-                    <text-property name="heading">current_usage</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">old_usage</property>
-                    <text-property name="displayName">old_usage</text-property>
-                    <text-property name="heading">old_usage</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">spend_to_month</property>
-                    <text-property name="displayName">spend_to_month</text-property>
-                    <text-property name="heading">spend_to_month</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">raw_spend_to_month</property>
-                    <text-property name="displayName">raw_spend_to_month</text-property>
-                    <text-property name="heading">raw_spend_to_month</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">updated_at_31</property>
-                    <text-property name="displayName">updated_at</text-property>
-                    <text-property name="heading">updated_at</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">daily_usage</property>
-                    <text-property name="displayName">daily_usage</text-property>
-                    <text-property name="heading">daily_usage</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">usage_date</property>
-                    <text-property name="displayName">usage_date</text-property>
-                    <text-property name="heading">usage_date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">usage_unit</property>
-                    <text-property name="displayName">usage_unit</text-property>
-                    <text-property name="heading">usage_unit</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">daily_usage_35</property>
-                    <text-property name="displayName">daily_usage</text-property>
-                    <text-property name="heading">daily_usage</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">billing_period_usage</property>
-                    <text-property name="displayName">billing_period_usage</text-property>
-                    <text-property name="heading">billing_period_usage</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">billing_period_spend</property>
-                    <text-property name="displayName">billing_period_spend</text-property>
-                    <text-property name="heading">billing_period_spend</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">billing_period_start_date</property>
-                    <text-property name="displayName">billing_period_start_date</text-property>
-                    <text-property name="heading">billing_period_start_date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">billing_period_end_date</property>
-                    <text-property name="displayName">billing_period_end_date</text-property>
-                    <text-property name="heading">billing_period_end_date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">billing_period_sequence</property>
-                    <text-property name="displayName">billing_period_sequence</text-property>
-                    <text-property name="heading">billing_period_sequence</text-property>
-                </structure>
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+               
             </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">name</property>
+                        <property name="name">username</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
                         <property name="name">currency</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">3</property>
+                        <property name="position">4</property>
                         <property name="name">remote_address</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">4</property>
+                        <property name="position">5</property>
                         <property name="name">spend_budget</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">5</property>
+                        <property name="position">6</property>
                         <property name="name">initial_deposit</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">6</property>
+                        <property name="position">7</property>
                         <property name="name">version</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">7</property>
+                        <property name="position">8</property>
                         <property name="name">id</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">8</property>
+                        <property name="position">9</property>
                         <property name="name">title</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">9</property>
+                        <property name="position">10</property>
                         <property name="name">first_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">10</property>
-                        <property name="name">last_name</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
                         <property name="position">11</property>
-                        <property name="name">username</property>
+                        <property name="name">last_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
@@ -1054,288 +820,248 @@ if (params["billing_period_sequence"].value == false)
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">name</property>
-                    <property name="nativeName">name</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">currency</property>
-                    <property name="nativeName">currency</property>
-                    <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">remote_address</property>
-                    <property name="nativeName">remote_address</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">spend_budget</property>
-                    <property name="nativeName">spend_budget</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">initial_deposit</property>
-                    <property name="nativeName">initial_deposit</property>
-                    <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">version</property>
-                    <property name="nativeName">version</property>
-                    <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">id</property>
-                    <property name="nativeName">id</property>
-                    <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">title</property>
-                    <property name="nativeName">title</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">first_name</property>
-                    <property name="nativeName">first_name</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">last_name</property>
-                    <property name="nativeName">last_name</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
                     <property name="name">username</property>
                     <property name="nativeName">username</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">currency</property>
+                    <property name="nativeName">currency</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">remote_address</property>
+                    <property name="nativeName">remote_address</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">spend_budget</property>
+                    <property name="nativeName">spend_budget</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">initial_deposit</property>
+                    <property name="nativeName">initial_deposit</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">version</property>
+                    <property name="nativeName">version</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">title</property>
+                    <property name="nativeName">title</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">first_name</property>
+                    <property name="nativeName">first_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">last_name</property>
+                    <property name="nativeName">last_name</property>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">api_key</property>
                     <property name="nativeName">api_key</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">secret_key</property>
                     <property name="nativeName">secret_key</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">phone</property>
                     <property name="nativeName">phone</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">user_time_zone</property>
                     <property name="nativeName">user_time_zone</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">image_path</property>
                     <property name="nativeName">image_path</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">street1</property>
                     <property name="nativeName">street1</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">street2</property>
                     <property name="nativeName">street2</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">19</property>
                     <property name="name">city</property>
                     <property name="nativeName">city</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">20</property>
                     <property name="name">state</property>
                     <property name="nativeName">state</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">21</property>
                     <property name="name">postal_code</property>
                     <property name="nativeName">postal_code</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">22</property>
                     <property name="name">country</property>
                     <property name="nativeName">country</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">23</property>
                     <property name="name">version_23</property>
                     <property name="nativeName">version</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">24</property>
                     <property name="name">updated_at</property>
                     <property name="nativeName">updated_at</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">25</property>
                     <property name="name">created_at</property>
                     <property name="nativeName">created_at</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">26</property>
                     <property name="name">spend_budget_26</property>
                     <property name="nativeName">spend_budget</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">27</property>
                     <property name="name">current_usage</property>
                     <property name="nativeName">current_usage</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">28</property>
                     <property name="name">old_usage</property>
                     <property name="nativeName">old_usage</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">29</property>
                     <property name="name">spend_to_month</property>
                     <property name="nativeName">spend_to_month</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">30</property>
                     <property name="name">raw_spend_to_month</property>
                     <property name="nativeName">raw_spend_to_month</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">31</property>
                     <property name="name">updated_at_31</property>
                     <property name="nativeName">updated_at</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">32</property>
                     <property name="name">daily_usage</property>
                     <property name="nativeName">daily_usage</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">3</property>
                 </structure>
                 <structure>
                     <property name="position">33</property>
                     <property name="name">usage_date</property>
                     <property name="nativeName">usage_date</property>
                     <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
                     <property name="position">34</property>
                     <property name="name">usage_unit</property>
                     <property name="nativeName">usage_unit</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">35</property>
                     <property name="name">daily_usage_35</property>
                     <property name="nativeName">daily_usage</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">3</property>
                 </structure>
                 <structure>
                     <property name="position">36</property>
                     <property name="name">billing_period_usage</property>
                     <property name="nativeName">billing_period_usage</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">3</property>
                 </structure>
                 <structure>
                     <property name="position">37</property>
                     <property name="name">billing_period_spend</property>
                     <property name="nativeName">billing_period_spend</property>
                     <property name="dataType">float</property>
-                    <property name="nativeDataType">8</property>
                 </structure>
                 <structure>
                     <property name="position">38</property>
                     <property name="name">billing_period_start_date</property>
                     <property name="nativeName">billing_period_start_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">39</property>
                     <property name="name">billing_period_end_date</property>
                     <property name="nativeName">billing_period_end_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">40</property>
                     <property name="name">billing_period_sequence</property>
                     <property name="nativeName">billing_period_sequence</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT 
-cloud_portal.tenants.name, cloud_portal.tenants.currency, cloud_portal.tenants.remote_address, cloud_portal.tenants.spend_budget, cloud_portal.tenants.initial_deposit, cloud_portal.tenants.version,
-cloud_portal.users.id, cloud_portal.users.title, cloud_portal.users.first_name, cloud_portal.users.last_name, cloud_portal.users.username, cloud_portal.users.api_key, 
+cloud_portal.users.username, cloud_portal.tenants.name, cloud_portal.tenants.currency, cloud_portal.tenants.remote_address, cloud_portal.tenants.spend_budget, cloud_portal.tenants.initial_deposit, cloud_portal.tenants.version,
+cloud_portal.users.id, cloud_portal.users.title, cloud_portal.users.first_name, cloud_portal.users.last_name, cloud_portal.users.api_key, 
 cloud_portal.users.secret_key, cloud_portal.users.phone, cloud_portal.users.user_time_zone, cloud_portal.users.image_path,
 cloud_portal.addresses.street1, cloud_portal.addresses.street2, cloud_portal.addresses.city, cloud_portal.addresses.state, cloud_portal.addresses.postal_code, cloud_portal.addresses.country,
 cloud_portal.users.version, cloud_portal.users.updated_at, cloud_portal.users.created_at, cloud_portal.users.spend_budget, cloud_portal.users.current_usage,
@@ -1345,11 +1071,28 @@ cloud_portal.user_daily_usage.daily_usage, cloud_portal.user_daily_usage.usage_d
 cloud_portal.user_daily_usage.billing_period_usage, cloud_portal.user_daily_usage.billing_period_spend, cloud_portal.user_daily_usage.billing_period_start_date,
 cloud_portal.user_daily_usage.billing_period_end_date, cloud_portal.user_daily_usage.billing_period_sequence
  FROM cloud_portal.users, cloud_portal.user_spend_summary, cloud_portal.user_daily_usage, cloud_portal.addresses, cloud_portal.tenants
-where cloud_portal.users.id=cloud_portal.user_spend_summary.user_id and cloud_portal.users.id=cloud_portal.user_daily_usage.user_id and cloud_portal.addresses.id = cloud_portal.users.address_id
-and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
+where  cloud_portal.users.id=cloud_portal.user_spend_summary.user_id and cloud_portal.users.id=cloud_portal.user_daily_usage.user_id and cloud_portal.addresses.id = cloud_portal.users.address_id
+and cloud_portal.users.tenant_id = cloud_portal.tenants.id ]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>NotNullable</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -2233,6 +1976,25 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
             <property name="borderTopStyle">solid</property>
             <property name="borderTopWidth">1pt</property>
         </style>
+        <style name="col_header" id="652">
+            <property name="fontSize">larger</property>
+            <property name="fontWeight">bolder</property>
+            <structure name="numberFormat">
+                <property name="category">General Number</property>
+                <property name="pattern">General Number</property>
+            </structure>
+            <structure name="stringFormat">
+                <property name="category">></property>
+                <property name="pattern">></property>
+            </structure>
+            <property name="textAlign">left</property>
+        </style>
+        <style name="NewStyle" id="653">
+            <structure name="numberFormat">
+                <property name="category">Currency</property>
+                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+            </structure>
+        </style>
     </styles>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
@@ -2242,7 +2004,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
             <property name="bottomMargin">0in</property>
             <property name="rightMargin">0in</property>
             <property name="height">10in</property>
-            <property name="width">18in</property>
+            <property name="width">16in</property>
             <page-footer>
                 <text id="3">
                     <property name="contentType">html</property>
@@ -2496,14 +2258,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <column id="478">
-                <list-property name="visibility">
-                    <structure>
-                        <property name="format">all</property>
-                        <expression name="valueExpr" type="javascript">checkField("name");</expression>
-                    </structure>
-                </list-property>
-            </column>
+            <column id="478"/>
             <column id="479">
                 <list-property name="visibility">
                     <structure>
@@ -2576,14 +2331,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
                     </structure>
                 </list-property>
             </column>
-            <column id="488">
-                <list-property name="visibility">
-                    <structure>
-                        <property name="format">all</property>
-                        <expression name="valueExpr" type="javascript">checkField("username");</expression>
-                    </structure>
-                </list-property>
-            </column>
+            <column id="488"/>
             <column id="489">
                 <list-property name="visibility">
                     <structure>
@@ -2591,6 +2339,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
                         <expression name="valueExpr" type="javascript">checkField("api_key");</expression>
                     </structure>
                 </list-property>
+                <property name="fontSize">8pt</property>
             </column>
             <column id="490">
                 <list-property name="visibility">
@@ -2599,6 +2348,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
                         <expression name="valueExpr" type="javascript">checkField("secret_key");</expression>
                     </structure>
                 </list-property>
+                <property name="fontSize">8pt</property>
             </column>
             <column id="491">
                 <list-property name="visibility">
@@ -2744,22 +2494,8 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
                     </structure>
                 </list-property>
             </column>
-            <column id="509">
-                <list-property name="visibility">
-                    <structure>
-                        <property name="format">all</property>
-                        <expression name="valueExpr" type="javascript">checkField("daily_usage");</expression>
-                    </structure>
-                </list-property>
-            </column>
-            <column id="510">
-                <list-property name="visibility">
-                    <structure>
-                        <property name="format">all</property>
-                        <expression name="valueExpr" type="javascript">checkField("usage_date");</expression>
-                    </structure>
-                </list-property>
-            </column>
+            <column id="509"/>
+            <column id="510"/>
             <column id="511">
                 <list-property name="visibility">
                     <structure>
@@ -2820,214 +2556,254 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
                 <row id="275">
                     <cell id="276">
                         <label id="277">
+                            <property name="style">col_header</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
                                     <expression name="valueExpr" type="javascript">true</expression>
                                 </structure>
                             </list-property>
-                            <text-property name="text">name</text-property>
+                            <text-property name="text">NAME</text-property>
                         </label>
                     </cell>
                     <cell id="278">
                         <label id="279">
-                            <text-property name="text">currency</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">CURRENCY</text-property>
                         </label>
                     </cell>
                     <cell id="280">
                         <label id="281">
-                            <text-property name="text">remote_address</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">REMOTE ADDRESS</text-property>
                         </label>
                     </cell>
                     <cell id="282">
                         <label id="283">
+                            <property name="style">col_header</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
                                     <expression name="valueExpr" type="javascript">true</expression>
                                 </structure>
                             </list-property>
-                            <text-property name="text">spend_budget</text-property>
+                            <text-property name="text">SPEND BUDGET</text-property>
                         </label>
                     </cell>
                     <cell id="284">
                         <label id="285">
-                            <text-property name="text">initial_deposit</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">INITIAL DEPOSIT</text-property>
                         </label>
                     </cell>
                     <cell id="286">
                         <label id="287">
-                            <text-property name="text">version</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">VERSION</text-property>
                         </label>
                     </cell>
                     <cell id="288">
                         <label id="289">
-                            <text-property name="text">id</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">Id</text-property>
                         </label>
                     </cell>
                     <cell id="290">
                         <label id="291">
-                            <text-property name="text">title</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">TITLE</text-property>
                         </label>
                     </cell>
                     <cell id="292">
                         <label id="293">
-                            <text-property name="text">first_name</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">FIRST NAME</text-property>
                         </label>
                     </cell>
                     <cell id="294">
                         <label id="295">
-                            <text-property name="text">last_name</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">LAST NAME</text-property>
                         </label>
                     </cell>
                     <cell id="296">
                         <label id="297">
-                            <text-property name="text">username</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">USERNAME</text-property>
                         </label>
                     </cell>
                     <cell id="298">
                         <label id="299">
-                            <text-property name="text">api_key</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">API KEY</text-property>
                         </label>
                     </cell>
                     <cell id="300">
                         <label id="301">
-                            <text-property name="text">secret_key</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">SECRET_KEY</text-property>
                         </label>
                     </cell>
                     <cell id="302">
                         <label id="303">
-                            <text-property name="text">phone</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">PHONE</text-property>
                         </label>
                     </cell>
                     <cell id="304">
                         <label id="305">
-                            <text-property name="text">user_time_zone</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">TIME ZONE</text-property>
                         </label>
                     </cell>
                     <cell id="306">
                         <label id="307">
-                            <text-property name="text">image_path</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">IMAGE PATH</text-property>
                         </label>
                     </cell>
                     <cell id="308">
                         <label id="309">
-                            <text-property name="text">street1</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">STREET 1</text-property>
                         </label>
                     </cell>
                     <cell id="310">
                         <label id="311">
-                            <text-property name="text">street2</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">STREET 2</text-property>
                         </label>
                     </cell>
                     <cell id="312">
                         <label id="313">
-                            <text-property name="text">city</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">CITY</text-property>
                         </label>
                     </cell>
                     <cell id="314">
                         <label id="315">
-                            <text-property name="text">state</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">STATE</text-property>
                         </label>
                     </cell>
                     <cell id="316">
                         <label id="317">
+                            <property name="style">col_header</property>
                             <text-property name="text">postal_code</text-property>
                         </label>
                     </cell>
                     <cell id="318">
                         <label id="319">
-                            <text-property name="text">country</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">COUNTRY</text-property>
                         </label>
                     </cell>
                     <cell id="320">
                         <label id="321">
-                            <text-property name="text">version</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">VERSION</text-property>
                         </label>
                     </cell>
                     <cell id="322">
                         <label id="323">
-                            <text-property name="text">updated_at</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">UPDATED AT</text-property>
                         </label>
                     </cell>
                     <cell id="324">
                         <label id="325">
-                            <text-property name="text">created_at</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">CREATED AT</text-property>
                         </label>
                     </cell>
                     <cell id="326">
                         <label id="327">
-                            <text-property name="text">spend_budget</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">SPEND BUDGET</text-property>
                         </label>
                     </cell>
                     <cell id="328">
                         <label id="329">
-                            <text-property name="text">current_usage</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">CURRENT USAGE</text-property>
                         </label>
                     </cell>
                     <cell id="330">
                         <label id="331">
-                            <text-property name="text">old_usage</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">OLD USAGE</text-property>
                         </label>
                     </cell>
                     <cell id="332">
                         <label id="333">
-                            <text-property name="text">spend_to_month</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">SPEND TO MONTH</text-property>
                         </label>
                     </cell>
                     <cell id="334">
                         <label id="335">
-                            <text-property name="text">raw_spend_to_month</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">RAW SPEND TO MONTH</text-property>
                         </label>
                     </cell>
                     <cell id="336">
                         <label id="337">
-                            <text-property name="text">updated_at</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">UPDATED AT</text-property>
                         </label>
                     </cell>
                     <cell id="338">
                         <label id="339">
-                            <text-property name="text">daily_usage</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">DAILY USAGE</text-property>
                         </label>
                     </cell>
                     <cell id="340">
                         <label id="341">
-                            <text-property name="text">usage_date</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">USAGE DATE</text-property>
                         </label>
                     </cell>
                     <cell id="342">
                         <label id="343">
-                            <text-property name="text">usage_unit</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">USAGE UNIT</text-property>
                         </label>
                     </cell>
                     <cell id="344">
                         <label id="345">
-                            <text-property name="text">daily_usage</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">DAILY USAGE</text-property>
                         </label>
                     </cell>
                     <cell id="346">
                         <label id="347">
-                            <text-property name="text">billing_period_usage</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">BILLING PERIOD USAGE</text-property>
                         </label>
                     </cell>
                     <cell id="348">
                         <label id="349">
-                            <text-property name="text">billing_period_spend</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">BILLING PERIOD SPEND</text-property>
                         </label>
                     </cell>
                     <cell id="350">
                         <label id="351">
-                            <text-property name="text">billing_period_start_date</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">BILLING PERIOD START DATE</text-property>
                         </label>
                     </cell>
                     <cell id="352">
                         <label id="353">
-                            <text-property name="text">billing_period_end_date</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">BILLING PERIOD END DATE</text-property>
                         </label>
                     </cell>
                     <cell id="354">
                         <label id="355">
-                            <text-property name="text">billing_period_sequence</text-property>
+                            <property name="style">col_header</property>
+                            <text-property name="text">BILLING PERIOD SEQUENCE</text-property>
                         </label>
                     </cell>
                 </row>
@@ -3191,6 +2967,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id;]]></xml-property>
                     </cell>
                     <cell id="419">
                         <data id="420">
+                            <property name="style">NewStyle</property>
                             <property name="resultSetColumn">daily_usage</property>
                         </data>
                     </cell>

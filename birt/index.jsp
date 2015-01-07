@@ -27,6 +27,8 @@
         <br/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/user_spends.rptdesign&username=<%=  request.getParameter("username") %>> User Spend </a>
         <hr/>
+        <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign&username=<%=  request.getParameter("username") %>> Custom Usage </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
+        <hr/>
 <% } %>
 
 </jsp>
