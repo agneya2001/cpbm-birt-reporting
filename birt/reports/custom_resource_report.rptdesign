@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.4.0.v201405191524 Build &lt;4.4.0.v20140606-1451></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">273</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">273</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">273</property>
+        </structure>
+    </list-property>
     <property name="units">in</property>
     <method name="initialize"><![CDATA[
 //
@@ -581,6 +595,22 @@ if (params["billing_period_sequence"].value == true)
             <property name="controlType">check-box</property>
             <structure name="format"/>
         </scalar-parameter>
+        <scalar-parameter name="username" id="655">
+            <property name="hidden">true</property>
+            <text-property name="helpText">Enter the username</text-property>
+            <text-property name="promptText">Username</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+
+
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="27">
@@ -608,9 +638,19 @@ if (params["billing_period_sequence"].value == true)
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="273">
+            <property name="nullsOrdering">nulls lowest</property>
             <list-property name="columnHints"/>
             <list-property name="parameters">
-               
+ 		<structure>
+                    <property name="name">username</property>
+                    <property name="paramName">username</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
             </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
@@ -1072,7 +1112,7 @@ cloud_portal.user_daily_usage.billing_period_usage, cloud_portal.user_daily_usag
 cloud_portal.user_daily_usage.billing_period_end_date, cloud_portal.user_daily_usage.billing_period_sequence
  FROM cloud_portal.users, cloud_portal.user_spend_summary, cloud_portal.user_daily_usage, cloud_portal.addresses, cloud_portal.tenants
 where  cloud_portal.users.id=cloud_portal.user_spend_summary.user_id and cloud_portal.users.id=cloud_portal.user_daily_usage.user_id and cloud_portal.addresses.id = cloud_portal.users.address_id
-and cloud_portal.users.tenant_id = cloud_portal.tenants.id ]]></xml-property>
+and cloud_portal.users.tenant_id = cloud_portal.tenants.id and cloud_portal.users.username = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -1088,7 +1128,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id ]]></xml-property>
           <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
           <design:precision>0</design:precision>
           <design:scale>0</design:scale>
-          <design:nullability>NotNullable</design:nullability>
+          <design:nullability>Unknown</design:nullability>
         </design:attributes>
       </design:ParameterDefinition>
     </parameter>
