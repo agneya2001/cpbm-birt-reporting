@@ -28,7 +28,7 @@
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">shapeblue</value>
+                <value type="constant"></value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -57,9 +57,9 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://192.168.56.12:3306/cloud_portal</property>
+            <property name="odaURL">jdbc:mysql://192.168.101.50:3306/cloud_portal</property>
             <property name="odaUser">cpbm</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">Y3BibQ==</encrypted-property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>

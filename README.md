@@ -83,9 +83,19 @@ Steps to deploy updated custom jar files:
 				  Note:  Do not modify the jars under the default_impls directory.
 				  
 				
-7. Copy the updated custom jars from target directory of all four custom projects to: 
+7. Copy the updated custom jars from target directory of all three custom projects to: 
 	/usr/share/vts3/custom_impls
-				  
+
+	These are the jar files that need to be copied: 
+		citrix.cpbm.custom.common-2.3.0.jar  
+		citrix.cpbm.custom.model-2.3.0.jar  
+		citrix.cpbm.custom.portal-2.3.1.jar				  
+
+	The respective folders are:
+
+	./cpbm-customization/citrix.cpbm.custom.common/target/citrix.cpbm.custom.common-2.3.1.jar
+	./cpbm-customization/citrix.cpbm.custom.model/target/citrix.cpbm.custom.model-2.3.1.jar	
+	./citrix.cpbm.custom.portal/target/citrix.cpbm.custom.portal-2.3.1.jar
 
 				
 8. Start the CloudPortal Business Manager server using the command:
