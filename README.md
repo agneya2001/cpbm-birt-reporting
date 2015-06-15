@@ -23,7 +23,7 @@ birt-runtime-osgi-4_4_1-20140916.zip
 
 Extract birt.war 
 
-The birt.war is misisng the common loggings and mysql-jdbc driver.
+The birt.war is missng the common loggings and mysql-jdbc driver.
 Download the two and  injected in the war file.
 
 The two jars are provided here for convenience. Copy birt.war in birt folder and then inject the two jars:
@@ -95,7 +95,7 @@ Steps to deploy updated custom jar files:
 
 	./cpbm-customization/citrix.cpbm.custom.common/target/citrix.cpbm.custom.common-2.3.1.jar
 	./cpbm-customization/citrix.cpbm.custom.model/target/citrix.cpbm.custom.model-2.3.1.jar	
-	./citrix.cpbm.custom.portal/target/citrix.cpbm.custom.portal-2.3.1.jar
+	./cpbm-customization/citrix.cpbm.custom.portal/target/citrix.cpbm.custom.portal-2.3.1.jar
 
 				
 8. Start the CloudPortal Business Manager server using the command:
