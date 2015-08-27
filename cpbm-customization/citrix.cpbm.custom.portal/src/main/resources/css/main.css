@@ -59,9 +59,9 @@ input,textarea,.uneditable-input {
   width: auto;
 }
 #login_main {
-  width: 703px;
+  width: 525px;
   height: auto;
-  background: url(../images/login_mainbg.gif) no-repeat top left;
+  /*background: url(../images/login_mainbg.gif) no-repeat top left;*/
   margin: 0 auto;
   padding: 0;
 }
@@ -261,7 +261,7 @@ input,textarea,.uneditable-input {
   width: 525px;
   height: 33px;
   float: left;
-  margin: 0 0 0 3px;
+  margin: 0 0 0 1px;
   display: inline;
   padding: 0;
 }
@@ -303,7 +303,7 @@ input,textarea,.uneditable-input {
   float: left;
   position: relative;
   background: #FFF;
-  border: 2px solid #000;
+  /*border: 2px solid #000;*/
   border-top: none;
   border-bottom: none;
   margin: 0;
