@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.1.v201408290142 Build &lt;4.4.1.v20140916-1320></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">45</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">45</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">45</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/grouped_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.groupedlisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">72</property>
+    <parameters>
+        <scalar-parameter name="start_date" id="50">
+            <text-property name="helpText">Please provide date in YYYY-MM-DD format</text-property>
+            <text-property name="promptText">Start Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="end_date" id="51">
+            <text-property name="helpText">Please provide end date in YYYY-MM-DD format</text-property>
+            <text-property name="promptText">End Date</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Custom</property>
+                <property name="pattern">yyyy-MM-dd</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="JdbcDC" id="43">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.100.43:3306</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
+        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="JdbcCCP" id="44">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.100.43:3306</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="CPBM_USAGE" id="45">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">usage_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Usage Type</text-property>
+                    <text-property name="heading">usage_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">resource_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Resource Type</text-property>
+                    <text-property name="heading">resource_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">sum(cloud_portal.usage_data.raw_number)</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">Total Usage</text-property>
+                    <text-property name="heading">sum(cloud_portal.usage_data.raw_number)</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">start_date</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">usage_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">resource_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">sum(cloud_portal.usage_data.raw_number)</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">JdbcDC</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">usage_type</property>
+                    <property name="nativeName">usage_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">resource_type</property>
+                    <property name="nativeName">resource_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">sum(cloud_portal.usage_data.raw_number)</property>
+                    <property name="nativeName">sum(cloud_portal.usage_data.raw_number)</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">8</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[
+SELECT 
+cloud_portal.usage_data.usage_type, 
+ cloud_portal.usage_data.resource_type,
+sum(cloud_portal.usage_data.raw_number)
+
+FROM cloud_portal.usage_data, cloud_portal.users
+
+where cloud_portal.users.id =  cloud_portal.usage_data.user_id and cloud_portal.usage_data.user_id=44
+and cloud_portal.usage_data.start_date >= ? and cloud_portal.usage_data.start_date <= ?
+
+group by cloud_portal.usage_data.usage_type;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="CPBM_SUMMARY" id="47">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">first_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">First Name</text-property>
+                    <text-property name="heading">first_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">last_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Last Name</text-property>
+                    <text-property name="heading">last_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Tenant Name</text-property>
+                    <text-property name="heading">name</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">first_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">last_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">JdbcDC</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">first_name</property>
+                    <property name="nativeName">first_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">last_name</property>
+                    <property name="nativeName">last_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT distinct cloud_portal.users.first_name, cloud_portal.users.last_name, 
+cloud_portal.tenants.name
+
+FROM cloud_portal.users, cloud_portal.tenants
+
+where cloud_portal.users.id = 44
+and cloud_portal.tenants.id = cloud_portal.users.tenant_id;]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="38">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="41">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="42">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <grid id="3">
+                    <property name="width">100%</property>
+                    <column id="4"/>
+                    <row id="5">
+                        <cell id="6">
+                            <text id="7">
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="8">
+            <property name="height">4.930555555555555in</property>
+            <property name="width">7.958333333333333in</property>
+            <column id="9">
+                <property name="width">7.958333333333333in</property>
+            </column>
+            <row id="182">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">0.333in</property>
+                <cell id="183">
+                    <property name="verticalAlign">top</property>
+                </cell>
+            </row>
+            <row id="10">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">0.333in</property>
+                <cell id="11">
+                    <property name="verticalAlign">top</property>
+                    <label id="12">
+                        <property name="fontFamily">sans-serif</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textUnderline">underline</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Customer Usage Report</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="102">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">1.25in</property>
+                <cell id="103">
+                    <property name="verticalAlign">top</property>
+                    <table id="104">
+                        <property name="dataSet">CPBM_SUMMARY</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">first_name</property>
+                                <text-property name="displayName">First Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["first_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">last_name</property>
+                                <text-property name="displayName">Last Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["last_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">name</property>
+                                <text-property name="displayName">Tenant Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="117"/>
+                        <column id="118"/>
+                        <column id="119"/>
+                        <header>
+                            <row id="105">
+                                <cell id="106">
+                                    <property name="width">15%</property>
+                                    <label id="161">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">----------</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="107">
+                                    <property name="width">15%</property>
+                                    <label id="162">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">--------</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="108">
+                                    <property name="width">70%</property>
+                                    <label id="163">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">-------</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="109">
+                                <cell id="110">
+                                    <text id="177">
+                                        <property name="contentType">auto</property>
+                                        <text-property name="content"><![CDATA[User:]]></text-property>
+                                    </text>
+                                    <text-data id="120">
+                                        <property name="textAlign">left</property>
+                                        <expression name="valueExpr">row["first_name"]</expression>
+                                        <property name="contentType">html</property>
+                                    </text-data>
+                                </cell>
+                                <cell id="111">
+                                    <text-data id="121">
+                                        <property name="textAlign">left</property>
+                                        <expression name="valueExpr">row["last_name"]</expression>
+                                        <property name="contentType">html</property>
+                                    </text-data>
+                                </cell>
+                                <cell id="112">
+                                    <text id="176">
+                                        <property name="contentType">auto</property>
+                                        <text-property name="content"><![CDATA[Tenant]]></text-property>
+                                    </text>
+                                    <text-data id="122">
+                                        <property name="textAlign">left</property>
+                                        <expression name="valueExpr">row["name"]</expression>
+                                        <property name="contentType">html</property>
+                                    </text-data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="113">
+                                <cell id="114">
+                                    <label id="164">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">-------</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="115">
+                                    <label id="165">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">-------</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="116">
+                                    <label id="166">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">-------</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+            <row id="186">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">2.4722222222222223in</property>
+                <cell id="187">
+                    <property name="verticalAlign">top</property>
+                    <table id="188">
+                        <property name="dataSet">CPBM_USAGE</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">usage_type</property>
+                                <text-property name="displayName">Usage Type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["usage_type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">resource_type</property>
+                                <text-property name="displayName">Resource Type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["resource_type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">sum(cloud_portal.usage_data.raw_number)</property>
+                                <text-property name="displayName">Total Usage</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["sum(cloud_portal.usage_data.raw_number)"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">usage unit</property>
+                                <text-property name="displayName">Usage Unit</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["usage_type"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <column id="204"/>
+                        <column id="205"/>
+                        <column id="206"/>
+                        <column id="207"/>
+                        <header>
+                            <row id="189">
+                                <cell id="190">
+                                    <label id="210">
+                                        <text-property name="text">Usage Type</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="191">
+                                    <label id="208">
+                                        <text-property name="text">Resource Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="192">
+                                    <label id="212">
+                                        <text-property name="text">Raw Usage</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="193">
+                                    <label id="217">
+                                        <text-property name="text">Usage Unit</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="194">
+                                <cell id="195">
+                                    <data id="211">
+                                        <list-property name="mapRules">
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'ALLOCATED_VM'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Allocated VM</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'RUNNING_VM'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Running VM</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'IP_ADDRESS'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">IP Address</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'NETWORK_BYTES_RECEIVED'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Network bytes rcvd</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'NETWORK_BYTES_SENT'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Network bytes sent</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'ROOT_VOLUME'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Root Volume</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'VOLUME'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Data Disk</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'TEMPLATE'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Template</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'ISO'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Iso</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'SNAPSHOT'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Snapshot</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'SECURITY_GROUP'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Security Group</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'LOAD_BALANCER_POLICY'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Load Balancer</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'PORT_FORWARDING_POLICY'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Port Forwarding</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'NETWORK_OFFERING'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Network Offering</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'VPN_USERS'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Vpn Usage</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'VM_SNAPSHOT'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Snapshot</text-property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">usage_type</property>
+                                    </data>
+                                </cell>
+                                <cell id="196">
+                                    <data id="209">
+                                        <property name="resultSetColumn">resource_type</property>
+                                    </data>
+                                </cell>
+                                <cell id="197">
+                                    <data id="213">
+                                        <property name="resultSetColumn">sum(cloud_portal.usage_data.raw_number)</property>
+                                    </data>
+                                </cell>
+                                <cell id="198">
+                                    <data id="218">
+                                        <list-property name="mapRules">
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'ALLOCATED_VM'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Hours</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'RUNNING_VM'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Hours</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'IP_ADDRESS'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">IP-Hours</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'NETWORK_BYTES_RECEIVED'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'NETWORK_BYTES_SENT'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'ROOT_VOLUME'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'VOLUME'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'TEMPLATE'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'ISO'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'SNAPSHOT'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'SECURITY_GROUP'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Policy-Hour</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'LOAD_BALANCER_POLICY'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Policy-Hour</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'PORT_FORWARDING_POLICY'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Policy-Hour</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'NETWORK_OFFERING'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Policy-Hour</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'VPN_USERS'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes</text-property>
+                                            </structure>
+                                            <structure>
+                                                <expression name="testExpr" type="javascript">row["usage_type"]</expression>
+                                                <property name="operator">match</property>
+                                                <simple-property-list name="value1">
+                                                    <value type="javascript">'VM_SNAPSHOT'</value>
+                                                </simple-property-list>
+                                                <text-property name="display">Bytes-Hour</text-property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">usage_type</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="199">
+                                <cell id="200"/>
+                                <cell id="201"/>
+                                <cell id="202"/>
+                                <cell id="203"/>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>
