@@ -1,0 +1,54 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+
+  tasks: 
+    - name: prepare birt with the latest content takes about a minute
+      shell: jar -uvf birt.war WEB-INF/lib/* chdir=birt/
+      shell: jar -uvf birt.war reports/* chdir=birt/
+      shell: jar -uvf birt.war index.jsp chdir=birt/
+
+    - name: build the cpbm package takes about a minute
+      shell: mvn clean install -Dmaven.test.skip=true chdir=cpbm-customization/citrix.cpbm.custom.all
+
+- hosts: cpbm
+  vars:
+    http_port: 80
+  remote_user: root
+  
+  tasks:
+    - name: install libselinux-python
+      yum: name=libselinux-python state=present
+
+    - name: install rsync
+      yum: name=rsync state=present
+
+    - name: ensure mysqld is running
+      service: name=mysqld state=running
+
+    - name: ensure cloud-portal is stopped
+      service: name=cloud-portal state=stopped
+
+    - name: copy birt to /usr/share/vts3/pickup/
+      copy: src=./birt/birt.war dest=/usr/share/vts3/pickup
+
+    - name: copy the jars to /usr/share/vts3/custom_impls
+      copy: src=./cpbm-customization/citrix.cpbm.custom.common/target/citrix.cpbm.custom.common-2.3.1.jar  dest=/usr/share/vts3/custom_impls
+      copy: src=./cpbm-customization/citrix.cpbm.custom.model/target/citrix.cpbm.custom.model-2.3.1.jar dest=/usr/share/vts3/custom_impls
+      copy: src=./cpbm-customization/citrix.cpbm.custom.portal/target/citrix.cpbm.custom.portal-2.3.1.jar dest=/usr/share/vts3/custom_impls
+
+    - name: backup conf file
+      synchronize: mode=pull src='/usr/share/vts3/config/org.eclipse.virgo.repository.properties' dest='org.eclipse.virgo.repository.properties.bak'
+      synchronize: src='org.eclipse.virgo.repository.properties.bak' dest='/usr/share/vts3/config/org.eclipse.virgo.repository.properties.bak'
+
+    - name: modify conf file
+      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^default_impls' replace='#default_impls'
+      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^\#custom_impls' replace='custom_impls'
+      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^chain\=ext\,patches' replace='chain\=ext\,custom_impls\,patches'
+
+    - name: ensure cloud-portal is started
+      service: name=cloud-portal state=started
+
+
+    
+
