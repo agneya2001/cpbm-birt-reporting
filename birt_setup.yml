@@ -41,10 +41,14 @@
       synchronize: mode=pull src='/usr/share/vts3/config/org.eclipse.virgo.repository.properties' dest='org.eclipse.virgo.repository.properties.bak'
       synchronize: src='org.eclipse.virgo.repository.properties.bak' dest='/usr/share/vts3/config/org.eclipse.virgo.repository.properties.bak'
 
-    - name: modify conf file
-      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^default_impls' replace='#default_impls'
-      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^\#custom_impls' replace='custom_impls'
-      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^chain\=ext\,patches' replace='chain\=ext\,custom_impls\,patches'
+    - name: modify conf file comment the default
+      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^default\_impls' replace='#default\_impls'
+
+    - name: modify conf file uncomment the custom
+      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^#custom\_impls' replace='custom\_impls'
+
+    - name: modify conf file enable custom
+      replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^chain\=ext\,patches' replace='chain\=ext\,custom\_impls\,patches'
 
     - name: ensure cloud-portal is started
       service: name=cloud-portal state=started
