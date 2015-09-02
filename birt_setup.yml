@@ -1,8 +1,45 @@
 ---
 - hosts: 127.0.0.1
   connection: local
+  vars:
+    cpbmuser: cpbm
+    cpbm_base64_pass: password
 
   tasks: 
+    - name: Get local dir
+      local_action: shell pwd
+      register: result
+
+    - name: substitute username in reports user_spends.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/user_spends.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbmuser }}</property>'
+
+    - name: substitute password in reports user_spends.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/user_spends.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_base64_pass | b64encode }}</encrypted-property>'
+
+    - name: substitute username in reports custom_resource_report.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/custom_resource_report.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbmuser }}</property>'
+
+    - name: substitute password in reports custom_resource_report.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/custom_resource_report.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_base64_pass | b64encode }}</encrypted-property>'
+  
+    - name: substitute username in reports customer_usage.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/customer_usage.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbmuser }}</property>'
+
+    - name: substitute password in reports customer_usage.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/customer_usage.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_base64_pass | b64encode }}</encrypted-property>'
+  
+    - name: substitute username in reports top_spenders.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/top_spenders.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbmuser }}</property>'
+
+    - name: substitute password in reports top_spenders.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/top_spenders.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_base64_pass | b64encode }}</encrypted-property>'
+  
+    - name: substitute username in reports top_spenders.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/top_spenders.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbmuser }}</property>'
+
+    - name: substitute password in reports top_spenders.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/top_spenders.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_base64_pass | b64encode }}</encrypted-property>'
+  
     - name: prepare birt with the latest content takes about a minute
       shell: jar -uvf birt.war WEB-INF/lib/* chdir=birt/
       shell: jar -uvf birt.war reports/* chdir=birt/
