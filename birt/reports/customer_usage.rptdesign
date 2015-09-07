@@ -76,7 +76,7 @@
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
             <property name="odaURL">jdbc:mysql://192.168.100.43:3306</property>
-            <property name="odaUser">root</property>
+            <property name="odaUser">cpbm</property>
             <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
         </oda-data-source>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="JdbcCCP" id="44">
@@ -98,7 +98,7 @@
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
             <property name="odaURL">jdbc:mysql://192.168.100.43:3306</property>
-            <property name="odaUser">root</property>
+            <property name="odaUser">cpbm</property>
             <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
         </oda-data-source>
     </data-sources>
