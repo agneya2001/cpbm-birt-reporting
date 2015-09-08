@@ -251,7 +251,7 @@ var subscriptionButtonVisiblity = true;
 <!-- Hidden fields for filters, components and properties End -->
 
 <!-- /Hidden fields for component names -->
-<input type="hidden" id="selectedCurrencySign" value="${currentTenant.currency.sign}">
+<input type="hidden" id="selectedCurrencySign" value="${tenant.currency.sign}" />
 <input type="hidden" name="resourceType" id="resourceType" value="${resourceType}" />
 <input type="hidden" name="serviceInstanceUuid" id="serviceInstanceUuid" value="${serviceInstanceUuid}" />
 <input type="hidden" name="isPayAsYouGoChosen" id="isPayAsYouGoChosen" value="${isPayAsYouGoChosen}" />
@@ -302,7 +302,9 @@ var subscriptionButtonVisiblity = true;
   style="display: none">
 
   <div class="catalogconfigure_sectionox_contentarea">
-    <div class="widgetconfigure_softwarebox"></div>
+    <div id="resource_status_icon" class="widgetconfigure_softwarebox">
+      <i id="resource_status_loading" class="fa fa-spinner fa-spin fa-5x" style="display:none;margin:40px;"></i>    
+    </div>
     <div class="widgetconfigure_softwarebox textarea" id="launch_vm_progress" style="width: 70%; margin-left: 30px;">
       <div id="launchingVm_template" class="subscribe_dialog_message_box" style="display: none;">
 

@@ -61,7 +61,7 @@ var notifications_link_path = "<%=request.getContextPath() %>/portal/tenants/not
       </div>
     </div>
     
-    <c:if test="${currentTenant.id != 1}">
+    <c:if test="${currentTenant.id != 1 && userHasCloudServiceAccount}">
         <div class="mainmenu_button <c:out value="${MyServices}"/>"> 
             <div class="mainmenu_button_linkbox">
                 <spring:url value="/portal/connector/csinstances" var="connectors_list" htmlEscape="false">
@@ -70,6 +70,18 @@ var notifications_link_path = "<%=request.getContextPath() %>/portal/tenants/not
                 <a  href="<c:out value="${connectors_list}"/>"><spring:message code="page.level2.myservices"/></a> 
             </div>
         </div>
+    </c:if>
+    <c:if test="${currentTenant.id != 1 && !userHasCloudServiceAccount}">
+      <sec:authorize access="hasRole('ROLE_ACCOUNT_ADMIN')">
+        <div class="mainmenu_button <c:out value="${MyServices}"/>"> 
+            <div class="mainmenu_button_linkbox">
+                <spring:url value="/portal/connector/csinstances" var="connectors_list" htmlEscape="false">
+                  <spring:param name="tenant"><c:out value="${tenant.param}"/></spring:param>
+                </spring:url>
+                <a  href="<c:out value="${connectors_list}"/>"><spring:message code="page.level2.myservices"/></a> 
+            </div>
+        </div>
+      </sec:authorize>
     </c:if>
     <c:if test="${currentTenant.id != 1}">
     <sec:authorize access="hasAnyRole('ROLE_ACCOUNT_USER_CRUD')">
@@ -83,7 +95,7 @@ var notifications_link_path = "<%=request.getContextPath() %>/portal/tenants/not
       </sec:authorize>
     </c:if>
 
-    <c:if test="${currentTenant.id != 1 }">
+    <c:if test="${currentTenant.id != 1 && userHasCloudServiceAccount}">
     <div class="mainmenu_button <c:out value="${Catalog}"/>" id="catalogtab">
       <div class="mainmenu_button_linkbox">
 		      <spring:url value="/portal/subscription/createsubscription" var="catalog_path" htmlEscape="false">

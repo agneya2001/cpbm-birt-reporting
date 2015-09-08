@@ -238,6 +238,9 @@ var dictionary = {
     </div>
   </div>
   
+  <input type="hidden" value="${selectedLanguage}" name="selectedLang" id="selected_locale"/>
+  <input type="hidden" value="${selectedChannel}" name="selectedChannel" id="selected_channel"/>
+  
   <div id="<c:out value="count${size}"/>" class="countDiv"></div>
   <div class="widget_rightpanel" id="viewEmailTemplateDiv">
     <c:if test="${firsttemplate != null}">                                             
@@ -245,14 +248,11 @@ var dictionary = {
         var t_name = '<c:out value="${firsttemplate.templateName}"/>';
         var t_category = '<c:out value="${firsttemplate.category}"/>';
         var t_lang = '<c:out value="${selectedLanguage}"/>';
-        var t_channel = '<c:if test="${firsttemplate.channel ne null}"><c:out value="${firsttemplate.channel.id}"/></c:if>';
-        viewFirstEmailTemplate(t_name, t_category, t_lang,t_channel); 
+        viewemailtemplate(null, t_name, t_category, t_lang, null); 
       </script>
     </c:if> 
   </div>
 </div>
 
 <div id="editEmailTemplateDiv"></div>
-<input type="hidden" value="${selectedLanguage}" name="selectedLang" id="selected_locale"/>
-<input type="hidden" value="${selectedChannel}" name="selectedChannel" id="selected_channel"/>
 

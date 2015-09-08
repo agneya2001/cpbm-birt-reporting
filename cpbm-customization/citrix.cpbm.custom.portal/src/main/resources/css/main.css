@@ -6,7 +6,7 @@
   padding: 0;
 }
 html,body {
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   color: #111111;
   font-weight: normal;
@@ -15,7 +15,7 @@ html,body {
   padding: 0;
 }
 select optgroup {
-  color: ##1B5F3C;
+  color: #0A79AC;
   font-style: normal;
   font-weight: bold;
   margin-top:4px;
@@ -28,7 +28,7 @@ select optgroup option {
 a {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -201,7 +201,7 @@ input,textarea,.uneditable-input {
   cursor: pointer;
 }
 .catalog_signuppopoverlist li:hover {
-  background: #1B5F3C;
+  background: #333;
   color: #FFF;
 }
 .catalog_signuppopoverlist span.flagicons {
@@ -248,7 +248,7 @@ input,textarea,.uneditable-input {
   padding: 0;
 }
 .login_contentpanel {
-  width: 525px;
+  width: 703px;
   height: auto;
   float: left;
   margin: 47px 0 20px 0;
@@ -258,7 +258,7 @@ input,textarea,.uneditable-input {
   width: 500px;
 }
 .login_maintabsarea {
-  width: 525px;
+  width: 703px;
   height: 33px;
   float: left;
   margin: 0 0 0 1px;
@@ -298,8 +298,8 @@ input,textarea,.uneditable-input {
   border-bottom: none;
 }
 .login_container {
-  width: 525px;
-  height: 350px;
+  width: 703px;
+  height: auto;
   float: left;
   position: relative;
   background: #FFF;
@@ -308,18 +308,50 @@ input,textarea,.uneditable-input {
   border-bottom: none;
   margin: 0;
   padding: 0;
-  background-image: url(../images/sm_login_logo.png);
-  background-repeat: no-repeat;
-  background-position: 85% 50%;
 }
-
 .login_container.smaller_ver {
   width: 500px;
   margin-top: 50px;
   background: #FFF url(../images/loginbg_smallerver.gif) repeat-x bottom
     left;
 }
-
+.login_headerarea {
+  width: 703px;
+  height: 85px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.login_headerarea.smaller_ver {
+  width: 500px;
+}
+.login_headerarea_left {
+  width: 264px;
+  height: 85px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.loginlogo {
+  width: 224px;
+  height: 60px;
+  float: left;
+  margin: 25px 0 0 25px;
+  display: inline;
+  padding: 0;
+}
+.loginlogo img {
+  height: auto;
+  border: none;
+  max-height: 60px
+}
+.login_headerarea_right {
+  width: 439px;
+  height: 85px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
 .login_wizard {
   height: auto;
   float: right;
@@ -376,7 +408,7 @@ input,textarea,.uneditable-input {
   width: 80px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   text-align: center;
   font-weight: normal;
   margin: 45px 0 0 0;
@@ -397,7 +429,7 @@ input,textarea,.uneditable-input {
   width: 80px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   text-align: center;
   font-weight: normal;
   margin: 45px 0 0 0;
@@ -411,7 +443,7 @@ input,textarea,.uneditable-input {
   padding: 0 0 0 20px;
 }
 .login_maincontentarea , .error_maincontentarea {
-  width: 525px;
+  width: 663px;
   height: auto;
   float: left;
   margin: 20px 0 0 25px;
@@ -425,7 +457,7 @@ input,textarea,.uneditable-input {
   width: 100%;
   height: auto;
   float: left;
-  margin: 40px 0 0 0;
+  margin: 0;
   padding: 0;
 }
 .login_maincontentarea_titlepanel h1 , .error_maincontentarea_titlepanel h1{
@@ -607,7 +639,7 @@ input,textarea,.uneditable-input {
   float: left;
   font-size: 14px;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #333;
   text-align: left;
   margin: 30px 0 0 0;
   padding: 0;
@@ -618,7 +650,7 @@ input,textarea,.uneditable-input {
   float: left;
   font-size: 12px;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-decoration: none;
   text-align: left;
   margin: 5px 0 0 0;
@@ -645,12 +677,12 @@ input,textarea,.uneditable-input {
   float: left;
   margin: 5px 0 5px 10px;
   display: inline;
-  color: #1B5F3C;
+  color: #333;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
   padding: 0;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .login_errorbox a {
   width: auto;
@@ -663,7 +695,7 @@ input,textarea,.uneditable-input {
   font-weight: normal;
   padding: 0;
   margin: 0;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .login_errorbox a:link,.login_errorbox a:visited {
   text-decoration: none;
@@ -677,7 +709,7 @@ input,textarea,.uneditable-input {
   float: left;
   margin: 5px 0 5px 10px;
   display: inline;
-  color: #1B5F3C;
+  color: #333;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -701,10 +733,10 @@ input,textarea,.uneditable-input {
 }
 .registration_account_type_desc {
   float: left;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 20px;
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   padding-left: 25px;
 }
 .registration_account_type_container .registration_account_type_bg .registration_account_type_head
@@ -712,9 +744,9 @@ input,textarea,.uneditable-input {
   float: left;
   padding-top: 25px;
   padding-left: 45px;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 19px;
-  color: #1B5F3C1B5F3C;
+  color: #333333;
 }
 .registration_formbox {
   width: 663px;
@@ -1046,7 +1078,7 @@ a.logincommonbutton.disabled {
   background: none repeat-x scroll left top #A8A8A8
 }
 a:hover.logincommonbutton {
-  background: #1B5F3C url(../images/grey_buttonbg_hover.gif) repeat-x top
+  background: #333 url(../images/grey_buttonbg_hover.gif) repeat-x top
     left;
   text-decoration: none;
 }
@@ -1105,7 +1137,7 @@ a:hover.logincommonbutton.disabled {
   padding: 0;
 }
 .login_messages {
-  width: 483px;
+  width: 663px;
   height: auto;
   float: left;
   margin: 0 0 10px 20px;
@@ -1126,7 +1158,7 @@ a:hover.logincommonbutton.disabled {
   width: 90%;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   margin: 10px 0 0 10px;
@@ -1331,14 +1363,13 @@ a:hover.logincommonbutton.disabled {
   margin: 16px 20px 0 0;
   display: inline;
   padding: 0;
-  color: #000;
 }
 .mainmenu_infolinks li {
   width: auto;
   height: auto;
   float: left;
   list-style: none;
-  color: #000;
+  color: #FFF;
   font-size: 11px;
   border-right: 1px dotted #999;
   margin: 0;
@@ -1375,7 +1406,7 @@ a:hover.logincommonbutton.disabled {
   width: auto;
   height: auto;
   float: left;
-  color: #000;
+  color: #FFF;
   text-align: center;
   font-size: 11px;
   font-weight: normal;
@@ -1490,23 +1521,23 @@ a:hover.logincommonbutton.disabled {
   padding: 0;
   text-decoration: none;
 }
-.mainmenu_infolinks a:link, .mainmenu_infolinks a:visited {
+.mainmenu_infolinks a:link,mainmenu_infolinks a:visited {
   text-decoration: none;
-  color: #000;
+  color: #FFF;
 }
 .mainmenu_infolinks a:hover {
   text-decoration: underline;
-  color: #1B5F3C;
+  color: #FFF;
 }
 .userprofile_dropdownbox a {
-  color: ##1B5F3C;
+  color: #0088CC;
 }
 .userprofile_dropdownbox a:hover {
   text-decoration: underline;
-  color: ##1B5F3C;
+  color: #0088CC;
 }
 .userprofile_dropdownbox a:link,userprofile_dropdownbox a:visited {
-  color: ##1B5F3C;
+  color: #0088CC;
 }
 .secondlevel_withoutsubmenu {
   width: 980px;
@@ -1619,7 +1650,7 @@ a:hover.logincommonbutton.disabled {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   text-align: left;
   font-weight: normal;
@@ -1860,7 +1891,7 @@ a:hover.logincommonbutton.disabled {
   width: auto;
   height: auto;
   float: left;
-  border-right: 1px dotted #1B5F3C;
+  border-right: 1px dotted #333;
   margin: 0;
   display: inline;
   padding: 0 20px 0 0;
@@ -1872,7 +1903,7 @@ a:hover.logincommonbutton.disabled {
   font-size: 16px;
   font-weight: bold;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 0 0 0 20px;
   display: inline;
   padding: 0;
@@ -1884,19 +1915,19 @@ a:hover.logincommonbutton.disabled {
   font-size: 16px;
   font-weight: normal;
   text-align: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   margin: 0 0 0 5px;
   padding: 0;
   text-decoration: none;
-  border-bottom: 1px dashed #1B5F3C;
+  border-bottom: 1px dashed #2c8bbc;
 }
 .secondlevel_breadcrumbbox a:link,secondlevel_breadcrumbbox a:visited {
   text-decoration: none;
-  color: #1B5F3C;
+  color: #2c8bbc;
 }
 .secondlevel_breadcrumbbox a:hover {
   text-decoration: underline;
-  color: #1B5F3C;
+  color: #333;
 }
 .secondlevel_breadcrumbbox_tenant {
   width: auto;
@@ -1913,7 +1944,7 @@ a:hover.logincommonbutton.disabled {
   font-size: 16px;
   font-weight: bold;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 0 0 0 20px;
   display: inline;
   padding: 0;
@@ -1945,7 +1976,7 @@ a:hover.logincommonbutton.disabled {
   font-weight: normal;
   text-align: center;
   cursor: pointer;
-  color: #1B5F3C;
+  color: #333;
 }
 .secondlevel_menutabs.auto_width {
   max-width: none;
@@ -1963,9 +1994,9 @@ a:hover.logincommonbutton.disabled {
   text-decoration: none;
 }
 .secondlevel_menutabs:hover {
-  background: url(../images/secondlevel_menubg_hover.gif) repeat-x top left;
+  background: url(../images/secondlevel_menubg_hover.gif) repeat-x top
+    left;
   text-decoration: none;
-  color: #1B5F3C;
 }
 .secondlevel_menutabs.on {
   background: #FFF repeat-x top left;
@@ -2112,7 +2143,7 @@ a:hover.logincommonbutton.disabled {
   font-size: 16px;
   text-align: left;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #333;
   margin: 0;
   padding: 0;
 }
@@ -2159,7 +2190,7 @@ a:hover.logincommonbutton.disabled {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 16px;
   font-weight: normal;
   text-align: left;
@@ -2381,7 +2412,7 @@ a:hover.logincommonbutton.disabled {
   list-style: none;
 }
 .db_usagebox.bot li span.usagetext.positive {
-  color: #1B5F3C;
+  color: #333;
 }
 .db_usagebox.bot li span.usagetext.negative {
   color: #8f0000;
@@ -2404,7 +2435,7 @@ a:hover.logincommonbutton.disabled {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -2417,7 +2448,7 @@ a:hover.logincommonbutton.disabled {
   height: auto;
   float: left;
   text-decoration: none;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -2646,7 +2677,7 @@ a.db_computeicon:hover {
   height: auto;
   float: left;
   text-decoration: none;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -2682,7 +2713,7 @@ a.db_computeicon:hover {
   height: 72px;
   float: left;
   background: #FFF;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -2878,21 +2909,21 @@ a.db_computeicon:hover {
 }
 .db_gridbox_rows.activityodd {
   background: #FFF;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   padding: 0 0 8px 0;
 }
 .db_gridbox_rows.activityeven {
   background: #f3f3f3;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   padding: 0 0 8px 0;
 }
 .db_gridbox_rows.detailsodd {
   background: #FFF;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   padding: 0 0 5px 0;
 }
 .db_gridbox_rows.dotted_bottom {
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
 }
 .db_gridbox_rows.odd_sm {
   background: #FFF4DF;
@@ -2930,7 +2961,7 @@ a.db_computeicon:hover {
   padding: 0 0 0 2px;
   border: 1px inset #DEDCC5;
   background: #ffffdd;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .db_gridbox_celltitles {
@@ -2973,7 +3004,7 @@ a.db_computeicon:hover {
   padding: 0;
 }
 .db_gridbox_celltitles.header.more_details_grid {
-  color: ##1B5F3C;
+  color: #0A79AC;
 }
 .db_gridbox_celltitles.activity {
   font-size: 12px;
@@ -3034,7 +3065,7 @@ a.db_computeicon:hover {
   width: auto;
   height: auto;
   text-decoration: none;
-  color: #1B5F3C;
+  color: #333;
   text-align: center;
   font-size: 11px;
   font-weight: normal;
@@ -3205,7 +3236,7 @@ a.db_computeicon:hover {
   width: 220px;
   height: 78px;
   float: left;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: normal;
   background: #FFF;
@@ -3297,7 +3328,7 @@ a.db_computeicon:hover {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -3309,7 +3340,7 @@ a.db_computeicon:hover {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: bold;
   text-align: left;
@@ -3322,7 +3353,7 @@ a.db_computeicon:hover {
   height: auto;
   float: left;
   text-decoration: none;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -3478,7 +3509,7 @@ a.db_computeicon:hover {
   float: left;
   margin: 0;
   padding: 0;
-  border-right: 1px dotted #1B5F3C;
+  border-right: 1px dotted #333;
 }
 .main_addnew_formbox li {
   width: 430px;
@@ -3838,7 +3869,7 @@ input:hover.add_icon {
   width: 600px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 16px;
   font-weight: normal;
   text-align: left;
@@ -3849,7 +3880,7 @@ input:hover.add_icon {
   width: 670px;
   height: auto;
   float: left;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   background: #FFF;
   margin: 0;
   padding: 0 0 5px 0;
@@ -3940,7 +3971,7 @@ input:hover.add_icon {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 12px;
   font-weight: normal;
   text-align: left;
@@ -3973,7 +4004,7 @@ input:hover.add_icon {
   display: inline;
   padding: 0;
   border: 1px solid #CCC;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -4093,7 +4124,7 @@ input:hover.add_icon {
   float: left;
   margin: 0;
   padding: 0;
-  border-right: 1px dotted #1B5F3C;
+  border-right: 1px dotted #333;
 }
 .commonboxes_formbox span.logo {
   width: 160px;
@@ -4116,7 +4147,7 @@ input:hover.add_icon {
   width: 440px;
 }
 .billing_commonboxes_formbox_panels {
-  border-left: 1px dotted #1B5F3C;
+  border-left: 1px dotted #333;
   border-right: none;
 }
 .commonboxes_formbox li {
@@ -4181,7 +4212,7 @@ input:hover.add_icon {
   font-size: 12px;
   font-weight: bold;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 3px 0 0 10px;
   display: inline;
   padding: 0;
@@ -4194,7 +4225,7 @@ input:hover.add_icon {
   font-size: 12px;
   font-weight: bold;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 3px 0 0 10px;
   display: inline;
   padding: 0;
@@ -4321,7 +4352,7 @@ input:hover.add_icon {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 12px;
   font-weight: normal;
   text-align: left;
@@ -4376,7 +4407,7 @@ input:hover.add_icon {
   text-align: left;
   font-size: 11px;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-decoration: none;
   display: inline;
   padding: 0;
@@ -4545,7 +4576,7 @@ input:hover.add_icon {
   margin: 0;
   padding: 0 0 3px 0;
   background: url(../images/leftmenu_bg.gif) repeat-x top left;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
 }
 .main_leftmenu_tab {
   background: url(../images/leftmenu_bg.gif) repeat-x top left;
@@ -4636,7 +4667,7 @@ input:hover.add_icon {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 14px;
   text-align: left;
   font-weight: normal;
@@ -4672,7 +4703,7 @@ input:hover.add_icon {
   margin: 0;
   display: inline;
   padding: 0 0 15px 0;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
 }
 .more_details_lightboxformbox {
   width: 100%;
@@ -4716,7 +4747,7 @@ input:hover.add_icon {
   width: 230px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 16px;
   font-weight: bold;
   list-style: none;
@@ -4754,7 +4785,7 @@ input:hover.add_icon {
   background: none;
   font-size: 12px;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 2px 0 0 10px;
   display: inline;
   padding: 0;
@@ -4835,7 +4866,7 @@ input:hover.add_icon {
   width: 200px;
   height: 78px;
   float: left;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: normal;
   background: #FFF;
@@ -4920,7 +4951,7 @@ input:hover.add_icon {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 12px;
   font-weight: normal;
   text-align: left;
@@ -5001,7 +5032,7 @@ a:hover.refresh_icon {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   margin: 4px 0 0;
@@ -5013,7 +5044,7 @@ a:hover.refresh_icon {
   float: left;
   background: #FFF;
   border: 1px solid #999;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   margin: 0 0 0 10px;
@@ -5034,7 +5065,7 @@ a:hover.refresh_icon {
   font-size: 17px;
   font-weight: normal;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 0 0 0 6px;
   padding: 0;
 }
@@ -5112,7 +5143,7 @@ a:hover.refresh_icon {
   padding: 0;
 }
 .usagelist_title.off {
-  color: #1B5F3C;
+  color: #333;
 }
 .usagelist_title.on {
   color: #000000;
@@ -5160,7 +5191,7 @@ a:hover.helpicon, .helpicon:hover {
   padding: 0
 }
 .usagelist_total.off {
-  color: #1B5F3C;
+  color: #333;
 }
 .usagelist_total.on {
   color: #FFF;
@@ -5271,7 +5302,7 @@ input.commonbutton {
   text-decoration: none;
 }
 input:hover.commonbutton {
-  background: #1B5F3C url(../images/grey_buttonbg_hover.gif) repeat-x top
+  background: #333 url(../images/grey_buttonbg_hover.gif) repeat-x top
     left;
   text-decoration: none;
 }
@@ -5372,7 +5403,7 @@ input:hover.commonbutton {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -5384,7 +5415,7 @@ input:hover.commonbutton {
   height: auto;
   float: left;
   text-decoration: none;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -5421,7 +5452,7 @@ a.selection_commonbutton {
   text-decoration: none;
 }
 a:hover.selection_commonbutton {
-  background: #1B5F3C url(../images/grey_buttonbg_hover.gif) repeat-x top
+  background: #333 url(../images/grey_buttonbg_hover.gif) repeat-x top
     left;
   text-decoration: none;
 }
@@ -5473,7 +5504,7 @@ a:hover.selection_commonbutton {
   float: left;
   background: #FFF;
   border: 1px solid #FFF;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -5485,7 +5516,7 @@ a:hover.selection_commonbutton {
   height: 20px;
   float: left;
   text-align: center;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: bold;
   margin: 4px 0 0 8px;
@@ -5513,7 +5544,7 @@ a:hover.selection_commonbutton {
   height: auto;
   float: left;
   background: #FFF repeat-x bottom left;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   margin: 0;
   padding: 0 0 3px 0;
   cursor: pointer;
@@ -5567,7 +5598,7 @@ a:hover.selection_commonbutton {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -5579,7 +5610,7 @@ menu_dropdown_prevnxtbox span {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: bold;
   text-align: left;
@@ -5632,7 +5663,7 @@ menu_dropdown_prevnxtbox span {
   height: auto;
   float: left;
   text-decoration: none;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   font-weight: normal;
   margin: 0;
@@ -5677,7 +5708,7 @@ menu_dropdown_prevnxtbox span {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   font-weight: normal;
   margin: 5px 10px 0 10px;
@@ -5726,7 +5757,7 @@ menu_dropdown_prevnxtbox span {
   padding: 0;
   border: 1px solid #999;
   background: #e7e7e7;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .grid_header_title {
@@ -5778,7 +5809,7 @@ menu_dropdown_prevnxtbox span {
   padding: 0 0 0 2px;
   border: 1px solid #999;
   background: #FFF;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .grid_row_cell .error_text {
@@ -5790,7 +5821,7 @@ menu_dropdown_prevnxtbox span {
   padding: 0 0 0 2px;
   border: 1px solid #999;
   background: #ffe5e5;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .grid_row_cell .select {
@@ -5802,7 +5833,7 @@ menu_dropdown_prevnxtbox span {
   padding: 0;
   border: 1px solid #999;
   background: #FFF;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .grid_row_cell .error_select {
@@ -5814,14 +5845,14 @@ menu_dropdown_prevnxtbox span {
   padding: 0 0 0 2px;
   border: 1px solid #999;
   background: #ffe5e5;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .row_celltitles {
   width: 95%;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   text-align: left;
   font-size: 11px;
   font-weight: normal;
@@ -5896,13 +5927,13 @@ menu_dropdown_prevnxtbox span {
   margin: 0 0 0 5px;
 }
 .row_celltitles.expand_link {
-  color:#1B5F3C;
+  color:#2C8BBC;
   text-decoration:none;
 }
 .row_celltitles a {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-decoration: none;
   margin: 0;
   padding: 0;
@@ -5919,7 +5950,7 @@ menu_dropdown_prevnxtbox span {
   float: left;
   background: #fffbe6 url(../images/infomsg_bg.gif) repeat-x top left;
   border: 1px dashed #CCC;
-  color: #1B5F3C;
+  color: #333;
   margin: 0 0 0 0;
   padding: 0;
 }
@@ -5933,7 +5964,7 @@ menu_dropdown_prevnxtbox span {
   padding: 0;
 }
 .info_detailbox a {
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -5953,7 +5984,7 @@ menu_dropdown_prevnxtbox span {
 }
 .info_detailbox.defaultbox {
   background: #eaf2f6 repeat-x top left;
-  color: #1B5F3C;
+  color: #333;
   margin-top: 9px;
 }
 .gridrow_loaderbox {
@@ -6134,7 +6165,7 @@ menu_dropdown_prevnxtbox span {
   float: left;
   background: #FFF;
   border: 1px solid #999;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -6320,7 +6351,7 @@ menu_dropdown_prevnxtbox span {
   margin: 5px 0 0 10px;
   padding: 0;
   background: #FFF url(../images/launchvm_listbg.gif) repeat-x bottom left;
-  border-bottom: 1px dotted #1B5F3C1B5F3C;
+  border-bottom: 1px dotted #333333;
 }
 .launchvm_listbox_bundles_innerrow {
   width: 100%;
@@ -6333,7 +6364,7 @@ menu_dropdown_prevnxtbox span {
   height: auto;
   float: left;
   background: #FFF url(../images/launchvm_listbg.gif) repeat-x bottom left;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -6397,7 +6428,7 @@ menu_dropdown_prevnxtbox span {
   padding: 0;
 }
 .launchvm_resulttext.success {
-  color: #1B5F3C;
+  color: #333;
 }
 .launchvm_resulttext.error {
   color: #c41400;
@@ -6428,7 +6459,7 @@ menu_dropdown_prevnxtbox span {
   float: left;
   background: #FFF;
   border: 1px solid #999;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -6441,7 +6472,7 @@ menu_dropdown_prevnxtbox span {
   float: left;
   background: #ffe4e4;
   border: 1px solid #999;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -6535,7 +6566,7 @@ menu_dropdown_prevnxtbox span {
   width: 330px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   font-weight: normal;
@@ -6567,7 +6598,7 @@ menu_dropdown_prevnxtbox span {
 .launchvm_listbox_otherdescriptiontext p {
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   font-weight: normal;
@@ -6622,7 +6653,7 @@ menu_dropdown_prevnxtbox span {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -6673,7 +6704,7 @@ menu_dropdown_prevnxtbox span {
   float: left;
   font-size: 12px;
   font-weight: bold;
-  color: #1B5F3C;
+  color: #333;
   padding: 0;
 }
 .launchvm_subtotalbox_amount {
@@ -6714,7 +6745,7 @@ menu_dropdown_prevnxtbox span {
   font-size: 16px;
   font-weight: bold;
   text-align: right;
-  color: #1B5F3C;
+  color: #333;
   margin: 7px 0px 0 0;
   padding: 0;
 }
@@ -6802,7 +6833,7 @@ menu_dropdown_prevnxtbox span {
 .launchvm_bot_termsandconditionbox a {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -6829,7 +6860,7 @@ menu_dropdown_prevnxtbox span {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 12px;
   font-weight: normal;
   text-align: left;
@@ -6922,7 +6953,7 @@ menu_dropdown_prevnxtbox span {
   width: 92px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   text-align: center;
   font-weight: normal;
   margin: 29px 0 0 0;
@@ -7172,7 +7203,7 @@ a.commonbutton {
   text-decoration: none;
 }
 a:hover.commonbutton {
-  background: #1B5F3C url(../images/grey_buttonbg_hover.gif) repeat-x top
+  background: #333 url(../images/grey_buttonbg_hover.gif) repeat-x top
     left;
   text-decoration: none;
 }
@@ -7219,7 +7250,7 @@ a:hover.commonbutton {
   width: 212px;
   height: auto;
   float: left;
-  border-bottom: 1px dotted #1B5F3C;
+  border-bottom: 1px dotted #333;
   margin: 0 0 0 0;
   padding: 0 0 5px 0;
 }
@@ -7414,7 +7445,7 @@ a:hover.commonbutton {
   width: 200px;
   height: 60px;
   float: left;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: normal;
   background: #FFF;
@@ -8379,7 +8410,7 @@ div#recaptcha_image>img {
   padding: 0;
 }
 .wizard_box.custom .launchvm_resulttext.success {
-  color: #1B5F3C;
+  color: #333;
 }
 .wizard_box.custom .launchvm_resulttext.error {
   color: #C41400;
@@ -8410,7 +8441,7 @@ div#recaptcha_image>img {
   float: left;
   background: #FFF;
   border: 1px solid #999;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -9649,7 +9680,7 @@ div.previous a.previous.button-custom {
   background: #FFFFFF;
   border: 1px solid #DBD3D3;
   overflow: auto;
-  font: monospace;
+  font-family: monospace;
   font-size: 12px;
   /*+placement:shift 449px 11px;*/
   position: relative;
@@ -10528,7 +10559,7 @@ div.wizard_box.custom.step4 div.nav-custom.bottom div.previous {
   font-size: 16px;
   font-weight: bold;
   text-align: right;
-  color: #1B5F3C;
+  color: #333;
   margin: 7px -11px 0 0;
   padding: 0;
 }
@@ -10656,7 +10687,7 @@ div.wizard_box.custom.step4 div.nav-custom.bottom div.previous {
   width: 105px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   text-align: center;
   font-size: 12px;
   margin: 20px 0 0 0;
@@ -10665,7 +10696,7 @@ div.wizard_box.custom.step4 div.nav-custom.bottom div.previous {
 .usage_tablescell_contentbox span {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #333;
   text-align: center;
   font-size: 11px;
   margin: 0;
@@ -10704,7 +10735,7 @@ div.wizard_box.custom.step4 div.nav-custom.bottom div.previous {
   float: left;
   font-size: 17px;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   font-weight: normal;
   margin: 0 0 0 6px;
   padding: 0;
@@ -10752,7 +10783,7 @@ div.wizard_box.custom.step4 div.nav-custom.bottom div.previous {
   margin: 0;
 }
 .details_tab.nonactive {
-  color: #1B5F3C;
+  color: #333;
   text-decoration: none;
 }
 .details_tab.nonactive:hover {
@@ -10867,7 +10898,7 @@ div.tenant-tab-content-custom #history div.db_gridbox_celltitles.header
   font-size: 17px;
   font-weight: normal;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 0;
   padding: 0;
 }
@@ -10966,7 +10997,7 @@ div.tenant-tab-content-custom #history div.db_gridbox_celltitles.header
   text-decoration: none;
 }
 .utilityrateslist_title.off {
-  color: #1B5F3C;
+  color: #333;
 }
 .utilityrateslist_title.on {
   color: #000000;
@@ -11211,7 +11242,7 @@ div.tenant-tab-content-custom #history div.db_gridbox_celltitles.header
 .dialog_changeservice_buttonarea a {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   margin: 0;
   padding: 0;
@@ -11369,7 +11400,7 @@ a.generateudr-button {
 }
 .dialog_formcontent .text {
   background: #FFF url(../images/widget_smalltextbg.gif) repeat-x top left;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #CCC;
   height: 16px;
@@ -11381,7 +11412,7 @@ a.generateudr-button {
 
 .dialog_formcontent .noneditable {
   background-color: #f7f7f7;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #f7f7f7;
   height: 16px;
@@ -11392,7 +11423,7 @@ a.generateudr-button {
 }
 .dialog_formcontent .text2 {
   background: #FFF url(../images/widget_smalltextbg.gif) repeat-x top left;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #CCC;
   height: 14px;
@@ -11403,7 +11434,7 @@ a.generateudr-button {
 }
 .dialog_formcontent .smalltext {
   background: #FFF url(../images/widget_smalltextbg.gif) repeat-x top left;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #CCC;
   height: 14px;
@@ -11414,7 +11445,7 @@ a.generateudr-button {
 }
 .dialog_formcontent .error_smalltext {
   background-color: #fbabb3;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #999;
   height: 14px;
@@ -11424,7 +11455,7 @@ a.generateudr-button {
   color: #666;
 }
 .dialog_formcontent .errormsg {
-  font: normal 10px Museo-500;
+  font: normal 10px Arial, Helvetica, sans-serif;
   float: left;
   height: auto;
   width: 160px;
@@ -11435,7 +11466,7 @@ a.generateudr-button {
   clear: both;
 }
 .dialog_formcontent .errormsg_long {
-  font: normal 10px Museo-500;
+  font: normal 10px Arial, Helvetica, sans-serif;
   float: left;
   height: auto;
   width: 250px;
@@ -11446,7 +11477,7 @@ a.generateudr-button {
 }
 .dialog_formcontent .select {
   background: #FFF url(../images/widget_smalltextbg.gif) repeat-x top left;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #CCC;
   height: auto;
@@ -11457,7 +11488,7 @@ a.generateudr-button {
 }
 .dialog_formcontent .snapselect {
   background-color: #f4f2f2;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #999;
   height: auto;
@@ -11469,7 +11500,7 @@ a.generateudr-button {
 .dialog_formcontent .error_text {
   background-color: #fbabb3;
   background-image: none;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #999;
   height: 14px;
@@ -11480,7 +11511,7 @@ a.generateudr-button {
 }
 .dialog_formcontent .error_text2 {
   background-color: #fbabb3;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   float: left;
   border: 1px solid #999;
   height: 14px;
@@ -11498,10 +11529,10 @@ a.generateudr-button {
   padding: 0;
 }
 .dialog_formcontent span {
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   font-weight: normal;
   float: left;
   margin: 0px 5px 5px 5px;
@@ -11538,11 +11569,11 @@ a.generateudr-button {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   font-weight: bold;
   text-align: left;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 0 10px;
   padding: 0;
 }
@@ -11556,7 +11587,7 @@ a.generateudr-button {
   overflow: hidden;
 }
 .dialog_formcontent label.error {
-  font: normal 10px Museo-500;
+  font: normal 10px Arial, Helvetica, sans-serif;
   float: left;
   height: auto;
   width: 240px;
@@ -11625,8 +11656,8 @@ a.generateudr-button {
 .widget_titlebar.dropdownbutton:hover {
   background: url(../images/widget_addbg_hover.gif) repeat-x top left;
   text-decoration: none;
-  border-left: 1px solid #1B5F3C;
-  border-right: 1px solid #1B5F3C;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
 }
 .widget_titlebar.dropdownbutton span.downarrow {
   background: url(../images/white_downarrow.png) no-repeat top left;
@@ -11679,8 +11710,8 @@ a.generateudr-button {
 .widget_addbutton:hover {
   background: url(../images/widget_addbg_hover.gif) repeat-x top left;
   text-decoration: none;
-  border-left: 1px solid #1B5F3C;
-  border-right: 1px solid #1B5F3C;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
   color: #FFF;
 }
 .widget_searchpanel {
@@ -11783,7 +11814,7 @@ a.generateudr-button {
   font-size: 11px;
   text-align: left;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #333;
   display: inline;
   padding: 0;
 }
@@ -11808,7 +11839,7 @@ a.generateudr-button {
   font-size: 11px;
   text-align: left;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #333;
   margin: 2px 0 0 3px;
   display: inline;
   padding: 0;
@@ -12382,7 +12413,7 @@ span.navicon.computebundles {
 .widget_navtitlebox span.title,.widgetwizard_navigationlist span.title {
   width: 150px;
   height: auto;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   font-weight: bold;
   float: left;
@@ -12548,7 +12579,7 @@ span.navicon.computebundles {
   width: auto;
   height: 13px;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: center;
   font-weight: normal;
@@ -12816,7 +12847,7 @@ span.navicon.computebundles {
   padding: 0;
   border: 1px solid #CCC;
   background: #CCC url(../images/widget_smalltextbg.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .widget_filterbox .errormsg {
@@ -12836,7 +12867,7 @@ span.navicon.computebundles {
   padding: 0;
   border: 1px solid #CCC;
   background: #ffe5e5;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .widget_filterbox .select {
@@ -12847,7 +12878,7 @@ span.navicon.computebundles {
   padding: 0;
   border: 1px solid #CCC;
   background: #CCC url(../images/widget_smalltextbg.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   outline: none;
 }
@@ -12972,7 +13003,7 @@ span.navicon.computebundles {
   width: 80px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   font-weight: bold;
   margin: 5px 0 0 10px;
@@ -13105,7 +13136,7 @@ span.navicon.computebundles {
 .widget_inline_computebox.titlebox span.description {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   font-weight: bold;
@@ -13174,7 +13205,7 @@ span.navicon.computebundles {
   width: auto;
   height: auto;
   float: right;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-decoration: none;
   font-size: 11px;
   font-weight: normal;
@@ -13232,7 +13263,7 @@ span.navicon.computebundles {
 .widget_details_inlineboxes span.label {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   font-weight: bold;
@@ -13243,7 +13274,7 @@ span.navicon.computebundles {
 .widget_details_inlineboxes span.details {
   width: auto;
   height: auto;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   font-weight: normal;
@@ -13380,7 +13411,7 @@ span.navicon.computebundles {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: bold;
   text-align: left;
@@ -13409,7 +13440,7 @@ span.navicon.computebundles {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -13431,7 +13462,7 @@ span.navicon.computebundles {
   width: 220px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -13589,7 +13620,7 @@ span.navicon.computebundles {
   padding: 0;
   border: 1px solid #CCC;
   background: #CCC url(../images/widget_smalltextbg.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .widget_grid_cell .errormsg {
@@ -13610,7 +13641,7 @@ span.navicon.computebundles {
   padding: 0;
   border: 1px solid #CCC;
   background: #ffe5e5;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .widget_grid_cell .select {
@@ -13621,7 +13652,7 @@ span.navicon.computebundles {
   padding: 0;
   border: 1px solid #CCC;
   background: #CCC url(../images/widget_smalltextbg.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .widget_grid_cell span.saveicon {
@@ -13671,7 +13702,7 @@ span.navicon.computebundles {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -13697,7 +13728,7 @@ span.navicon.computebundles {
   width: 135px;
   height: auto;
   float: left;
-  color: ##1B5F3C;
+  color: #0a79ac;
   font-size: 12px;
   font-weight: bold;
   text-align: left;
@@ -13743,7 +13774,7 @@ span.navicon.computebundles {
   width: 235px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   font-weight: normal;
   text-align: left;
@@ -13754,7 +13785,7 @@ span.navicon.computebundles {
   word-wrap: break-word;
 }
 .widget_grid_description span.clickable{
-  color:#1B5F3C;
+  color:#2c8bbc;
   cursor:pointer;
 }
 .widget_grid_description span.subtxt {
@@ -13766,7 +13797,7 @@ span.navicon.computebundles {
   font-size: 10.1px;
 }
 .widget_grid_description a.morelink,a.lesslink {
-  color: #1B5F3C;
+  color: #2c8bbc;
   padding-bottom: 5px;
   padding-left: 15px;
   width: 60px;
@@ -14222,7 +14253,7 @@ span.navicon.computebundles {
   margin: 0;
   display: inline;
   padding: 1px 0 0 12px;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   text-decoration: none;
   background: url(../images/viewconsole_running.gif) no-repeat top left;
@@ -14240,7 +14271,7 @@ widget_masterbigicons_linkbox a.default:hover {
   text-decoration: underline;
 }
 widget_masterbigicons_linkbox a.default {
-  color: #1B5F3C;
+  color: #2c8bbc;
   background: url(../images/viewconsole_running.gif) no-repeat top left;
 }
 .widget_masterbigicons_linkbox a.hidden {
@@ -14380,7 +14411,7 @@ widget_masterbigicons_linkbox a.default {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -14389,11 +14420,11 @@ widget_masterbigicons_linkbox a.default {
   padding: 0;
 }
 .widget_detail_navpanel li a:link,.widget_detail_navpanel li a:visited {
-  color: #1B5F3C;
+  color: #2c8bbc;
 }
 .widget_detail_navpanel li a:hover {
   text-decoration: underline;
-  color: #1B5F3C;
+  color: #2c8bbc;
 }
 .widget_detail_actionpanel {
   width: auto;
@@ -14416,7 +14447,7 @@ widget_masterbigicons_linkbox a.default {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -14426,11 +14457,11 @@ widget_masterbigicons_linkbox a.default {
 }
 .widget_detail_actionpanel li a:link,.widget_detail_actionpanel li a:visited
   {
-  color: #1B5F3C;
+  color: #2c8bbc;
 }
 .widget_detail_actionpanel li a:hover {
   text-decoration: underline;
-  color: #1B5F3C;
+  color: #2c8bbc;
 }
 .widget_actionpopover {
   width: 263px;
@@ -14536,7 +14567,7 @@ widget_masterbigicons_linkbox a.default {
   text-align: center;
   font-size: 11px;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #2c8bbc;
   margin: 5px 0 0 0;
   padding: 0;
   text-decoration: none;
@@ -14565,7 +14596,7 @@ widget_masterbigicons_linkbox a.default {
   text-align: center;
   font-size: 11px;
   font-weight: normal;
-  color: #1B5F3C;
+  color: #2c8bbc;
   margin: 5px 0 0 0;
   padding: 0;
   text-decoration: none;
@@ -14593,7 +14624,7 @@ widget_masterbigicons_linkbox a.default {
   float: left;
   text-align: center;
   font-size: 12px;
-  color: #1B5F3C;
+  color: #2c8bbc;
   background: url(../images/callme_buttonbg.gif) repeat-x top left;
   margin: 7px 0 0 22px;
   padding: 0px 10px 0 10px;
@@ -14605,7 +14636,7 @@ widget_masterbigicons_linkbox a.default {
   float: left;
   text-align: center;
   font-size: 12px;
-  color: #1B5F3C;
+  color: #2c8bbc;
   background: url(../images/callme_buttonbg.gif) repeat-x top left;
   margin: 7px 0 0 22px;
   padding: 0px 10px 0 10px;
@@ -14675,7 +14706,7 @@ widget_masterbigicons_linkbox a.default {
   padding: 4px 0 7px 23px;
   list-style: none;
   border-bottom: 1px solid #CCC;
-  color: #1B5F3C;
+  color: #333;
   font-size: 13px;
   text-align: left;
 }
@@ -14823,7 +14854,7 @@ widget_masterbigicons_linkbox a.default {
   padding: 0;
   border: 1px solid #CCC;
   background: #CCC url(../images/widget_smalltextbg.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .widget_actionpoplist.advancesearchdropdown li .select {
@@ -14833,7 +14864,7 @@ widget_masterbigicons_linkbox a.default {
   margin: 3px 0 3px 0;
   padding: 0;
   border: 1px solid #CCC;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
 }
 .widget_detail_actionpanel li.edit {
@@ -14846,17 +14877,17 @@ widget_masterbigicons_linkbox a.default {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: #1B5F3C;
+  color: #333;
   font-size: 13px;
 }
 .widget_actionpoplist li a:link,.widget_actionpoplist li a:visited {
   text-decoration: none;
-  color: #1B5F3C;
+  color: #333;
   font-size: 13px;
 }
 .widget_actionpoplist li a:hover {
   text-decoration: none;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 13px;
 }
 .widget_actionpoplist.OSdropdown li a,.widget_actionpoplist.OSdropdown li a:link,.widget_actionpoplist.OSdropdown li a:visited
@@ -14966,7 +14997,7 @@ widget_masterbigicons_linkbox a.default {
   height: 12px;
   float: left;
   background: url(../images/callme_buttonbg.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 12px;
   text-align: center;
   text-decoration: none;
@@ -15298,7 +15329,7 @@ span.title_listall_arrow.biggerback:hover {
   font-size: 12px;
   text-align: left;
   font-weight: bold;
-  color: #1B5F3C;
+  color: #333;
   margin: 10px 0 0 15px;
   display: inline;
   padding: 0;
@@ -15307,7 +15338,7 @@ span.title_listall_arrow.biggerback:hover {
   width: 220px;
   height: 78px;
   float: left;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: normal;
   background: #FFF;
@@ -15503,7 +15534,7 @@ span.title_listall_arrow.biggerback:hover {
 }
 
 .widgetwizard_stepscenterbar li span.stepstitle.active {
-  color: #1B5F3C;
+  color: #333;
   margin: 5px 0 0 -2px;
 }
 .widgetwizard_stepscenterbar li span.steps {
@@ -15643,7 +15674,7 @@ span.title_listall_arrow.biggerback:hover {
 .widgetwizard_nextprevpanel a.cancel {
   float: right;
   cursor: pointer;
-  color: #1B5F3C;
+  color: #2c8bbc;
   margin: 20px 0 10px 15px;
   text-align: left;
   font-size: 12px;
@@ -15748,7 +15779,7 @@ span.title_listall_arrow.biggerback:hover {
   float: left;
   background: url(../images/widget_smalltextbg.gif) repeat-x top left;
   border: 1px solid #CCC;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   font-size: 11px;
@@ -15792,7 +15823,7 @@ span.title_listall_arrow.biggerback:hover {
   width: 120px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 13px;
   font-weight: bold;
   text-align: left;
@@ -15896,7 +15927,7 @@ span.title_listall_arrow.biggerback:hover {
   width: 500px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 13px;
   text-align: left;
   font-weight: normal;
@@ -16247,7 +16278,7 @@ span.moveicon_description {
 }
 .widgetwizard_reviewbox li span.description {
   width: 250px;
-  color: #1B5F3C;
+  color: #333;
   font-weight: bold;
 }
 
@@ -16280,7 +16311,7 @@ span.moveicon_description {
   margin: 8px 15px 0 0;
   padding: 0;
   background: url(../images/widgetedit_icon.png) no-repeat top left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-weight: normal;
 }
 .widgetwizard_detailsbox.sixstepswizard.gridbox .row a.edit {
@@ -16410,7 +16441,7 @@ span.moveicon_description {
   float: left;
   background: url(../images/widget_smalltextbg.gif) repeat-x top left;
   border: 1px solid #CCC;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   margin: 10px 0 0 15px;
   display: inline;
@@ -16421,7 +16452,7 @@ span.moveicon_description {
   height: 13px;
   float: left;
   background: url(../images/widget_addbg_hover.gif) repeat-x top left;
-  border: 1px solid #1B5F3C;
+  border: 1px solid #333;
   color: #CCC;
   font-size: 11px;
   margin: 10px 0 0 15px;
@@ -16432,7 +16463,7 @@ span.moveicon_description {
 }
 .addsecemail_highlighttitlebox a.addemail_button:hover {
   background: url(../images/widget_actiobar.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #333;
   border: 1px solid #999;
   text-decoration: none;
 }
@@ -16741,7 +16772,7 @@ div[id$=_content] .historycalendar {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   text-align: left;
   font-size: 12px;
   font-weight: normal;
@@ -16764,7 +16795,7 @@ div[id$=_content] .historycalendar {
   width: 70%;
 }
 .more_details_dialog_row_title {
-  color: ##1B5F3C;
+  color: #0A79AC;
   float: left;
   font-size: 12px;
   height: auto;
@@ -16774,7 +16805,7 @@ div[id$=_content] .historycalendar {
   width: 30%;
 }
 .bundle_entitlements_dialog_utilityunits {
-  color: ##1B5F3C;
+  color: #0A79AC;
   float: left;
   font-size: 12px;
   font-weight: bold;
@@ -17142,7 +17173,7 @@ div[id$=_content] .historycalendar {
   background: url(../images/widget_smalltextbg.gif) repeat-x scroll left
     top #CCCCCC;
   border: 1px solid #CCCCCC;
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   float: left;
   font-size: 11px;
   height: 20px;
@@ -17155,7 +17186,7 @@ div[id$=_content] .historycalendar {
   background: url(../images/widget_smalltextbg.gif) repeat-x scroll left
     top #CCCCCC;
   border: 1px solid #CCCCCC;
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   float: left;
   font-size: 11px;
   height: 20px;
@@ -17167,7 +17198,7 @@ div[id$=_content] .historycalendar {
 .catalogconfigure_sectionox_contentarea .textarea {
   background: #FFF;
   border: 1px solid #CCCCCC;
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   float: left;
   font-size: 11px;
   height: 125px;
@@ -17492,12 +17523,12 @@ div[id$=_content] .historycalendar {
 .widgetcatalog_pricingfilters li.nonactive:hover {
   background: url(../images/catalog_pricingfilter_active.gif) repeat-x top
     left;
-  color: #1B5F3C;
+  color: #333;
 }
 .widgetcatalog_pricingfilters li.active {
   background: url(../images/catalog_pricingfilter_active.gif) repeat-x top
     left;
-  color: #1B5F3C;
+  color: #333;
   cursor: default;
 }
 .widgetcatalog_pricingfilters li.last {
@@ -17656,7 +17687,7 @@ div[id$=_content] .historycalendar {
 }
 .widgetcatalog_categorysubmenubox li {
   border-right: 1px solid #666666;
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   display: inline;
   float: left;
   font-size: 11px;
@@ -17996,7 +18027,7 @@ div[id$=_content] .historycalendar {
   width: 100%;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   text-align: left;
   font-weight: normal;
@@ -18141,7 +18172,7 @@ div[id$=_content] .historycalendar {
   width: 120px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   text-align: left;
   margin: 0 0 0 5px;
@@ -18152,7 +18183,7 @@ div[id$=_content] .historycalendar {
   width: 90px;
   height: auto;
   float: right;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   text-align: right;
   margin: 0;
@@ -18213,7 +18244,7 @@ div[id$=_content] .historycalendar {
   float: left;
   background: #FFF;
   border: 1px solid #999;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   margin: 0 0 0 7px;
   display: inline;
@@ -18273,7 +18304,7 @@ div[id$=_content] .historycalendar {
   float: left;
   margin: 7px 0 0 10px;
   padding: 0;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
 }
@@ -18282,7 +18313,7 @@ div[id$=_content] .historycalendar {
   height: auto;
   margin: 0;
   padding: 0;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   text-decoration: underline;
@@ -18328,7 +18359,7 @@ div[id$=_content] .historycalendar {
   width: 120px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 18px;
   text-align: left;
   margin: 0 0 0 5px;
@@ -18423,7 +18454,7 @@ div[id$=_content] .historycalendar {
   list-style: none;
 }
 .catalog_currencybox_dropdown li:hover {
-  background: #1B5F3C;
+  background: #333;
 }
 .catalog_currencybox span.currencytext {
   width: 30px;
@@ -18649,7 +18680,7 @@ div[id$=_content] .historycalendar {
   font-size: 13px;
   font-weight: normal;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 3px 0 0;
   display: inline;
   padding: 0;
@@ -18663,7 +18694,7 @@ div[id$=_content] .historycalendar {
   font-size: 13px;
   font-weight: normal;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 3px 0 0 0;
   padding: 0;
 }
@@ -18790,7 +18821,7 @@ div[id$=_content] .historycalendar {
   font-size: 11px;
   font-weight: normal;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 0 0 0 10px;
   display: inline;
   padding: 0;
@@ -18804,7 +18835,7 @@ div[id$=_content] .historycalendar {
   font-size: 11px;
   font-weight: normal;
   text-align: left;
-  color: #1B5F3C;
+  color: #333;
   margin: 0 0 0 10px;
   display: inline;
   padding: 0;
@@ -18903,7 +18934,7 @@ div[id$=_content] .historycalendar {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   text-align: left;
   font-weight: normal;
@@ -18972,7 +19003,7 @@ div[id$=_content] .historycalendar {
   width: 160px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 12px;
   font-weight: bold;
   margin: 0 0 0 10px;
@@ -19384,7 +19415,7 @@ div[id$=_content] .historycalendar {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   text-align: left;
   margin: 7px 0 0 13px;
@@ -19473,7 +19504,7 @@ div[id$=_content] .historycalendar {
   height: 18px;
   float: left;
   background: url(../images/blankbox_Button.gif) repeat-x top left;
-  color: #1B5F3C;
+  color: #2c8bbc;
   font-size: 11px;
   text-align: center;
   margin: 10px 0 0 0;
@@ -19495,7 +19526,7 @@ div[id$=_content] .historycalendar {
   cursor: pointer;
 }
 .widget_grid_cell .values {
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   float: left;
   font-size: 11px;
   font-weight: normal;
@@ -19925,7 +19956,7 @@ div[id$=_content] .historycalendar {
   width: 82px;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-weight: bold;
   text-align: center;
   font-size: 30px;
@@ -20059,7 +20090,7 @@ div[id$=_content] .historycalendar {
   float: left;
   margin: 10px 0 0 5px;
   font-size: 13px;
-  color: #1B5F3C;
+  color: #2c8bbc;
   text-align: left;
   font-weight: normal;
   text-decoration: none;
@@ -20108,7 +20139,7 @@ div[id$=_content] .historycalendar {
   width: 100%;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 32px;
   text-align: center;
   font-weight: bold;
@@ -20169,11 +20200,11 @@ div[id$=_content] .historycalendar {
   text-decoration: none;
 }
 .dbboxes_tabswrapper li a:hover {
-  color: #1B5F3C;
+  color: #333;
   text-decoration: none;
 }
 .dbboxes_tabswrapper li a.current {
-  color: #1B5F3C;
+  color: #333;
 }
 .dbboxes_tabswrapper li.first {
   border-radius: 5px 0 0 5px;
@@ -20264,7 +20295,7 @@ div[id$=_content] .historycalendar {
   padding: 0;
 }
 .db_notificationwrapper span.title.INFORMATION {
-  color: ##1B5F3C;
+  color: #0A79AC;
 }
 .db_notificationwrapper span.title.CRITICAL {
   color: #CC0000;
@@ -20326,7 +20357,7 @@ div[id$=_content] .historycalendar {
   width: auto;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-size: 11px;
   font-weight: normal;
   text-align: left;
@@ -20600,7 +20631,7 @@ a.add_button.active.bottom_margin {
 .servicelist.sections a.add_button.active:hover {
   text-decoration: none;
   background: #666 url(../images/grey_buttonbg.gif) repeat-x top left;
-  border: 1px solid #1B5F3C;
+  border: 1px solid #333;
 }
 .servicelist.sections a.add_button.nonactive,.service_detail_subsection a.button.nonactive
   {
@@ -20747,7 +20778,7 @@ a.add_button.active.bottom_margin {
   color: #666;
   font-size: 12px;
   font-weight: bold;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   border: 1px solid #e0e0e0;
   margin: 0;
   padding: 0 0 0 5px;
@@ -20931,7 +20962,7 @@ a.add_button.active.bottom_margin {
   width: 100%;
   height: auto;
   float: left;
-  color: #1B5F3C;
+  color: #333;
   font-weight: bold;
   text-align: left;
   font-size: 12px;
@@ -20999,7 +21030,7 @@ a.add_button.active.bottom_margin {
   width: 100%;
 }
 .dashboard_vm_count_box span.vm_count {
-  color: #1B5F3C1B5F3C;
+  color: #333333;
   display: inline;
   font-size: 30px;
   font-weight: bold;
@@ -21921,7 +21952,7 @@ span.icon.filter {
   border: 1px solid #E0E0E0;
   box-shadow: 1px 1px 1px #DEDEDE inset;
   color: #666666;
-  font-family: Museo-500;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: bold;
   margin: 0;
@@ -22337,7 +22368,7 @@ tbody td p.so_title.so_description {
   height: 25px !important;
 }
 .group_selection_li:hover {
-  background: #1B5F3C url(../images/widget_addbg_hover.gif) repeat-x repeat-y top left !important;
+  background: #333 url(../images/widget_addbg_hover.gif) repeat-x repeat-y top left !important;
   border: 1px solid #666;
 }
 .dropdown-menu {
@@ -22455,7 +22486,7 @@ li.missing_resource_components {
   -moz-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   color: #FFF;
-  font:sans-serif;
+  font-family:sans-serif;
   font-size:11px;
   font-weight:bold;
   text-align: center;
@@ -22553,7 +22584,7 @@ li.missing_resource_components {
 }
 .dialog_formcontent table.dialog_table th p{
   margin:0px 0px 0px 5px;
-  color:##1B5F3C;
+  color:#0A79AC;
   font-size:12px;
 }
 .dialog_formcontent table.dialog_table td select.select{
@@ -22581,7 +22612,7 @@ li.missing_resource_components {
 }
 .widget_details_actionbox .select {
  background: #FFF url(../images/widget_smalltextbg.gif) repeat-x top left;
-  font: normal 11px Museo-500;
+  font: normal 11px Arial, Helvetica, sans-serif;
   border: 1px solid #CCC;
   height: 22px;
   min-width: 200px;
@@ -22601,7 +22632,7 @@ li.missing_resource_components {
   clear:both;
 }
 .dialog_formcontent li .input_desc.action span {
-  color:#1B5F3C;
+  color:#2C8BBC;
 }
 .dialog_formcontent .list li{
   color:#666666;
@@ -22846,4 +22877,8 @@ table.fixed td { overflow: hidden; }
 
 .blackfont{
 	color:#111111;
+}
+.widgetconfigure_softwarebox.loading {
+	background: none;
+	height: auto;
 }

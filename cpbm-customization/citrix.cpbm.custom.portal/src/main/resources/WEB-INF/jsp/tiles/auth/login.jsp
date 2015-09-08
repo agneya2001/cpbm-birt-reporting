@@ -74,7 +74,12 @@ $(document).ready(function() {
 });
 
 </script>
-
+            	<div class="login_headerarea  <c:if test="${directoryServiceAuthenticationEnabled}">smaller_ver</c:if>">
+                	<div class="login_headerarea_left">
+                    <%@ include file="../shared/channel_logo.jsp" %>
+                    </div>
+                   
+                </div>
                 <div class="login_maincontentarea  <c:if test="${directoryServiceAuthenticationEnabled}">smaller_ver</c:if>">
                 	<div class="login_maincontentarea_titlepanel">
                     	<h1><spring:message code="label.login.welcome"/></h1>

@@ -9,7 +9,8 @@
  <span class="helptext">
    <spring:message code="ui.text.message.bundle.image.message"></spring:message>
  </span>
-        <spring:url value="/portal/productBundles/editlogo" var="edit_bundle_logo_path" htmlEscape="false" /> 
+
+        <spring:url value="/portal/productBundles/editlogo?t=${currenttime}" var="edit_bundle_logo_path" htmlEscape="false" /> 
     <form:form commandName="bundleLogoForm"  cssClass="formPanel"  action="${edit_bundle_logo_path}"  enctype="multipart/form-data" >
               <ul>
                 <li style="margin:10px 0 0 10px;">

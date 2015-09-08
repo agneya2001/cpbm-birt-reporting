@@ -9,7 +9,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>
-      SmartLogic - GGC 
+      <spring:message code="company.name"/> -      
+      <spring:message code="webapp.tagline"/> 
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -27,7 +28,6 @@
     </c:if>
     <link rel="stylesheet" type="text/css" media="all" href="<%= request.getContextPath() %>/custom/css/custom.css"/>   
     <link rel="stylesheet" type="text/css" media="all" href="<%= request.getContextPath() %>/<spring:theme code="css" />"/> 
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/font-awesome/css/MyFontsWebfontsKit.css" type="text/css" >
     <c:if test="${not empty globalConfiguration and not empty globalConfiguration.channelid}">
       <c:if test="${not empty globalConfiguration.channelcss}">
        <link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/portal/theme/<c:out value="${globalConfiguration.channelid}/${globalConfiguration.channelcss}"/>"/> 

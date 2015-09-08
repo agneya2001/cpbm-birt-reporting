@@ -179,7 +179,7 @@
                               &nbsp;(<spring:message code="handle.label.state"/> : <div id="js_resource_error" class="subscription_resource_error" data-content="&nbsp;<spring:message javaScriptEscape="true" text="${subscription.handle.data}"/>" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-container="body"><spring:message code="subscriptionHandle.state.error"/></div>)
                               <!-- Added a prefix space(&nbsp;) in "data-content" so that it act as a "string" even for type "object". This is a temporary fix to resolve issue where Bootstrap's popover doesn't render if data-content is of "object" type.-->
                           </c:when>
-                          <c:when test="${subscription.resourceType != null && subscription.activeHandle == null}">
+                          <c:when test="${(toProvision and subscription.resourceType!=null) || (subscription.productBundle == null && subscription.activeHandle == null && subscription.state == 'ACTIVE')}">
                               &nbsp;(<spring:message code="label.no.active.subscription.handle"/>)
                           </c:when>
                         </c:choose>

@@ -10,7 +10,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>
-      SmartLogic - GGC    
+      <spring:message code="company.name"/> -      
+      <spring:message code="webapp.tagline"/>      
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -33,7 +34,6 @@
     <script type="text/javascript" src="<%=request.getContextPath() %>/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath() %>/js/bootstrap.dropdown.menu.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/css/font-awesome/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/font-awesome/css/MyFontsWebfontsKit.css" type="text/css" >
     <link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/resources/all.css"/>
     <link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/css/main.css"/>
     

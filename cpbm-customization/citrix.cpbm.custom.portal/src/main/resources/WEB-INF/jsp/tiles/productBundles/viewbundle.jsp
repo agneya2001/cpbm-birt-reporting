@@ -124,7 +124,7 @@ var productBundlesUrl = "<%=request.getContextPath() %>/portal/productBundles/";
               <div class="thumbnail_defaulticon product">
               <c:choose>
                 <c:when test="${not empty productBundle.imagePath}">
-                <img src="/portal/portal/logo/productBundles/<c:out value="${productBundle.id}"/>" id="bundleimage<c:out value="${productBundle.id}"/>" style="height:99px;width:99px;" />
+                <img src="/portal/portal/logo/productBundles/<c:out value="${productBundle.id}"/>?t=${timestamp}" id="bundleimage<c:out value="${productBundle.id}"/>" style="height:99px;width:99px;" />
                 </c:when>
                 <c:otherwise>
                   <img src="<%=request.getContextPath() %>/images/default_productsicon.png" id="bundleimage<c:out value="${productBundle.id}"/>" style="height:99px;width:99px;" />
@@ -241,8 +241,10 @@ var productBundlesUrl = "<%=request.getContextPath() %>/portal/productBundles/";
    </div>
 
  <input type="hidden" value="<c:out value='${productBundle.code}'/>" id="bundleCode"/>
+ 
  <div  id="dialog_edit_bundle_image" title='<spring:message code="title.custom.budle.image"/>' style="display: none">
   </div> 
+ 
     
   <div  id="dialog_add_bundle_default_price" title='<spring:message code="label.add.current.charges"/>' style="display: none">
   </div> 
