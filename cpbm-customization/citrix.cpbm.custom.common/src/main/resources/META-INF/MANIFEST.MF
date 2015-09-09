@@ -143,5 +143,5 @@ Import-Package: com.citrix.cpbm.workflow.activity;version="2.0.0",
  org.springframework.transaction.support;version="3.0.7.RELEASE",
  javax.net.ssl
 Import-Bundle: com.springsource.org.jasypt.encryption;version="[1.5.0,1.5.0]"
-Application-ResourceVersion: 1.0.8
+Application-ResourceVersion: 1.0.9
 Bundle-ClassPath: patch.jar,.,lib/liquibase-ext-2.0.5.jar,lib/liquibase-core-2.0.5.jar
