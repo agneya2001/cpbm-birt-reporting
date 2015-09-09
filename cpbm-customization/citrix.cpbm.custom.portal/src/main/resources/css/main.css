@@ -3065,6 +3065,7 @@ a.db_computeicon:hover {
   margin: 2px 0 0 3px;
   display: inline;
   padding: 0;
+  color: #666;
 }
 .main_gridlistbox { /* position:relative; */
   width: 690px;
