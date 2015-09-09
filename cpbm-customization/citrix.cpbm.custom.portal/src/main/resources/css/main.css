@@ -236,6 +236,9 @@ input,textarea,.uneditable-input {
 .catalog_signuppopoverlist span.flagicons.pt_BR {
   background: url(../images/flags/BRL.gif) no-repeat 0 0;
 }
+.catalog_signuppopoverlist span.flagicons.ka_GE {
+  background: url(../images/flags/GEL.gif) no-repeat 0 0;
+}
 .catalog_signuppopoverlist span.languagelist {
   width: auto;
   height: auto;
