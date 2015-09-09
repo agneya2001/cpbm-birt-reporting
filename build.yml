@@ -1,0 +1,93 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+    cpbm_mysql_ip: 192.168.100.46
+    cpbm_mysql_port: 3306 
+    spbm_mysql_user: cpbm
+    cpbm_mysql_password: password
+
+  tasks: 
+    - name: Get local dir
+      local_action: shell pwd
+      register: result
+
+    - name: substitute username in reports user_spends.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/user_spends.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ spbm_mysql_user }}</property>'
+
+    - name: substitute password in reports user_spends.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/user_spends.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip and port in reports user_spends.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/user_spends.rptdesign regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+
+
+    - name: substitute username in reports custom_resource_report.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/custom_resource_report.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ spbm_mysql_user }}</property>'
+
+    - name: substitute password in reports custom_resource_report.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/custom_resource_report.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+  
+    - name: substitute ip port in reports custom_resource_report.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/custom_resource_report.rptdesign regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+
+
+    - name: substitute username in reports customer_usage.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/customer_usage.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ spbm_mysql_user }}</property>'
+
+    - name: substitute password in reports customer_usage.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/customer_usage.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports customer_usage.rptdesign 
+      replace: dest={{ result.stdout }}/birt/reports/customer_usage.rptdesign regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+  
+
+
+    - name: substitute username in reports top_spenders.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/top_spenders.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ spbm_mysql_user }}</property>'
+
+    - name: substitute password in reports top_spenders.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/top_spenders.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports top_spenders.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/top_spenders.rptdesign regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+    - name: substitute username in reports  vm_utilization.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/vm_utilization.rptdesign regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ spbm_mysql_user }}</property>'
+
+    - name: substitute password in reports  vm_utilization.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/vm_utilization.rptdesign regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports vm_utilization.rptdesign
+      replace: dest={{ result.stdout }}/birt/reports/vm_utilization.rptdesign regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+    - name: inject commons-logging-1.2.jar
+      shell: jar -uvf birt.war WEB-INF/lib/commons-logging-1.2.jar chdir=birt/
+
+    - name: inject mysql-connector-java-5.1.34-bin.jar
+      shell: jar -uvf birt.war WEB-INF/lib/mysql-connector-java-5.1.34-bin.jar chdir=birt/
+
+    - name: inject vm_utilization.rptdesign 
+      shell: jar -uvf birt.war reports/vm_utilization.rptdesign  chdir=birt/
+
+    - name: inject top_spenders.rptdesign
+      shell: jar -uvf birt.war reports/top_spenders.rptdesign  chdir=birt/
+
+    - name: inject customer_usage.rptdesign
+      shell: jar -uvf birt.war reports/customer_usage.rptdesign  chdir=birt/
+
+    - name: inject user_spends.rptdesign 
+      shell: jar -uvf birt.war reports/user_spends.rptdesign  chdir=birt/
+
+    - name: inject custom_resource_report.rptdesign
+      shell: jar -uvf birt.war reports/custom_resource_report.rptdesign  chdir=birt/
+
+    - name: inject index.jsp 
+      shell: jar -uvf birt.war index.jsp chdir=birt/
+
+    - name: build the cpbm package takes about a minute
+      shell: mvn clean install -Dmaven.test.skip=true chdir=cpbm-customization/citrix.cpbm.custom.all
+
