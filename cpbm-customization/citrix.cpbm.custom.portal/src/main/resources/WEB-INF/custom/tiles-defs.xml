@@ -12,4 +12,15 @@
     <put-attribute name="footer" value="/WEB-INF/jsp/tiles/shared/footer.jsp"/>
     <put-attribute name="customHeader" value="/WEB-INF/jsp/tiles/shared/customHeader.jsp"/>
   </definition>
+
+    <definition name="report.iaas" extends="application">
+        <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/reports/secondlevelmenu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/tiles/reports/iaas_reports.jsp" cascade="true"/>
+    </definition> 
+
+    <definition name="support.iaas" extends="application">
+        <put-attribute name="secondlevelheader" value="/WEB-INF/jsp/tiles/support/secondlevelmenu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/tiles/support/iaas_reports.jsp" cascade="true"/>
+    </definition> 
+                                    
 </tiles-definitions>
