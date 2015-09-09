@@ -233,7 +233,7 @@ function retirePrdouct(current){
               <div class="thumbnail_defaulticon product">
               <c:choose>
                 <c:when test="${not empty product.imagePath}">
-                <img src="/portal/portal/logo/product/<c:out value="${product.id}"/>?t=${timestamp}" id="productimage<c:out value="${product.id}"/>" style="height:99px;width:99px;" />
+                <img src="/portal/portal/logo/product/<c:out value="${product.id}"/>" id="productimage<c:out value="${product.id}"/>" style="height:99px;width:99px;" />
                 </c:when>
                 <c:otherwise>
                   <img src="<%=request.getContextPath() %>/images/default_productsicon.png" id="productimage<c:out value="${product.id}"/>" style="height:99px;width:99px;" />

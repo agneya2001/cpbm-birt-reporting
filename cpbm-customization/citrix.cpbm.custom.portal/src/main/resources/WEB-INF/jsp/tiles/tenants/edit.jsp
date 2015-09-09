@@ -19,7 +19,6 @@
     
     <spring:url value="/portal/tenants/edit" var="edit_tenant_path" htmlEscape="false" /> 
     <form:form commandName="tenantForm" cssClass="ajaxform" id="tenantEditForm" tenantid="" action="${edit_tenant_path}" onsubmit="editTenant(event,this)">
-	<input type="hidden" name="tenantForm_cid" value="<c:out value='${tenantForm.tenant.param}'/>"/>
      <!-- Edit fields -->
       <ul>
           <li>
