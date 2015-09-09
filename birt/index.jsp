@@ -18,6 +18,10 @@
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/top_spenders.rptdesign> Top Spenders </a>
                 <hr/>
+                <a href=/birt/frameset?__showtitle=false&__report=reports/customer_usage.rptdesign> Customer Usage</a>
+                <hr/>
+                <a href=/birt/frameset?__showtitle=false&__report=reports/vm_utilization.rptdesign> VM utilization</a>
+                <hr/>
 
 <% } else { %>
         <br/>
@@ -25,6 +29,10 @@
         <br/>
         <br/>
         <br/>
+        <a href=/birt/frameset?__showtitle=false&__report=reports/customer_usage.rptdesign&username=<%=  request.getParameter("username") %>> Customer Usage</a>
+        <hr/>
+        <a href=/birt/frameset?__showtitle=false&__report=reports/vm_utilization.rptdesign&username=<%=  request.getParameter("username") %>> VM utilization</a>
+        <hr/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/user_spends.rptdesign&username=<%=  request.getParameter("username") %>> User Spend </a>
         <hr/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign&username=<%=  request.getParameter("username") %>> Custom Usage </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
