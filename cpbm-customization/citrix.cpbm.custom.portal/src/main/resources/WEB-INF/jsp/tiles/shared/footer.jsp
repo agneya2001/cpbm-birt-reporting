@@ -17,3 +17,6 @@
       
   </sec:authorize>
 </div>
+
+<!--Add the following script at the bottom of the web page (before </body></html>)-->
+<script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatinline.aspx?hccid=#HCCID#"></script>
