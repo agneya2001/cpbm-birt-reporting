@@ -15,16 +15,16 @@
       service: name=cloud-portal state=stopped
 
     - name: copy birt to /usr/share/vts3/pickup/
-      copy: src=./birt/birt.war dest=/usr/share/vts3/pickup
+      copy: src=./birt.war dest=/usr/share/vts3/pickup
 
     - name: copy custom common the jars to /usr/share/vts3/custom_impls
-      copy: src=./cpbm-customization/citrix.cpbm.custom.common/target/citrix.cpbm.custom.common-2.3.1.jar  dest=/usr/share/vts3/custom_impls/
+      copy: src=./citrix.cpbm.custom.common-2.3.1.jar  dest=/usr/share/vts3/custom_impls/
 
     - name: copy custom model the jars to /usr/share/vts3/custom_impls
-      copy: src=./cpbm-customization/citrix.cpbm.custom.model/target/citrix.cpbm.custom.model-2.3.1.jar dest=/usr/share/vts3/custom_impls/
+      copy: src=./citrix.cpbm.custom.model-2.3.1.jar dest=/usr/share/vts3/custom_impls/
 
     - name: copy custom portal the jars to /usr/share/vts3/custom_impls
-      copy: src=./cpbm-customization/citrix.cpbm.custom.portal/target/citrix.cpbm.custom.portal-2.3.1.jar dest=/usr/share/vts3/custom_impls/
+      copy: src=./citrix.cpbm.custom.portal-2.3.1.jar dest=/usr/share/vts3/custom_impls/
 
     - name: copy conf file locally
       fetch: src='/usr/share/vts3/config/org.eclipse.virgo.repository.properties' dest='./' flat=yes
