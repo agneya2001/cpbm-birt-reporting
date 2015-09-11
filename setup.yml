@@ -5,6 +5,13 @@
   remote_user: root
   
   tasks:
+    - name: get the current time for a timestamp
+      local_action: shell date +%Y%m%d-%H%M%S
+      register: time
+
+    - name: echo the timestamp
+      shell: echo "{( time.stdout }}"
+
     - name: install libselinux-python
       yum: name=libselinux-python state=present
 
@@ -30,7 +37,19 @@
       fetch: src='/usr/share/vts3/config/org.eclipse.virgo.repository.properties' dest='./' flat=yes
 
     - name: copy local conf file to remote
-      synchronize: src="./org.eclipse.virgo.repository.properties" dest="/usr/share/vts3/config/org.eclipse.virgo.repository.properties.bak"
+      synchronize: src="./org.eclipse.virgo.repository.properties" dest="/usr/share/vts3/config/org.eclipse.virgo.repository.properties.{{ time.stdout }} bak"
+
+    - name: copy properties file locally
+      fetch: src='/usr/share/vts3/repository/prop/cloud.properties' dest='./' flat=yes
+
+    - name: copy local conf file to remote
+      synchronize: src="./cloud.properties" dest="/usr/share/vts3/repository/prop/cloud.properties.{{ time.stdout }}.bak"
+
+    - name: modify cloud.properties subs locale.default
+      replace: dest=/usr/share/vts3/repository/prop/cloud.properties regexp='^locale.default=en_US' replace='locale.default=ka'
+
+    - name: modify cloud.properties add locale
+      replace: dest=/usr/share/vts3/repository/prop/cloud.properties regexp='^locale.supported=en_US' replace='locale.supported=ka,en_US'
 
     - name: modify conf file comment the default
       replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^default_impls' replace='#default_impls'

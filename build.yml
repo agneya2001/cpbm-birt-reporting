@@ -13,20 +13,6 @@
       local_action: shell pwd
       register: result
 
-    - name: install wget for Mac based systems
-      action: homebrew name=wget state=present
-      when: "'$ansible_pkg_mgr' == 'homebrew'"
-
-    - name: Install wget package (Debian based)
-      action: apt pkg='wget' state=installed
-      when: "'$ansible_pkg_mgr' == 'apt'"
-
-    - name: Install wget package (RedHat based)
-      action: yum name='wget' state=installed
-      when: "'$ansible_pkg_mgr' == 'yum'"
-
-
-
     - name: substitute username in reports user_spends.rptdesign
       replace: dest="{{ result.stdout }}/birt/reports/user_spends.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
 
