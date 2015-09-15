@@ -59,7 +59,7 @@ input,textarea,.uneditable-input {
   width: auto;
 }
 #login_main {
-  width: 525px;
+  width: 703px;
   height: auto;
   /*background: url(../images/login_mainbg.gif) no-repeat top left;*/
   margin: 0 auto;
@@ -251,7 +251,7 @@ input,textarea,.uneditable-input {
   padding: 0;
 }
 .login_contentpanel {
-  width: 525px;
+  width: 703px;
   height: auto;
   float: left;
   margin: 47px 0 20px 0;
@@ -261,7 +261,7 @@ input,textarea,.uneditable-input {
   width: 500px;
 }
 .login_maintabsarea {
-  width: 525px;
+  width: 703px;
   height: 33px;
   float: left;
   margin: 0 0 0 1px;
@@ -301,8 +301,8 @@ input,textarea,.uneditable-input {
   border-bottom: none;
 }
 .login_container {
-  width: 525px;
-  height: 350px;
+  width: 703px;
+  height: auto;
   float: left;
   position: relative;
   background: #FFF;
@@ -313,7 +313,7 @@ input,textarea,.uneditable-input {
   padding: 0;
   background-image: url(../images/sm_login_logo.png);
   background-repeat: no-repeat;
-  background-position: 85% 50%;
+  background-position: 55% 50%;
 }
 
 .login_container.smaller_ver {
@@ -414,7 +414,7 @@ input,textarea,.uneditable-input {
   padding: 0 0 0 20px;
 }
 .login_maincontentarea , .error_maincontentarea {
-  width: 525px;
+  width: 663px;
   height: auto;
   float: left;
   margin: 20px 0 0 25px;
@@ -425,7 +425,7 @@ input,textarea,.uneditable-input {
   width: 480px;
 }
 .login_maincontentarea_titlepanel, .error_maincontentarea_titlepanel {
-  width: 100%;
+  width: 300px;
   height: auto;
   float: left;
   margin: 40px 0 0 0;
@@ -1108,7 +1108,7 @@ a:hover.logincommonbutton.disabled {
   padding: 0;
 }
 .login_messages {
-  width: 483px;
+  width: 663px;
   height: auto;
   float: left;
   margin: 0 0 10px 20px;
@@ -14983,7 +14983,7 @@ widget_masterbigicons_linkbox a.default {
   text-decoration: none;
 }
 .accountype_box_right {
-  width: 520px;
+  width: 200px;
   height: auto;
   float: left;
   margin: 0;
@@ -15001,7 +15001,7 @@ widget_masterbigicons_linkbox a.default {
   padding: 0;
 }
 .accountype_box_right p {
-  width: 500px;
+  width: 200px;
   height: auto;
   float: left;
   color: #999;
