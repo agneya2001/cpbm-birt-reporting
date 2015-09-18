@@ -9,6 +9,7 @@
     <property name="imageDPI">72</property>
     <parameters>
         <scalar-parameter name="username" id="219">
+            <text-property name="helpText">Enter username</text-property>
             <text-property name="promptText">Enter Username</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
@@ -26,7 +27,7 @@
             </structure>
         </scalar-parameter>
         <scalar-parameter name="start_date" id="50">
-            <text-property name="helpText">Please provide date in YYYY-MM-DD format</text-property>
+            <text-property name="helpText">Please provide date in M/d/yy format</text-property>
             <text-property name="promptText">Start Date</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
@@ -36,11 +37,12 @@
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <structure name="format">
-                <property name="category">Unformatted</property>
+                <property name="category">Short Date</property>
+                <property name="pattern">Short Date</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="end_date" id="51">
-            <text-property name="helpText">Please provide end date in YYYY-MM-DD format</text-property>
+            <text-property name="helpText">Please provide date in M/d/yy format</text-property>
             <text-property name="promptText">End Date</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
@@ -50,7 +52,8 @@
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <structure name="format">
-                <property name="category">Unformatted</property>
+                <property name="category">Short Date</property>
+                <property name="pattern">Short Date</property>
             </structure>
         </scalar-parameter>
     </parameters>

@@ -39,38 +39,35 @@
             </structure>
         </scalar-parameter>
         <scalar-parameter name="start_date" id="340">
-            <text-property name="helpText">Start Date:</text-property>
+            <text-property name="helpText">Please provide date in M/d/yy format</text-property>
+            <text-property name="promptText">Start Date</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
-            <property name="dataType">string</property>
+            <property name="dataType">date</property>
             <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">2015-02-14</value>
-            </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
             <property name="controlType">text-box</property>
             <structure name="format">
-                <property name="category">Unformatted</property>
+                <property name="category">Short Date</property>
+                <property name="pattern">Short Date</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="end_date" id="341">
-            <text-property name="helpText">End Date:</text-property>
+            <text-property name="helpText">Please provide date in M/d/yy format</text-property>
             <text-property name="promptText">End Date</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
-            <property name="dataType">string</property>
+            <property name="dataType">date</property>
             <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">2015-03-14</value>
-            </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
             <property name="controlType">text-box</property>
             <structure name="format">
-                <property name="category">Unformatted</property>
+                <property name="category">Short Date</property>
+                <property name="pattern">Short Date</property>
             </structure>
         </scalar-parameter>
     </parameters>
