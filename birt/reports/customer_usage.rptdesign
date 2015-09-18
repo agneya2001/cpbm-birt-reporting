@@ -15,7 +15,7 @@
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">demouser</value>
+                <value type="constant">&lt;username></value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -30,14 +30,13 @@
             <text-property name="promptText">Start Date</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
-            <property name="dataType">string</property>
+            <property name="dataType">date</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <structure name="format">
-                <property name="category">Custom</property>
-                <property name="pattern">yyyy-MM-dd</property>
+                <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="end_date" id="51">
@@ -45,14 +44,13 @@
             <text-property name="promptText">End Date</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
-            <property name="dataType">string</property>
+            <property name="dataType">date</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <structure name="format">
-                <property name="category">Custom</property>
-                <property name="pattern">yyyy-MM-dd</property>
+                <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
@@ -76,7 +74,7 @@
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
             <property name="odaURL">jdbc:mysql://192.168.100.43:3306</property>
-            <property name="odaUser">cpbm</property>
+            <property name="odaUser">root</property>
             <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
         </oda-data-source>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="JdbcCCP" id="44">
@@ -98,7 +96,7 @@
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
             <property name="odaURL">jdbc:mysql://192.168.100.43:3306</property>
-            <property name="odaUser">cpbm</property>
+            <property name="odaUser">root</property>
             <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
         </oda-data-source>
     </data-sources>
@@ -151,7 +149,7 @@
                     <property name="name">end_date</property>
                     <property name="paramName">end_date</property>
                     <property name="nativeName"></property>
-                    <property name="dataType">string</property>
+                    <property name="dataType">date</property>
                     <property name="nativeDataType">-1</property>
                     <property name="position">3</property>
                     <property name="isInput">true</property>

@@ -16,6 +16,7 @@
 
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/catalog_products.rptdesign> Catalog Listing</a>
+                <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/user_spends.rptdesign> User Spend </a>
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/top_spenders.rptdesign> Top Spenders </a>

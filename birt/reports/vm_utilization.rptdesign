@@ -28,7 +28,7 @@
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">demouser</value>
+                <value type="constant">&lt;username></value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
