@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.1.v201408290142 Build &lt;4.4.1.v20140916-1320></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">44</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">44</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">44</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/grouped_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.groupedlisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">72</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="JdbcDC" id="43">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://192.168.100.43:3306</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="catalog_products" id="44">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">catalog_name</text-property>
+                    <text-property name="heading">catalog_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">description</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">catalog_desc</text-property>
+                    <text-property name="heading">catalog_desc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name_3</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">bundle_name</text-property>
+                    <text-property name="heading">bundle_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">description_4</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">bundle_desc</text-property>
+                    <text-property name="heading">bundle_desc</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">bundle_code</text-property>
+                    <text-property name="heading">bundle_code</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">name_3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">description_4</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">JdbcDC</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">description</property>
+                    <property name="nativeName">description</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">name_3</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">description_4</property>
+                    <property name="nativeName">description</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">code</property>
+                    <property name="nativeName">code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT cloud_portal.catalogs.name catalog_name, cloud_portal.catalogs.description catalog_desc, 
+ cloud_portal.product_bundles.name bundle_name, cloud_portal.product_bundles.description bundle_desc,
+cloud_portal.product_bundles.code bundle_code
+
+FROM cloud_portal.catalogs, cloud_portal.catalog_product_bundle, cloud_portal.product_bundles
+
+where cloud_portal.catalogs.id=cloud_portal.catalog_product_bundle.catalog_id and 
+cloud_portal.catalog_product_bundle.product_bundle_id = cloud_portal.product_bundles.id and
+cloud_portal.catalogs.removed is null and
+cloud_portal.product_bundles.removed is null and
+cloud_portal.product_bundles.publish=1;
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>name</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>catalog_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>catalog_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>description</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>catalog_desc</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>catalog_desc</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>name</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>bundle_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>bundle_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>description</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>4096</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>bundle_desc</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>bundle_desc</design:label>
+            <design:formattingHints>
+              <design:displaySize>4096</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>code</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>64</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>bundle_code</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>bundle_code</design:label>
+            <design:formattingHints>
+              <design:displaySize>64</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="38">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="41">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="42">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <grid id="3">
+                    <property name="width">100%</property>
+                    <column id="4"/>
+                    <row id="5">
+                        <cell id="6">
+                            <text id="7">
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="8">
+            <property name="height">2.9027777777777777in</property>
+            <property name="width">8.069444444444445in</property>
+            <column id="9">
+                <property name="width">8.069444444444445in</property>
+            </column>
+            <row id="236">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">0.6111111111111112in</property>
+                <cell id="237">
+                    <property name="verticalAlign">top</property>
+                    <image id="233">
+                        <property name="height">2cm</property>
+                        <property name="width">6cm</property>
+                        <property name="source">url</property>
+                        <expression name="uri" type="constant">https://cpbm.sbcloud.uk/portal/portal/splogo</expression>
+                    </image>
+                </cell>
+            </row>
+            <row id="10">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">0.5416666666666666in</property>
+                <cell id="11">
+                    <property name="verticalAlign">top</property>
+                    <label id="12">
+                        <property name="fontFamily">sans-serif</property>
+                        <property name="fontSize">16pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textUnderline">underline</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Product Catalog</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="267">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">0.5416666666666666in</property>
+                <cell id="268">
+                    <property name="verticalAlign">top</property>
+                    <label id="270">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Displaying catalogs with active products</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="105">
+                <property name="verticalAlign">text-bottom</property>
+                <property name="height">1.75in</property>
+                <cell id="106">
+                    <property name="verticalAlign">top</property>
+                    <table id="107">
+                        <property name="width">7.972222222222222in</property>
+                        <property name="dataSet">catalog_products</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">name</property>
+                                <text-property name="displayName">catalog_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">description</property>
+                                <text-property name="displayName">catalog_desc</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["description"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">name_3</property>
+                                <text-property name="displayName">bundle_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["name_3"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">description_4</property>
+                                <text-property name="displayName">bundle_desc</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["description_4"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">code</property>
+                                <text-property name="displayName">bundle_code</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["code"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Column Binding</property>
+                                <expression name="expression" type="javascript">row["description"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <column id="136">
+                            <property name="width">1.1388888888888888in</property>
+                        </column>
+                        <column id="137">
+                            <property name="width">1.1527777777777777in</property>
+                        </column>
+                        <column id="138">
+                            <property name="width">1.875in</property>
+                        </column>
+                        <column id="139">
+                            <property name="width">2.4722222222222223in</property>
+                        </column>
+                        <column id="140">
+                            <property name="width">1.3333333333333333in</property>
+                        </column>
+                        <header>
+                            <row id="108">
+                                <property name="backgroundColor">yellow</property>
+                                <cell id="109">
+                                    <label id="110">
+                                        <property name="fontWeight">bold</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Catalog Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="111">
+                                    <label id="112">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text"> Description</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="113">
+                                    <label id="114">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Product Bundle Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="115">
+                                    <label id="116">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Product Bundle Descritpion</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="117">
+                                    <label id="118">
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Code</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                            <row id="271">
+                                <property name="height">0.19444444444444445in</property>
+                                <cell id="272"/>
+                                <cell id="273"/>
+                                <cell id="274"/>
+                                <cell id="275"/>
+                                <cell id="276"/>
+                            </row>
+                        </header>
+                        <group id="238">
+                            <property name="groupName">Catalog</property>
+                            <expression name="keyExpr" type="javascript">row["name"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue" type="javascript">row["name"]</expression>
+                            </structure>
+                            <property name="hideDetail">false</property>
+                            <header>
+                                <row id="239">
+                                    <property name="height">0.375in</property>
+                                    <cell id="240">
+                                        <data id="251">
+                                            <property name="fontSize">12pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="color">maroon</property>
+                                            <property name="textUnderline">underline</property>
+                                            <property name="resultSetColumn">name</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="241">
+                                        <data id="266">
+                                            <property name="fontSize">10pt</property>
+                                            <property name="fontWeight">normal</property>
+                                            <property name="fontStyle">italic</property>
+                                            <property name="color">maroon</property>
+                                            <property name="textUnderline">none</property>
+                                            <property name="resultSetColumn">Column Binding</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="242"/>
+                                    <cell id="243"/>
+                                    <cell id="244"/>
+                                </row>
+                            </header>
+                            <footer>
+                                <row id="245">
+                                    <cell id="246"/>
+                                    <cell id="247"/>
+                                    <cell id="248"/>
+                                    <cell id="249"/>
+                                    <cell id="250"/>
+                                </row>
+                            </footer>
+                        </group>
+                        <detail>
+                            <row id="119">
+                                <cell id="120"/>
+                                <cell id="122"/>
+                                <cell id="124">
+                                    <data id="125">
+                                        <property name="fontSize">10pt</property>
+                                        <property name="resultSetColumn">name_3</property>
+                                    </data>
+                                </cell>
+                                <cell id="126">
+                                    <data id="127">
+                                        <property name="fontSize">9pt</property>
+                                        <property name="fontStyle">italic</property>
+                                        <property name="resultSetColumn">description_4</property>
+                                    </data>
+                                </cell>
+                                <cell id="128">
+                                    <data id="129">
+                                        <property name="resultSetColumn">code</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="130">
+                                <cell id="131"/>
+                                <cell id="132"/>
+                                <cell id="133"/>
+                                <cell id="134"/>
+                                <cell id="135"/>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>
