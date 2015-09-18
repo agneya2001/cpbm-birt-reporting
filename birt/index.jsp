@@ -19,8 +19,6 @@
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/user_spends.rptdesign> User Spend </a>
                 <hr/>
-                <a href=/birt/frameset?__showtitle=false&__report=reports/top_spenders.rptdesign> Top Spenders </a>
-                <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/customer_usage.rptdesign> Customer Usage</a>
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/vm_utilization.rptdesign> VM utilization</a>
