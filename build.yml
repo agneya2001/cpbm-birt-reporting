@@ -12,6 +12,17 @@
     - name: Get local dir
       local_action: shell pwd
       register: result
+      
+      
+    - name: substitute username in reports top_spenders.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/top_spenders.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
+
+    - name: substitute password in reports top_spenders.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/top_spenders.rptdesign" regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip and port in reports top_spenders.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/top_spenders.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
 
     - name: substitute username in reports user_spends.rptdesign
       replace: dest="{{ result.stdout }}/birt/reports/user_spends.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
