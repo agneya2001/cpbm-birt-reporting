@@ -14,6 +14,8 @@
                 <br/>
                 <br/>
 
+                <hr/>
+                <a href=/birt/frameset?__showtitle=false&__report=reports/catalog_products.rptdesign> Catalog Listing</a>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/user_spends.rptdesign> User Spend </a>
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/top_spenders.rptdesign> Top Spenders </a>
@@ -23,6 +25,8 @@
                 <a href=/birt/frameset?__showtitle=false&__report=reports/vm_utilization.rptdesign> VM utilization</a>
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/storage_utilization.rptdesign> Storage utilization</a>
+                <hr/>
+                <a href=/birt/frameset?__showtitle=false&__report=reports/network_utilization.rptdesign> Network utilization</a>
                 <hr/>
 
 <% } else { %>
@@ -36,6 +40,8 @@
         <a href=/birt/frameset?__showtitle=false&__report=reports/vm_utilization.rptdesign&username=<%=  request.getParameter("username") %>> VM utilization</a>
         <hr/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/storage_utilization.rptdesign&username=<%=  request.getParameter("username") %>> Storage utilization</a>
+        <hr/>
+        <a href=/birt/frameset?__showtitle=false&__report=reports/network_utilization.rptdesign&username=<%=  request.getParameter("username") %>> Network utilization</a>
         <hr/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/user_spends.rptdesign&username=<%=  request.getParameter("username") %>> User Spend </a>
         <hr/>
