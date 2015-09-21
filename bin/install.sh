@@ -1,9 +1,19 @@
 #!/bin/sh
  
-#set -x
+set -x
  
 usage() { echo "Usage: $0 [ -a <ip of cpbm mysql host> -p <mysql port> -u <cpbm mysql username> -s <cpbm mysql password> -i <cpbm host ip>"; exit 1; }
  
+#check os version
+os="unknown"
+if sw_vers | grep --quiet "Mac OS X"; then
+    os="mac"
+fi
+
+if [ "$os" == "unknown" ]; then
+    echo "Only Mac Os and Centos 6.* supported now"
+fi
+
 a="unknown"
 u="unknown"
 p="unknown"
