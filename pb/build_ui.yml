@@ -1,0 +1,18 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+    cpbm_mylivechatid: 56622152
+
+  tasks: 
+    - name: Get local dir
+      local_action: shell pwd
+      register: result
+      
+    - name: substitute mylivechatid in footer
+      replace: dest="{{ result.stdout }}/../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp" regexp='#HCCID#' replace="{{ cpbm_mylivechatid }}"
+
+
+    - name: build the cpbm package takes about a minute
+      shell: mvn clean install -Dmaven.test.skip=true chdir=./../cpbm-customization/citrix.cpbm.custom.all
+

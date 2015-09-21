@@ -1,0 +1,13 @@
+---
+- hosts: cpbm
+  tasks:
+    - name: ensure cloud-portal is stopped
+      service: name=cloud-portal state=stopped
+
+    - name: copy birt to /usr/share/vts3/pickup/
+      copy: src=./birt/birt.war dest=/usr/share/vts3/pickup
+
+    - name: ensure cloud-portal is started
+      service: name=cloud-portal state=started
+    
+

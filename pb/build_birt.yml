@@ -1,0 +1,96 @@
+---
+- hosts: all
+  connection: local
+  vars:
+    cpbm_mysql_ip: CPBM_MYSQL_IP
+    cpbm_mysql_port: CPBM_MYSQL_PORT
+    cpbm_mysql_user: CPBM_MYSQL_USER
+    cpbm_mysql_password: CPBM_MYSQL_PASSWORD
+
+  tasks: 
+    - name: Get local dir
+      local_action: shell pwd
+      register: result
+      
+      
+
+    - name: substitute username in reports customer_usage.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/customer_usage.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
+
+    - name: substitute password in reports customer_usage.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/customer_usage.rptdesign" regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports customer_usage.rptdesign 
+      replace: dest="{{ result.stdout }}/birt/reports/customer_usage.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+  
+
+    - name: substitute username in reports  vm_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/vm_utilization.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
+
+    - name: substitute password in reports  vm_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/vm_utilization.rptdesign" regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports vm_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/vm_utilization.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+
+    - name: substitute username in reports  network_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/network_utilization.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
+
+    - name: substitute password in reports  network_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/network_utilization.rptdesign" regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports network_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/network_utilization.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+
+
+    - name: substitute username in reports  storage_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/storage_utilization.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
+
+    - name: substitute password in reports storage_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/storage_utilization.rptdesign" regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports storage_utilization.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/storage_utilization.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+
+
+    - name: substitute username in reports catalog_products.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/catalog_products.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
+
+    - name: substitute password in reports catalog_products.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/catalog_products.rptdesign" regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports catalog_products.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/catalog_products.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+    - name: inject commons-logging-1.2.jar
+      shell: jar -uvf birt.war WEB-INF/lib/commons-logging-1.2.jar chdir=birt/
+
+    - name: inject mysql-connector-java-5.1.34-bin.jar
+      shell: jar -uvf birt.war WEB-INF/lib/mysql-connector-java-5.1.34-bin.jar chdir=birt/
+
+    - name: inject vm_utilization.rptdesign 
+      shell: jar -uvf birt.war reports/vm_utilization.rptdesign  chdir=birt/
+
+    - name: inject customer_usage.rptdesign
+      shell: jar -uvf birt.war reports/customer_usage.rptdesign  chdir=birt/
+
+    - name: inject network_utilization.rptdesign
+      shell: jar -uvf birt.war reports/network_utilization.rptdesign  chdir=birt/
+
+    - name: inject storage_utilization.rptdesign
+      shell: jar -uvf birt.war reports/storage_utilization.rptdesign  chdir=birt/
+
+    - name: inject catalog_products.rptdesign
+      shell: jar -uvf birt.war reports/catalog_products.rptdesign chdir=birt/
+
+    - name: inject vm_utilization.rptdesign
+      shell: jar -uvf birt.war reports/vm_utilization.rptdesign  chdir=birt/
+
+
+    - name: inject index.jsp 
+      shell: jar -uvf birt.war index.jsp chdir=birt/
+
