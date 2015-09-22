@@ -33,14 +33,8 @@
     - name: copy conf file locally
       fetch: src='/usr/share/vts3/config/org.eclipse.virgo.repository.properties' dest='./' flat=yes
 
-    - name: copy local conf file to remote
-      synchronize: src="./org.eclipse.virgo.repository.properties" dest="/usr/share/vts3/config/org.eclipse.virgo.repository.properties.{{ time.stdout }} bak"
-
     - name: copy properties file locally
       fetch: src='/usr/share/vts3/repository/prop/cloud.properties' dest='./' flat=yes
-
-    - name: copy local conf file to remote
-      synchronize: src="./cloud.properties" dest="/usr/share/vts3/repository/prop/cloud.properties.{{ time.stdout }}.bak"
 
     - name: modify cloud.properties subs locale.default
       replace: dest=/usr/share/vts3/repository/prop/cloud.properties regexp='^locale.default=en_US' replace='locale.default=ka'
