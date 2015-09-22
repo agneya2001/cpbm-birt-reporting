@@ -51,9 +51,3 @@
     - name: modify conf file enable custom
       replace: dest=/usr/share/vts3/config/org.eclipse.virgo.repository.properties regexp='^chain=ext,usr' replace='chain=ext,custom_impls,usr'
 
-    - name: ensure cloud-portal is started
-      service: name=cloud-portal state=started
-
-
-    
-
