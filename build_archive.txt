@@ -1,0 +1,8 @@
+
+#make_archive.sh
+
+make_archive.sh creates cpbm-bundle that contains a installable bundle capable of installing the latest UI, localization and reports onto cpbm server.
+
+It requires java, maven, ansible, wget and these dependencies are checked and installed for Centos 6.7.
+
+After running this script you will have a self-contained cpbm-bundle directory created in the folder that contains make_archive script. This self contained bundle can then be tarred or zipped to be delivered for installation on cpbm server
