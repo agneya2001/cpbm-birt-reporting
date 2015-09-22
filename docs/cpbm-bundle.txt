@@ -19,7 +19,7 @@ Installation: To install this bundle on CPBM server you need following informati
 
 where 
 
-    "192.168.100.43" is mysql database ip
+    "192.168.100.43" is mysql database ip as visible from cpbm server
     "cpbm" is mysql database user
     "password" is mysql database password
     "192.168.100.46" is the cpbm server ip
