@@ -25,7 +25,7 @@
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/network_utilization.rptdesign> Network utilization</a>
                 <hr/>
-                <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign %> Custom Report </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
+                <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign> Custom Report </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
                 <hr/>
 
 <% } else { %>

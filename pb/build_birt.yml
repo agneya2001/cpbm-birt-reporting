@@ -66,6 +66,17 @@
     - name: substitute ip port in reports catalog_products.rptdesign
       replace: dest="{{ result.stdout }}/birt/reports/catalog_products.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
 
+    - name: substitute username in reports custom_resource_report.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/custom_resource_report.rptdesign" regexp='<property name="odaUser">\w+</property>' replace='<property name="odaUser">{{ cpbm_mysql_user }}</property>'
+
+    - name: substitute password in reports custom_resource_report.rptdesign
+      replace: dest="{{ result.stdout }}/birt/reports/custom_resource_report.rptdesign" regexp='<encrypted-property name="odaPassword" encryptionID="base64">\w+[=]+</encrypted-property>' replace='<encrypted-property name="odaPassword" encryptionID="base64">{{ cpbm_mysql_password | b64encode }}</encrypted-property>'
+
+    - name: substitute ip port in reports custom_resource_report.rptdesign 
+      replace: dest="{{ result.stdout }}/birt/reports/custom_resource_report.rptdesign" regexp='<property name="odaURL">jdbc:mysql://.*</property>' replace='<property name="odaURL">jdbc:mysql://{{ cpbm_mysql_ip }}:{{ cpbm_mysql_port }} </property>'
+
+  
+
     - name: inject commons-logging-1.2.jar
       shell: jar -uvf birt.war WEB-INF/lib/commons-logging-1.2.jar chdir=birt/
 
@@ -73,7 +84,7 @@
       shell: jar -uvf birt.war WEB-INF/lib/mysql-connector-java-5.1.34-bin.jar chdir=birt/
 
     - name: inject vm_utilization.rptdesign 
-      shell: jar -uvf birt.war reports/vm_utilization.rptdesign  chdir=birt/
+      shell: jar -uvf birt.war reports/custom_resource_report.rptdesign  chdir=birt/
 
     - name: inject customer_usage.rptdesign
       shell: jar -uvf birt.war reports/customer_usage.rptdesign  chdir=birt/
