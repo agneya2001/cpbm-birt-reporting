@@ -75,6 +75,11 @@
                <a class="secondlevel_menutabs <c:out value="${Connectors}"/>" href="<c:out value="${connectors_list}"/>"><spring:message code="page.level2.allservices"/></a>
       </sec:authorize>
       </c:if>
+
+      <a  class="secondlevel_menutabs <c:out value="${report_iaas}" />" href="<%=request.getContextPath() %>/portal/reports/iaas_reports">
+      <spring:message code="page.level2.iaas.reports"/>
+      <span></span>   
+      </a>
       
 	 </div>
      <div class="clearboth"></div>
@@ -102,7 +107,6 @@
          </div>
        </c:forEach>
       </c:if>
-       
   <tiles:insertDefinition name="warnings"></tiles:insertDefinition>
       
 </div>
