@@ -31,10 +31,7 @@
         	</a>        	
         	<a   class="secondlevel_menutabs <c:out value="${ChannelUsage}"/>" href="<%=request.getContextPath() %>/portal/reports/channel_usage">
             <spring:message code="ui.label.report.productusage.title"/>
-          </a>  
-        	<a   class="secondlevel_menutabs <c:out value="${CustomReports}"/>" href="<%=request.getContextPath() %>/portal/reports/custom_reports">
-        		<spring:message code="ui.label.report.customreport.title"/>
-        	</a>          	      	        	
+          </a>         	      	        	
             <a  class="secondlevel_menutabs <c:out value="${report_iaas}" />" href="<%=request.getContextPath() %>/portal/reports/iaas_reports">
                 <spring:message code="page.level2.iaas.reports"/>
                 <span></span>   
