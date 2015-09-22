@@ -17,13 +17,15 @@
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/catalog_products.rptdesign> Catalog Listing</a>
                 <hr/>
-                <a href=/birt/frameset?__showtitle=false&__report=reports/customer_usage.rptdesign> Customer Usage</a>
+                <a href=/birt/frameset?__showtitle=false&__report=reports/customer_usage.rptdesign> Usage Summary</a>
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/vm_utilization.rptdesign> VM utilization</a>
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/storage_utilization.rptdesign> Storage utilization</a>
                 <hr/>
                 <a href=/birt/frameset?__showtitle=false&__report=reports/network_utilization.rptdesign> Network utilization</a>
+                <hr/>
+                <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign %>> Custom Report </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
                 <hr/>
 
 <% } else { %>
@@ -32,7 +34,7 @@
         <br/>
         <br/>
         <br/>
-        <a href=/birt/frameset?__showtitle=false&__report=reports/customer_usage.rptdesign&username=<%=  request.getParameter("username") %>> Customer Usage</a>
+        <a href=/birt/frameset?__showtitle=false&__report=reports/customer_usage.rptdesign&username=<%=  request.getParameter("username") %>> Usage Summary</a>
         <hr/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/vm_utilization.rptdesign&username=<%=  request.getParameter("username") %>> VM utilization</a>
         <hr/>
@@ -40,7 +42,7 @@
         <hr/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/network_utilization.rptdesign&username=<%=  request.getParameter("username") %>> Network utilization</a>
         <hr/>
-        <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign&username=<%=  request.getParameter("username") %>> Custom Usage </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
+        <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign&username=<%=  request.getParameter("username") %>> Custom report </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
         <hr/>
 <% } %>
 
