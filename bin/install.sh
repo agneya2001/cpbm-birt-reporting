@@ -1,17 +1,39 @@
 #!/bin/sh
  
-set -x
+#set -x
  
 usage() { echo "Usage: $0 [ -a <ip of cpbm mysql host> -p <mysql port> -u <cpbm mysql username> -s <cpbm mysql password> -i <cpbm host ip>"; exit 1; }
+
+passw="password"
  
 #check os version
 os="unknown"
-if sw_vers | grep --quiet "Mac OS X"; then
-    os="mac"
+if type sw_vers >/dev/null 2>&1; then
+    if sw_vers | grep --quiet "Mac OS X"; then 
+        os="mac" 
+    fi
+fi
+if grep --quiet "CentOS *6*" /etc/redhat-release; then
+    os="centos"
 fi
 
 if [ "$os" == "unknown" ]; then
     echo "Only Mac Os and Centos 6.* supported now"
+fi
+
+#install ansible
+if [ "$os" == "centos" ]; then
+    if  ! type ansible >/dev/null 2>&1; then
+        echo "Installing Ansible"
+        #yum update -y
+        rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+        yum install -y python-pip
+        sudo yum install ansible -y
+    fi
+    sudo yum install libselinux-python sshpass -y
+    #install java
+    sudo yum install java-1.7.0-openjdk-devel -y
+    export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.85.x86_64
 fi
 
 a="unknown"
@@ -79,22 +101,24 @@ fi
 
 echo "[cpbm]" > cpbm
 echo "$i" >> cpbm
-ansible-playbook -u root -i cpbm setup_ui.yml
+echo "Enter CPBM root password->"
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u root -i cpbm setup_ui.yml --ask-pass
 echo "Installed ui elements"
 
 cp build_birt.yml run_build_birt.yml
 
-sed -i '' "s/CPBM_MYSQL_IP/$a/" run_build_birt.yml
-sed -i '' "s/CPBM_MYSQL_PORT/$p/" run_build_birt.yml
-sed -i '' "s/CPBM_MYSQL_USER/$u/" run_build_birt.yml
-sed -i '' "s/CPBM_MYSQL_PASSWORD/$s/" run_build_birt.yml
+sed -i "s/CPBM_MYSQL_IP/$a/" run_build_birt.yml
+sed -i "s/CPBM_MYSQL_PORT/$p/" run_build_birt.yml
+sed -i "s/CPBM_MYSQL_USER/$u/" run_build_birt.yml
+sed -i "s/CPBM_MYSQL_PASSWORD/$s/" run_build_birt.yml
 
 unset ANSIBLE_HOSTS
 echo "localhost" > localhost
-ansible-playbook -i localhost, run_build_birt.yml
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i localhost, run_build_birt.yml 
 
 echo "[cpbm]" > cpbm
 echo "$i" >> cpbm
-ansible-playbook -u root -i cpbm setup_birt.yml
+echo "Enter CPBM root password->"
+ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -u root -i cpbm setup_birt.yml --ask-pass
 
 echo "Installed reports done"
