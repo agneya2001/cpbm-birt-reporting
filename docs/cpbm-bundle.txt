@@ -1,0 +1,35 @@
+
+#cpbm-bundle
+
+Introduction: The cpbm bundle contains customization to the cpbm UI, localization and additional reports. The prerequsite to install this bundle are jar tool and ansible. Both these requirements are installed automatically by the install script.
+
+Installation: To install this bundle on CPBM server you need following information:
+
+    1. CPBM Mysql Database ip/hostname
+    2. CPBM Mysql Database port
+    3. CPBM Mysql Database user, usually default is cpbm
+    4. CPBM Mysql Database password
+    5. CPBM server ip
+
+    The script will prompt you for the CPBM server password in order to install the package and make necessary configuration on the CPBM server.
+
+   To run the install.sh you need to provide these parameters on command line as shown below:
+
+./install.sh -a 192.168.100.43  -p 3306 -u root -s password -i 192.168.100.46 
+
+where 
+
+    "192.168.100.43" is mysql database ip
+    "cpbm" is mysql database user
+    "password" is mysql database password
+    "192.168.100.46" is the cpbm server ip
+    "3306" is mysql database port
+
+This will install following reports on your server:
+
+    1. Customer summary utilisation and spend report.
+    2. Detailed VM instance utilisation and spend report outlining all VM assignment and running hours and associated spend
+    3. Detailed storage utilisation/spend, broken down to primary / secondary storage utilisation on a per item basis
+    4. Detailed network utilisation/spend report showing detailed ingress / egress traffic, broken down by public IP address
+    5. Detailed report of managed services catalog items.
+
