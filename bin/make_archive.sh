@@ -2,7 +2,7 @@
 
 cpbm_mylivechatid=56622152
 
-#set -x
+set -x
 
 #check os version
 os="unknown"
@@ -11,8 +11,10 @@ if type sw_vers >/dev/null 2>&1; then
         os="mac" 
     fi
 fi
-if grep --quiet "CentOS *6*" /etc/redhat-release; then
-    os="centos"
+if [ -f /etc/redhat-release ]; then
+    if grep --quiet "CentOS *6*" /etc/redhat-release; then
+        os="centos"
+    fi
 fi
 
 if [ "$os" == "unknown" ]; then
@@ -55,7 +57,14 @@ cp install.sh cpbm-bundle/.
 
 pwd=`pwd`
 
-sed -i 's/#HCCID#/$cpbm_mylivechatid/g' ../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp
+if [ "$os" == "centos" ]; then
+    sed -i 's/#HCCID#/$cpbm_mylivechatid/g' ../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp
+elif [  "$os" == "mac" ]; then
+    sed -i '' 's/#HCCID#/$cpbm_mylivechatid/g' ../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp
+else
+    echo "Unknow os, only CentOs and Mac os supported now"
+    exit
+fi
 
 cd ./../cpbm-customization/citrix.cpbm.custom.all
  

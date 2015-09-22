@@ -1,6 +1,6 @@
 #!/bin/sh
  
-#set -x
+set -x
  
 usage() { echo "Usage: $0 [ -a <ip of cpbm mysql host> -p <mysql port> -u <cpbm mysql username> -s <cpbm mysql password> -i <cpbm host ip>"; exit 1; }
 
@@ -13,8 +13,10 @@ if type sw_vers >/dev/null 2>&1; then
         os="mac" 
     fi
 fi
-if grep --quiet "CentOS *6*" /etc/redhat-release; then
-    os="centos"
+if [ -f /etc/redhat-release ]; then
+    if grep --quiet "CentOS *6*" /etc/redhat-release; then
+        os="centos"
+    fi
 fi
 
 if [ "$os" == "unknown" ]; then
@@ -107,10 +109,21 @@ echo "Installed ui elements"
 
 cp build_birt.yml run_build_birt.yml
 
-sed -i "s/CPBM_MYSQL_IP/$a/" run_build_birt.yml
-sed -i "s/CPBM_MYSQL_PORT/$p/" run_build_birt.yml
-sed -i "s/CPBM_MYSQL_USER/$u/" run_build_birt.yml
-sed -i "s/CPBM_MYSQL_PASSWORD/$s/" run_build_birt.yml
+if [ "$os" == "centos" ]; then
+    sed -i "s/CPBM_MYSQL_IP/$a/" run_build_birt.yml
+    sed -i "s/CPBM_MYSQL_PORT/$p/" run_build_birt.yml
+    sed -i "s/CPBM_MYSQL_USER/$u/" run_build_birt.yml
+    sed -i "s/CPBM_MYSQL_PASSWORD/$s/" run_build_birt.yml
+elif [  "$os" == "mac" ]; then
+    sed -i '' "s/CPBM_MYSQL_IP/$a/" run_build_birt.yml
+    sed -i '' "s/CPBM_MYSQL_PORT/$p/" run_build_birt.yml
+    sed -i '' "s/CPBM_MYSQL_USER/$u/" run_build_birt.yml
+    sed -i '' "s/CPBM_MYSQL_PASSWORD/$s/" run_build_birt.yml
+else
+    echo "Unknow os, only CentOs and Mac os supported now"
+    exit
+fi
+
 
 unset ANSIBLE_HOSTS
 echo "localhost" > localhost
