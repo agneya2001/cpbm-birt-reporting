@@ -42,7 +42,7 @@
         <hr/>
         <a href=/birt/frameset?__showtitle=false&__report=reports/network_utilization.rptdesign&username=<%=  request.getParameter("username") %>> Network utilization</a>
         <hr/>
-        <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign&username=<%=  request.getParameter("username") %> Custom report </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
+        <a href=/birt/frameset?__showtitle=false&__report=reports/custom_resource_report.rptdesign&username=<%=  request.getParameter("username") %>> Custom report </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i> Create your own report </i>
         <hr/>
 <% } %>
 
