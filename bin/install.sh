@@ -30,11 +30,11 @@ if [ "$os" == "centos" ]; then
         #yum update -y
         rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         yum install -y python-pip
-        sudo yum install ansible -y
+        yum install ansible -y
     fi
-    sudo yum install libselinux-python sshpass -y
+    yum install libselinux-python sshpass -y
     #install java
-    sudo yum install java-1.7.0-openjdk-devel -y
+    yum install java-1.7.0-openjdk-devel -y
     export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.85.x86_64
 fi
 
