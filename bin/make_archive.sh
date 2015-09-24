@@ -35,12 +35,12 @@ if [ "$os" == "centos" ]; then
     yum install java-1.7.0-openjdk-devel -y
     export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.85.x86_64
     #install mvn
+    export M2_HOME=/usr/local/apache-maven-3.3.3
+    export PATH=${M2_HOME}/bin:${PATH}
     if  ! type mvn >/dev/null 2>&1; then
         wget http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
         tar xzf apache-maven-3.3.3-bin.tar.gz -C /usr/local
     fi
-    export M2_HOME=/usr/local/apache-maven-3.3.3
-    export PATH=${M2_HOME}/bin:${PATH}
     echo `mvn -version`
 fi
 
