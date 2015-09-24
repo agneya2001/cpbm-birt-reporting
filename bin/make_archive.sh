@@ -58,9 +58,9 @@ cp install.sh cpbm-bundle/.
 pwd=`pwd`
 
 if [ "$os" == "centos" ]; then
-    sed -i 's/#HCCID#/$cpbm_mylivechatid/g' ../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp
+    sed -i "s/#HCCID#/$cpbm_mylivechatid/g" ../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp
 elif [  "$os" == "mac" ]; then
-    sed -i '' 's/#HCCID#/$cpbm_mylivechatid/g' ../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp
+    sed -i '' "s/#HCCID#/$cpbm_mylivechatid/g" ../cpbm-customization/citrix.cpbm.custom.portal/src/main/resources/WEB-INF/jsp/tiles/shared/footer.jsp
 else
     echo "Unknow os, only CentOs and Mac os supported now"
     exit
