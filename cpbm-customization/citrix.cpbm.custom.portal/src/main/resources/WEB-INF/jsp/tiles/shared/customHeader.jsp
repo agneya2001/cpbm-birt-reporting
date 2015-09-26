@@ -8,7 +8,7 @@
      </c:if>
   </c:if>
   <c:if test="${empty globalConfiguration.channelfav}">
-    <link href="/portal/portal/spfavicon" type="image/x-icon" rel="shortcut icon" />
+    <link href="/portal/images/spfavicon.ico" type="image/x-icon" rel="shortcut icon" />
   </c:if>
    <script language="javascript">
    if( typeof unsupportedDictionary === 'undefined' ) {
