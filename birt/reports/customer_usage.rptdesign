@@ -437,12 +437,6 @@ and cloud_portal.tenants.id = cloud_portal.users.tenant_id;]]></xml-property>
                 <property name="height">0.3611111111111111in</property>
                 <cell id="183">
                     <property name="verticalAlign">top</property>
-                    <image id="233">
-                        <property name="height">2cm</property>
-                        <property name="width">6cm</property>
-                        <property name="source">url</property>
-                        <expression name="uri" type="constant">https://cpbm.sbcloud.uk/portal/portal/splogo</expression>
-                    </image>
                 </cell>
             </row>
             <row id="10">

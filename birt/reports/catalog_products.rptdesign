@@ -339,12 +339,6 @@ cloud_portal.product_bundles.publish=1;
                 <property name="height">0.6111111111111112in</property>
                 <cell id="237">
                     <property name="verticalAlign">top</property>
-                    <image id="233">
-                        <property name="height">2cm</property>
-                        <property name="width">6cm</property>
-                        <property name="source">url</property>
-                        <expression name="uri" type="constant">https://cpbm.sbcloud.uk/portal/portal/splogo</expression>
-                    </image>
                 </cell>
             </row>
             <row id="10">

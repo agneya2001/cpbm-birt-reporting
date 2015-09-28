@@ -2058,14 +2058,7 @@ and cloud_portal.users.tenant_id = cloud_portal.tenants.id and cloud_portal.user
         <grid id="656">
             <column id="657"/>
             <row id="658">
-                <cell id="659">
-                    <image id="233">
-                        <property name="height">2cm</property>
-                        <property name="width">6cm</property>
-                        <property name="source">url</property>
-                        <expression name="uri" type="constant">https://cpbm.sbcloud.uk/portal/portal/splogo</expression>
-                    </image>
-                </cell>
+                <cell id="659"/>
             </row>
             <row id="660">
                 <cell id="661">
