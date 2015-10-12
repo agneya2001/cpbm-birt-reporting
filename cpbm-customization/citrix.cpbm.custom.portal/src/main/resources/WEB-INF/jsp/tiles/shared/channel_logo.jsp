@@ -7,6 +7,6 @@
    </c:if>
   </c:if>
   <c:if test="${empty globalConfiguration.channellogo}">
-      <img src="/portal/portal/splogo"/>
+      <img src="/portal/images/splogo.png"/>
   </c:if>
  </div>
