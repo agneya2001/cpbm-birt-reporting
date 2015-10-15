@@ -311,6 +311,9 @@ input,textarea,.uneditable-input {
   border-bottom: none;
   margin: 0;
   padding: 0;
+  background-image: url(../images/sm_login_logo.png);
+  background-repeat: no-repeat;
+  background-position: 55% 20px;
 }
 
 .login_container.smaller_ver {
