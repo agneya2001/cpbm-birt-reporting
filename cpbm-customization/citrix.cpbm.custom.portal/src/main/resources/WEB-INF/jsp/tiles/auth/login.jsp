@@ -113,7 +113,7 @@ $(document).ready(function() {
                     </li>
                   </c:if>
 					        <c:if test="${showCaptcha}">
-                  <li style="width: 475px;">
+                  <li style="width: 475px; margin: 80px 0px 0px;">
 	                   <%@include file="captcha.jsp" %>
 	                </li>
 	                </c:if>
